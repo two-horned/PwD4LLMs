@@ -38,14 +38,24 @@ def passOneParse[R, T, G <: TokenGenerator[T]](
 }
 
 @main def main() = {
-  val g = new RandoPythonTokenGen
 
   import PythonParsersTools.*
+  import fcd.PythonParsers.*
 
-  val p = WrappedParser(parsers.preprocess(parsers.file_input))
-  println(p)
-  println(g)
-  println("Let's go! One parse pass...")
-  println(passOneParse(p, g))
-  println(g.currentTokens)
+  val p = WrappedParser(
+    and(atMost(5, acceptIf(_ => true)),
+      parsers.preprocess(parsers.file_input)
+  ))
+
+  {
+    println("Let's go! One parse pass with Rando TG")
+    val g = new RandoPythonTokenGen
+    println(passOneParse(p, g))
+  }
+
+  {
+    println("Let's go! One parse pass with DFS TG")
+    val g = new DFS_PythonTG
+    println(passOneParse(p, g))
+  }
 }
