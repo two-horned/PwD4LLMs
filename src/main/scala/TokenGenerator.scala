@@ -1,8 +1,11 @@
 package pwd4llm
 
 enum GeneratorAction[Token] {
+  case Concatenate(tokens: Iterator[Token])
   case Append(token: Token)
+  case ReplaceLast(token: Token)
   case DeleteLast()
+  case Rebuild(tokens: Iterator[Token])
   case Finish()
   case Reset()
 }
@@ -56,11 +59,11 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
   }
 }
 
-/*
 abstract class BFS_TG[T] extends TokenGenerator[T] {
-  private val levels: Queue[Node[T]] = Queue()
+  private val levels: Queue[(List[T], Node[T])] = Queue()
   private var backtrack = false
-  levels.enqueue(seed)
+  private var last_list: List[T] = List()
+  levels.enqueue((last_list, seed))
 
   def seed: Node[T]
 
@@ -70,31 +73,30 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
     if backtrack then {
       backtrack = false
       levels.dequeue()
-      return DeleteLast()
     }
 
-    levels.last.neighbors.nextOption() match {
-      case Some((token, node)) => {
-        levels.enqueue(node)
-        Append(token)
-      }
-      case _ => {
-        levels.dequeue()
-        DeleteLast()
-      }
-    }
+    levels.dequeueWhile(x => !x._2.neighbors.hasNext)
+    if levels.isEmpty then return Finish()
+
+    val (ls, current) = levels.front
+    val (token, nodeMaker) = current.neighbors.next()
+    val action =
+      if ls eq last_list then Append(token)
+      else if !last_list.isEmpty && last_list.tail == ls then ReplaceLast(token)
+      else Rebuild((token :: ls).reverseIterator)
+    last_list = token :: ls
+    levels.enqueue((last_list, nodeMaker()))
+    action
   }
 
   final def receiveFeedback(status: ParserStatus) = status match {
-      case Accepting => levels.clear()
-      case Rejecting => backtrack = true
-      case _ => ()
+    case Accepting => levels.clear()
+    case Rejecting => backtrack = true
+    case _         => ()
   }
- }
- */
+}
 
 class DFS_PythonTG extends DFS_TG[fcd.PythonParsers.Elem] {
-  import fcd.PythonParsers.Lexeme
   import fcd.PythonParsers.Lexeme.*
   import scala.util.Random
 
@@ -110,25 +112,22 @@ class DFS_PythonTG extends DFS_TG[fcd.PythonParsers.Elem] {
     Node(Iterator((Id("xyz"), () => node())))
 }
 
-/*
 class BFS_PythonTG extends BFS_TG[fcd.PythonParsers.Elem] {
-  import fcd.PythonParsers.Lexeme
   import fcd.PythonParsers.Lexeme.*
   import scala.util.Random
-  import scala.collection.immutable.LazyList
-  import scala.collection.immutable.LazyList.*
 
-  private val random = new Random
-  private def token_list() = random.shuffle(Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS))
+  private val random = new Random()
 
-  class PythonNode extends Node[Lexeme] {
-    private val shuffled_tokens = token_list()
-    def neighbors = shuffled_tokens.view.map(x => (x, new PythonNode)).iterator
-  }
+  private def token_list =
+    Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
 
-  def seed: Node[fcd.PythonParsers.Elem] = new PythonNode
- }
- */
+  private def node(): Node[fcd.PythonParsers.Elem] =
+    Node(random.shuffle(token_list).view.map(x => (x, () => node())).iterator)
+
+  def seed: Node[fcd.PythonParsers.Elem] =
+    Node(Iterator((Id("xyz"), () => node())))
+    // Node(Iterator((EOS, () => node()) , (Id("xyz"), () => node())))
+}
 
 class RandoPythonTokenGen extends TokenGenerator[fcd.PythonParsers.Elem] {
   import fcd.PythonParsers.Lexeme.*
