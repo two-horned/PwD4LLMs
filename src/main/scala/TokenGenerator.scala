@@ -1,7 +1,5 @@
 package pwd4llm
 
-import scala.collection.mutable.Stack
-
 enum GeneratorAction[Token] {
   case Append(token: Token)
   case DeleteLast()
@@ -19,13 +17,16 @@ trait TokenGenerator[Token] {
 
 // Examples
 
+import scala.collection.mutable.{Stack, Queue}
+
+case class Node[T](neighbors: Iterator[(T, () => Node[T])])
+
 abstract class DFS_TG[T] extends TokenGenerator[T] {
-  private val levels: Stack[Iterator[T]] = Stack()
+  private val levels: Stack[Node[T]] = Stack()
   private var backtrack = false
   levels.push(seed)
 
-  def newLevel(): Iterator[T]
-  def seed: Iterator[T]
+  def seed: Node[T]
 
   final def suggest() = {
     if levels.isEmpty then return Finish()
@@ -36,14 +37,49 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
       return DeleteLast()
     }
 
-    val current = levels.top
-    current.nextOption() match {
-      case Some(x) => {
-        levels.push(newLevel())
-        Append(x)
+    levels.top.neighbors.nextOption() match {
+      case Some((token, nodeMaker)) => {
+        levels.push(nodeMaker())
+        Append(token)
       }
       case _ => {
         levels.pop()
+        DeleteLast()
+      }
+    }
+  }
+
+  final def receiveFeedback(status: ParserStatus) = status match {
+    case Accepting => levels.clear()
+    case Rejecting => backtrack = true
+    case _         => ()
+  }
+}
+
+/*
+abstract class BFS_TG[T] extends TokenGenerator[T] {
+  private val levels: Queue[Node[T]] = Queue()
+  private var backtrack = false
+  levels.enqueue(seed)
+
+  def seed: Node[T]
+
+  final def suggest() = {
+    if levels.isEmpty then return Finish()
+
+    if backtrack then {
+      backtrack = false
+      levels.dequeue()
+      return DeleteLast()
+    }
+
+    levels.last.neighbors.nextOption() match {
+      case Some((token, node)) => {
+        levels.enqueue(node)
+        Append(token)
+      }
+      case _ => {
+        levels.dequeue()
         DeleteLast()
       }
     }
@@ -54,22 +90,45 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
       case Rejecting => backtrack = true
       case _ => ()
   }
-}
+ }
+ */
 
 class DFS_PythonTG extends DFS_TG[fcd.PythonParsers.Elem] {
+  import fcd.PythonParsers.Lexeme
   import fcd.PythonParsers.Lexeme.*
   import scala.util.Random
 
-  private val random = new Random
+  private val random = new Random()
 
-  private var token_list =
+  private def token_list =
     Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
 
-  def finishPredicate() = true
-  def newLevel() = random.shuffle(token_list).iterator
-  def seed: Iterator[fcd.PythonParsers.Elem] = Some(Id("xyz")).iterator
+  private def node(): Node[fcd.PythonParsers.Elem] =
+    Node(random.shuffle(token_list).view.map(x => (x, () => node())).iterator)
+
+  def seed: Node[fcd.PythonParsers.Elem] =
+    Node(Iterator((Id("xyz"), () => node())))
 }
 
+/*
+class BFS_PythonTG extends BFS_TG[fcd.PythonParsers.Elem] {
+  import fcd.PythonParsers.Lexeme
+  import fcd.PythonParsers.Lexeme.*
+  import scala.util.Random
+  import scala.collection.immutable.LazyList
+  import scala.collection.immutable.LazyList.*
+
+  private val random = new Random
+  private def token_list() = random.shuffle(Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS))
+
+  class PythonNode extends Node[Lexeme] {
+    private val shuffled_tokens = token_list()
+    def neighbors = shuffled_tokens.view.map(x => (x, new PythonNode)).iterator
+  }
+
+  def seed: Node[fcd.PythonParsers.Elem] = new PythonNode
+ }
+ */
 
 class RandoPythonTokenGen extends TokenGenerator[fcd.PythonParsers.Elem] {
   import fcd.PythonParsers.Lexeme.*
