@@ -5,11 +5,9 @@ lazy val root = project
   .settings(
     name := "Parsing with Derivatives for improving LLM code generation",
     version := "0.1.0-SNAPSHOT",
-
     scalaVersion := scala3Version,
-
     libraryDependencies := Seq(
-    	"org.scalameta" %% "munit" % "1.0.0" % Test,
-    	"first-class-derivatives" %% "first-class-derivatives" % "2.0.0"
+      "org.scalameta" %% "munit" % "1.0.0" % Test,
+      "first-class-derivatives" %% "first-class-derivatives" % "2.0.0"
     )
   )
