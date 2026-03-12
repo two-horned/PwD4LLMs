@@ -108,7 +108,9 @@ object PCF {
       stripped
     }
 
-    // use to categorize subexpressions for further processing
+    // used to categorize subexpressions for further processing
+    // naming doesn't really matter, but classification heavily depends
+    // on existing strict_expr parser.
     enum EType {
       case Operator
       case Literal
@@ -122,9 +124,9 @@ object PCF {
     // classify character belonging to a subexpression
     def classifyChar(c: Char): EType = c match {
       case '(' | '[' | '{' =>
-        OpeningBrace // some characeters may not be used in our grammar
+        OpeningBrace // some characters may not be used in our grammar
       case '}' | ']' | ')' =>
-        ClosingBrace // some characeters may not be used in our grammar
+        ClosingBrace // some characters may not be used in our grammar
       case _ if c.isLetterOrDigit => Literal
       case _ if c.isWhitespace    => Whitespace
       case _                      => Operator
