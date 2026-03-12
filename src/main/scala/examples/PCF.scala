@@ -108,9 +108,10 @@ object PCF {
       stripped
     }
 
-    // used to categorize subexpressions for further processing
-    // naming doesn't really matter, but classification heavily depends
-    // on existing strict_expr parser.
+    /* Used to categorize subexpressions for further processing.
+     * Naming doesn't really matter, but classification heavily depends
+     * on existing strict_expr parser.
+     */
     enum EType {
       case Operator
       case Literal
