@@ -1,5 +1,7 @@
 package pwd4llm
 
+/** Parsers may be in an accepting, rejecting or pending state.
+  */
 enum ParserStatus {
   case Accepting
   case Rejecting
@@ -8,30 +10,25 @@ enum ParserStatus {
 
 import ParserStatus.*
 
-trait BacktrackingParser[T, R] {
-  def feed(t: T): BacktrackingParser[T, R]
-  def feedAll(ts: Iterator[T]) = {
-    var child = this
-    for t <- ts do child = child.feed(t)
-    child
-  }
-  def unfeed: Option[BacktrackingParser[T, R]]
-  def unfeedAll: BacktrackingParser[T, R] = unfeed match {
-    case Some(p) => p.unfeedAll; case _ => this
-  }
+/** Basic trait that denotes what a parser is.
+  * @tparameter
+  *   T is the token type
+  * @tparameter
+  *   R is the type of the results
+  */
+trait Parser[T, R] {
+  def feed(t: T): Parser[T, R]
   def results: R
   def status: ParserStatus
 }
 
-// Examples
-
-trait BacktrackingTools[P <: fcd.DerivativeParsers](val parsers: P) {
+/** Allows to use the Parser type from any DeriviativeParsers trait
+  */
+trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
   class WrappedParser[R](
-      inner: parsers.Parser[R],
-      predecessor: Option[WrappedParser[R]] = None
-  ) extends BacktrackingParser[parsers.Elem, parsers.Results[R]] {
-    def feed(t: parsers.Elem) = WrappedParser(inner.consume(t), Some(this))
-    def unfeed = predecessor
+      inner: parsers.Parser[R]
+  ) extends Parser[parsers.Elem, parsers.Results[R]] {
+    def feed(t: parsers.Elem) = WrappedParser(inner.consume(t))
     def results = inner.results
     def status =
       if inner.accepts then Accepting
@@ -40,6 +37,11 @@ trait BacktrackingTools[P <: fcd.DerivativeParsers](val parsers: P) {
   }
 }
 
+/** The tools for the PythonParsers object.
+  */
+object PythonParsersTools extends DerivativeParserTools(fcd.PythonParsers)
 
-object PythonParsersTools extends BacktrackingTools(fcd.PythonParsers)
-//object DerivativeParsersTools extends BacktrackingTools(fcd.DerivativeParsers)
+/** The tools for the DerivativeParsers object.
+  */
+object DerivativeParsersTools
+    extends DerivativeParserTools(fcd.DerivativeParsers)

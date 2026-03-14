@@ -1,6 +1,5 @@
 package pwd4llm.examples
 
-import fcd.DerivativeParsers
 import fcd.DerivativeParsers.*
 
 object PCF {

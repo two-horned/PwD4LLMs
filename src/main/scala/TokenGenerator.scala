@@ -1,5 +1,10 @@
 package pwd4llm
 
+/** Defines the actions TokenGenerators can request.
+  *
+  * @tparameter
+  *   T is type of the tokens the TokenGenerator generates
+  */
 enum GeneratorAction[Token] {
   case Concatenate(tokens: Iterator[Token])
   case Append(token: Token)
@@ -11,20 +16,42 @@ enum GeneratorAction[Token] {
 }
 
 import GeneratorAction.*
+
+/** Basic trait that denotes what a token generator is.
+  *
+  * @tparameter
+  *   T is type of the tokens it may generate
+  */
 import pwd4llm.ParserStatus.*
 
-trait TokenGenerator[Token] {
-  def suggest(): GeneratorAction[Token]
+trait TokenGenerator[T] {
+  def suggest(): GeneratorAction[T]
   def receiveFeedback(status: ParserStatus): Unit
 }
 
-// Examples
-
-import scala.collection.mutable.{Stack, Queue}
-
+/** An abstract node or vertice in a search tree that connects to other nodes or
+  * vertices via tokens.
+  *
+  * @tparameter
+  *   T is type of the tokens the edges require
+  *
+  * @param neighbors
+  *   is an iterator that lists all the neighbors
+  */
 case class Node[T](neighbors: Iterator[(T, () => Node[T])])
 
+/** An abstract node or vertice in a search tree that connects to other nodes or
+  * vertices via tokens.
+  *
+  * @tparameter
+  *   T is type of the tokens the edges require
+  *
+  * @param neighbors
+  *   is an iterator that lists all the neighbors
+  */
+
 abstract class DFS_TG[T] extends TokenGenerator[T] {
+  import scala.collection.mutable.Stack
   private val levels: Stack[Node[T]] = Stack()
   private var backtrack = false
   levels.push(seed)
@@ -58,6 +85,8 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
     case _         => ()
   }
 }
+
+import scala.collection.mutable.Queue
 
 abstract class BFS_TG[T] extends TokenGenerator[T] {
   private val levels: Queue[(List[T], Node[T])] = Queue()
