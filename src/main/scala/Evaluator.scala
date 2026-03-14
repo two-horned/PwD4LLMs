@@ -47,6 +47,9 @@ trait Evaluator {
 import pwd4llm.ParserStatus.*
 import pwd4llm.GeneratorAction.*
 
+/** An evaluator that uses a stack in the evaluation process to store each
+  * intermediate parser produced by feeding tokens into it.
+  */
 object StackEvaluator extends Evaluator {
 
   import scala.collection.mutable.Stack
@@ -105,6 +108,12 @@ object StackEvaluator extends Evaluator {
   }
 }
 
+/** An evaluator that uses a stack in the evaluation process to store each token
+  * in the currently relevant input. It always parses all tokens anew, if
+  * deleting tokens of the current input is required, never remembering previous
+  * parsers. In other words, it then scraps all the process and starts from the
+  * start.
+  */
 object ScrapAllEvaluator extends Evaluator {
 
   import scala.collection.mutable.Stack
