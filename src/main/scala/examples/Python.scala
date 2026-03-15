@@ -1,7 +1,7 @@
 package pwd4llm.examples
 
 import pwd4llm.*
-import ParserStatus.*
+import ParserState.*
 import GeneratorAction.*
 
 import fcd.PythonParsers
@@ -41,14 +41,14 @@ class RandoPythonTokenGen extends TokenGenerator[Lexeme] {
 
   private var random = new Random
   private var token_length = 0
-  private var last_status = Pending
+  private var last_state = Pending
 
   private var token_list =
     Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
 
   def suggest(): GeneratorAction[Lexeme] = {
-    last_status match {
-      case Rejecting => {
+    last_state match {
+      case Failed => {
         if 0 == random.nextInt(
             MAX_TOKENS - scala.math.min(MAX_TOKENS, token_length)
           )
@@ -86,7 +86,7 @@ class RandoPythonTokenGen extends TokenGenerator[Lexeme] {
     }
   }
 
-  def receiveFeedback(status: ParserStatus): Unit = {
-    last_status = status
+  def receiveFeedback(state: ParserState): Unit = {
+    last_state = state
   }
 }

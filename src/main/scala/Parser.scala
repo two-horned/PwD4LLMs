@@ -7,13 +7,12 @@ enum ParserState {
   /** Parser accepts currently. */
   case Accepting
 
-  /** Parser rejects the correlating input, but it may still be a valid
-    * prefix.
+  /** Parser rejects the correlating input, but it may still be a valid prefix.
     */
   case Pending
 
-  /** Parser rejects the correlating input, because it is an invalid prefix.
-    * All the children produced by Parser.feed must also be in the failed state.
+  /** Parser rejects the correlating input, because it is an invalid prefix. All
+    * the children produced by Parser.feed must also be in the failed state.
     */
   case Failed
 }
@@ -42,7 +41,7 @@ trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
     def results = inner.results
     def state =
       if inner.accepts then Accepting
-      else if inner.failed then Rejecting
+      else if inner.failed then Failed
       else Pending
   }
 }
