@@ -1,18 +1,66 @@
 package pwd4llm
 
-/** Defines the actions TokenGenerators can request.
+/** Defines the actions TokenGenerators can request. These actions are read by
+  * an Evaluator and applied such that a new and correct parser state
+  * correlating to the then produced token input is yielded.
   *
   * @tparameter
   *   T is type of the tokens the TokenGenerator generates
   */
 enum GeneratorAction[Token] {
+
+  /** The action to concatenate tokens with the input, the Evaluator inspects
+    * currently. The new tokens are placed at the end.
+    *
+    * @param tokens
+    *   the tokens to concantenate to the input
+    */
   case Concatenate(tokens: Iterator[Token])
+
+  /** The action to append a single token to the the input, the Evaluator
+    * inspects currently.
+    *
+    * @param token
+    *   the token to append to the input
+    */
   case Append(token: Token)
+
+  /** The action to delete a number of tokens at the back.
+    *
+    * @param number
+    *   how many tokens need to be deleted, which should be greater 1 and
+    *   smaller than the amount of all tokens the Evaluator currently inspects
+    */
   case DropLast(number: Int)
+
+  /** The action to delete the last token, which should only be a valid action,
+    * if atleast one token exists in the input, the Evaluator inspects
+    * currently.
+    */
   case DeleteLast()
+
+  /** The action to replace the last token with another, which should only be a
+    * valid action, if atleast one token exists in the input, the Evaluator
+    * inspects currently.
+    *
+    * @param token
+    *   is the token to replace the last with
+    */
   case ReplaceLast(token: Token)
+
+  /** The action to rebuild the entire input, the Evaluator inspects currently.
+    *
+    * @param tokens
+    *   are the tokens that become the new input
+    */
   case Rebuild(tokens: Iterator[Token])
+
+  /** The action to signal the Evaluator to finish.
+    */
   case Finish()
+
+  /** The action to reset the whole Evaluator to an empty input.
+    */
   case Reset()
 }
 
@@ -47,7 +95,6 @@ case class Node[T](neighbors: Iterator[(T, () => Node[T])])
   * @tparameter
   *   T is type of the tokens it generates
   */
-
 abstract class DFS_TG[T] extends TokenGenerator[T] {
   import scala.collection.mutable.Stack
   private val levels: Stack[Node[T]] = Stack()
