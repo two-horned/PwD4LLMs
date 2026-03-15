@@ -76,6 +76,13 @@ object StackEvaluator extends Evaluator {
       a match {
         case Concatenate(ts) => go(feedAll(p, ts))
         case Append(t)       => go(feed(p, t))
+        case DropLast(n) => {
+          history.dropInPlace(n - 1)
+          val x =
+            try history.pop()
+            catch case _ => initial
+          go(x)
+        }
         case DeleteLast() => {
           val x =
             try history.pop()
@@ -143,6 +150,8 @@ object ScrapAllEvaluator extends Evaluator {
       a match {
         case Concatenate(ts) => go(feedAll(p, ts))
         case Append(t)       => go(feed(p, t))
+        case DropLast(n) =>
+          go(pureFeedAll(initial, history.dropInPlace(n).reverseIterator))
         case DeleteLast() => {
           try history.pop()
           catch case _ => return CriticalFailure()
@@ -172,3 +181,63 @@ object ScrapAllEvaluator extends Evaluator {
     go(initial)
   }
 }
+
+/*
+/** An evaluator that uses a stack in the evaluation process to store each token
+ * in the currently relevant input. It always parses all tokens anew, if
+ * deleting tokens of the current input is required, never remembering previous
+ * parsers. In other words, it then scraps all the process and starts from the
+ * start.
+ */
+object RememberActionEvaluater extends Evaluator {
+
+  import scala.collection.mutable.Stack
+
+  def eval[T, R, G <: TokenGenerator[T]](
+      p: Parser[T, R],
+      g: G
+  ): EvalResult[R] = {
+    val parser_history: Stack[(Int, Parser[T,R])] = Stack()
+    val token_history: Stack[T] = Stack()
+    val initial = p
+
+    def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
+      ts.foldLeft(p)((p, t) => p.feed(t))
+
+    def go(p: Parser[T, R]): EvalResult[R] = {
+      g.receiveFeedback(p.status)
+      val a = g.suggest()
+
+      a match {
+        case Concatenate(ts) => go(feedAll(p, ts))
+        case Append(t)       => go(feed(p, t))
+        case DeleteLast() => {
+          try history.pop()
+          catch case _ => return CriticalFailure()
+          go(pureFeedAll(initial, history.reverseIterator))
+        }
+        case ReplaceLast(t) => {
+          try history.pop()
+          catch case _ => return CriticalFailure()
+          go(feed(pureFeedAll(initial, history.reverseIterator), t))
+        }
+        case Rebuild(ts) => {
+          history.clear()
+          go(feedAll(initial, ts))
+        }
+        case Reset() => {
+          history.clear()
+          go(initial)
+        }
+        case Finish() =>
+          p.status match {
+            case Accepting => Success(p.results)
+            case _         => Failure(p.results)
+          }
+      }
+    }
+
+    go(initial)
+  }
+}
+ */

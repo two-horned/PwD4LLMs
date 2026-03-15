@@ -37,9 +37,6 @@ trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
   }
 }
 
-/** The tools for the PythonParsers object.
-  */
-object PythonParsersTools extends DerivativeParserTools(fcd.PythonParsers)
 
 /** The tools for the DerivativeParsers object.
   */

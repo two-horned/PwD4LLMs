@@ -8,8 +8,9 @@ package pwd4llm
 enum GeneratorAction[Token] {
   case Concatenate(tokens: Iterator[Token])
   case Append(token: Token)
-  case ReplaceLast(token: Token)
+  case DropLast(number: Int)
   case DeleteLast()
+  case ReplaceLast(token: Token)
   case Rebuild(tokens: Iterator[Token])
   case Finish()
   case Reset()
@@ -20,7 +21,7 @@ import GeneratorAction.*
 /** Basic trait that denotes what a token generator is.
   *
   * @tparameter
-  *   T is type of the tokens it may generate
+  *   T is the type of the tokens it may generate
   */
 import pwd4llm.ParserStatus.*
 
@@ -33,21 +34,18 @@ trait TokenGenerator[T] {
   * vertices via tokens.
   *
   * @tparameter
-  *   T is type of the tokens the edges require
+  *   T is the type of the tokens the edges require
   *
   * @param neighbors
   *   is an iterator that lists all the neighbors
   */
 case class Node[T](neighbors: Iterator[(T, () => Node[T])])
 
-/** An abstract node or vertice in a search tree that connects to other nodes or
-  * vertices via tokens.
+/** A token generator that traverses a search tree defined by a seed Node in DFS
+  * fashion.
   *
   * @tparameter
-  *   T is type of the tokens the edges require
-  *
-  * @param neighbors
-  *   is an iterator that lists all the neighbors
+  *   T is type of the tokens it generates
   */
 
 abstract class DFS_TG[T] extends TokenGenerator[T] {
@@ -86,9 +84,14 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
   }
 }
 
-import scala.collection.mutable.Queue
-
+/** A token generator that traverses a search tree defined by a seed Node in BFS
+  * fashion.
+  *
+  * @tparameter
+  *   T is type of the tokens it generates
+  */
 abstract class BFS_TG[T] extends TokenGenerator[T] {
+  import scala.collection.mutable.Queue
   private val levels: Queue[(List[T], Node[T])] = Queue()
   private var backtrack = false
   private var last_list: List[T] = List()
@@ -122,97 +125,5 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
     case Accepting => levels.clear()
     case Rejecting => backtrack = true
     case _         => ()
-  }
-}
-
-class DFS_PythonTG extends DFS_TG[fcd.PythonParsers.Elem] {
-  import fcd.PythonParsers.Lexeme.*
-  import scala.util.Random
-
-  private val random = new Random()
-
-  private def token_list =
-    Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
-
-  private def node(): Node[fcd.PythonParsers.Elem] =
-    Node(random.shuffle(token_list).view.map(x => (x, () => node())).iterator)
-
-  def seed: Node[fcd.PythonParsers.Elem] =
-    Node(Iterator((Id("xyz"), () => node())))
-}
-
-class BFS_PythonTG extends BFS_TG[fcd.PythonParsers.Elem] {
-  import fcd.PythonParsers.Lexeme.*
-  import scala.util.Random
-
-  private val random = new Random()
-
-  private def token_list =
-    Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
-
-  private def node(): Node[fcd.PythonParsers.Elem] =
-    Node(random.shuffle(token_list).view.map(x => (x, () => node())).iterator)
-
-  def seed: Node[fcd.PythonParsers.Elem] =
-    Node(Iterator((Id("xyz"), () => node())))
-    // Node(Iterator((EOS, () => node()) , (Id("xyz"), () => node())))
-}
-
-class RandoPythonTokenGen extends TokenGenerator[fcd.PythonParsers.Elem] {
-  import fcd.PythonParsers.Lexeme.*
-  import scala.util.Random
-
-  private val MAX_TOKENS = 30
-  private val BIAS = 10
-
-  private var random = new Random
-  private var token_length = 0
-  private var last_status = Pending
-
-  private var token_list =
-    Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
-
-  def suggest(): GeneratorAction[fcd.PythonParsers.Lexeme] = {
-    last_status match {
-      case Rejecting => {
-        if 0 == random.nextInt(
-            MAX_TOKENS - scala.math.min(MAX_TOKENS, token_length)
-          )
-        then {
-          token_length = 0
-          Reset()
-        } else {
-          token_length -= 1
-          DeleteLast()
-        }
-      }
-      case Accepting => {
-        if 0 == random.nextInt(
-            MAX_TOKENS - scala.math.min(MAX_TOKENS - BIAS, token_length)
-          )
-        then Finish()
-        else {
-          token_length = 0
-          Reset()
-        }
-      }
-      case Pending => {
-        if 0 == random.nextInt(
-            MAX_TOKENS - scala.math.min(MAX_TOKENS, token_length)
-          )
-        then {
-          token_length = 0
-          Reset()
-        } else {
-          token_length += 1
-          val token = token_list(random.nextInt(token_list.length))
-          Append(token)
-        }
-      }
-    }
-  }
-
-  def receiveFeedback(status: ParserStatus): Unit = {
-    last_status = status
   }
 }
