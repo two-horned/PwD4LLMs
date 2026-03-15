@@ -74,7 +74,17 @@ import GeneratorAction.*
 import pwd4llm.ParserState.*
 
 trait TokenGenerator[T] {
+
+  /** Suggest the next action the Evaluator should take.
+    *
+    * @return
+    *   the action to take
+    */
   def suggest(): GeneratorAction[T]
+
+  /** Receive the current state of the parser the evaluator currently works with
+    * and modify internal states, s.t. the next action takes this into account.
+    */
   def receiveFeedback(state: ParserState): Unit
 }
 
@@ -126,7 +136,7 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
 
   final def receiveFeedback(state: ParserState) = state match {
     case Accepting => levels.clear()
-    case Failed => backtrack = true
+    case Failed    => backtrack = true
     case _         => ()
   }
 }
@@ -170,7 +180,7 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
 
   final def receiveFeedback(state: ParserState) = state match {
     case Accepting => levels.clear()
-    case Failed => backtrack = true
+    case Failed    => backtrack = true
     case _         => ()
   }
 }
