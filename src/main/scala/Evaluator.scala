@@ -44,7 +44,7 @@ trait Evaluator {
   def eval[T, R, G <: TokenGenerator[T]](p: Parser[T, R], g: G): EvalResult[R]
 }
 
-import pwd4llm.ParserStatus.*
+import pwd4llm.ParserState.*
 import pwd4llm.GeneratorAction.*
 
 /** An evaluator that uses a stack in the evaluation process to store each
@@ -70,7 +70,7 @@ object StackEvaluator extends Evaluator {
       ts.foldLeft(p)((p, t) => feed(p, t))
 
     def go(p: Parser[T, R]): EvalResult[R] = {
-      g.receiveFeedback(p.status)
+      g.receiveFeedback(p.state)
       val a = g.suggest()
 
       a match {
@@ -104,7 +104,7 @@ object StackEvaluator extends Evaluator {
           go(initial)
         }
         case Finish() =>
-          if p.status == Accepting then Success(p.results)
+          if p.state == Accepting then Success(p.results)
           else Failure(p.results)
       }
     }
@@ -142,7 +142,7 @@ object ScrapAllEvaluator extends Evaluator {
       ts.foldLeft(p)((p, t) => p.feed(t)) // does not modify stack
 
     def go(p: Parser[T, R]): EvalResult[R] = {
-      g.receiveFeedback(p.status)
+      g.receiveFeedback(p.state)
       val a = g.suggest()
 
       a match {
@@ -170,7 +170,7 @@ object ScrapAllEvaluator extends Evaluator {
           go(initial)
         }
         case Finish() =>
-          if p.status == Accepting then Success(p.results)
+          if p.state == Accepting then Success(p.results)
           else Failure(p.results)
       }
     }
@@ -185,7 +185,7 @@ object ScrapAllEvaluator extends Evaluator {
   * deleting last token after appending 20 tokens), then the tokens inbetween
   * will be parsed anew.
   */
-object RememberActionEvaluater extends Evaluator {
+object RememberActionEvaluator extends Evaluator {
 
   import scala.collection.mutable.Stack
 
@@ -253,7 +253,7 @@ object RememberActionEvaluater extends Evaluator {
     }
 
     def go(p: Parser[T, R]): EvalResult[R] = {
-      g.receiveFeedback(p.status)
+      g.receiveFeedback(p.state)
       val a = g.suggest()
 
       a match {
@@ -288,7 +288,7 @@ object RememberActionEvaluater extends Evaluator {
           go(initial)
         }
         case Finish() =>
-          if p.status == Accepting then Success(p.results)
+          if p.state == Accepting then Success(p.results)
           else Failure(p.results)
       }
     }

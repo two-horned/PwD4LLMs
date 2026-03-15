@@ -1,24 +1,24 @@
 package pwd4llm
 
-/** Parsers may be in an accepting, rejecting or pending state.
+/** Parsers may be in an accepting, pending or failed state.
   */
-enum ParserStatus {
+enum ParserState {
 
   /** Parser accepts currently. */
   case Accepting
 
-  /** Parser rejects currently. All the children produced by Parser.feed must
-    * also be in a rejecting state.
-    */
-  case Rejecting
-
-  /** Parser neither accepts nor rejects. So, currently, the input correlating
-    * to this parser is not in the language, but may still be a valid prefix.
+  /** Parser rejects the correlating input, but it may still be a valid
+    * prefix.
     */
   case Pending
+
+  /** Parser rejects the correlating input, because it is an invalid prefix.
+    * All the children produced by Parser.feed must also be in the failed state.
+    */
+  case Failed
 }
 
-import ParserStatus.*
+import ParserState.*
 
 /** Basic trait that denotes what a parser is.
   * @tparameter
@@ -29,7 +29,7 @@ import ParserStatus.*
 trait Parser[T, R] {
   def feed(t: T): Parser[T, R]
   def results: R
-  def status: ParserStatus
+  def state: ParserState
 }
 
 /** Allows to use the Parser type from any DeriviativeParsers trait
@@ -40,7 +40,7 @@ trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
   ) extends Parser[parsers.Elem, parsers.Results[R]] {
     def feed(t: parsers.Elem) = WrappedParser(inner.consume(t))
     def results = inner.results
-    def status =
+    def state =
       if inner.accepts then Accepting
       else if inner.failed then Rejecting
       else Pending

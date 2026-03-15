@@ -71,11 +71,11 @@ import GeneratorAction.*
   * @tparameter
   *   T is the type of the tokens it may generate
   */
-import pwd4llm.ParserStatus.*
+import pwd4llm.ParserState.*
 
 trait TokenGenerator[T] {
   def suggest(): GeneratorAction[T]
-  def receiveFeedback(status: ParserStatus): Unit
+  def receiveFeedback(state: ParserState): Unit
 }
 
 /** An abstract node or vertice in a search tree that connects to other nodes or
@@ -124,9 +124,9 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
     }
   }
 
-  final def receiveFeedback(status: ParserStatus) = status match {
+  final def receiveFeedback(state: ParserState) = state match {
     case Accepting => levels.clear()
-    case Rejecting => backtrack = true
+    case Failed => backtrack = true
     case _         => ()
   }
 }
@@ -168,9 +168,9 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
     action
   }
 
-  final def receiveFeedback(status: ParserStatus) = status match {
+  final def receiveFeedback(state: ParserState) = state match {
     case Accepting => levels.clear()
-    case Rejecting => backtrack = true
+    case Failed => backtrack = true
     case _         => ()
   }
 }
