@@ -3,8 +3,18 @@ package pwd4llm
 /** Parsers may be in an accepting, rejecting or pending state.
   */
 enum ParserStatus {
+
+  /** Parser accepts currently. */
   case Accepting
+
+  /** Parser rejects currently. All the children produced by Parser.feed must
+    * also be in a rejecting state.
+    */
   case Rejecting
+
+  /** Parser neither accepts nor rejects. So, currently, the input correlating
+    * to this parser is not in the language, but may still be a valid prefix.
+    */
   case Pending
 }
 
@@ -37,8 +47,7 @@ trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
   }
 }
 
-
-/** The tools for the DerivativeParsers object.
+/** The tools for the DerivativeParsers object
   */
 object DerivativeParsersTools
     extends DerivativeParserTools(fcd.DerivativeParsers)
