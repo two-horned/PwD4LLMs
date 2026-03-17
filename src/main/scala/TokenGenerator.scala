@@ -109,9 +109,9 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
   import scala.collection.mutable.Stack
   private val levels: Stack[Node[T]] = Stack()
   private var backtrack = false
-  levels.push(seed)
+  levels.push(seed())
 
-  def seed: Node[T]
+  def seed(): Node[T]
 
   final def suggest() = {
     if levels.isEmpty then return Finish()
@@ -152,9 +152,9 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
   private val levels: Queue[(List[T], Node[T])] = Queue()
   private var backtrack = false
   private var last_list: List[T] = List()
-  levels.enqueue((last_list, seed))
+  levels.enqueue((last_list, seed()))
 
-  def seed: Node[T]
+  def seed(): Node[T]
 
   final def suggest() = {
     if levels.isEmpty then return Finish()

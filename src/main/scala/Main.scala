@@ -1,49 +1,38 @@
 import pwd4llm.*
 import examples.*
-import PythonParsersTools.*
+import PCF.*
+import fcd.DerivativeParsers.*
+import DerivativeParsersTools.*
 
 @main def main() = {
-  import fcd.PythonParsers.*
-
-  // {
-  //   println("Let's go! One parse pass with Rando TG")
-  //   val g = new RandoPythonTokenGen
-  //   println(eval(p, g))
-  // }
+  val AT_MOST_AT_LEAST = not(atMost(5, any)) & atMost(20, any)
+  val p = WrappedParser(AT_MOST_AT_LEAST &> strict_expr)
 
   time {
     import StackEvaluator.eval
-    val p = WrappedParser(and(atMost(5, acceptIf(_ => true)),
-        parsers.preprocess(parsers.file_input)))
     println("Let's go! One parse pass with DFS TG")
-    val g = new DFS_PythonTG
+    val g = new DFS_PCF_TG
     println(eval(p, g))
   }
 
   time {
     import ScrapAllEvaluator.eval
-    val p = WrappedParser(and(atMost(5, acceptIf(_ => true)),
-        parsers.preprocess(parsers.file_input)))
     println("Let's go! One parse pass with DFS TG, Scrapping all")
-    val g = new DFS_PythonTG
+    val g = new DFS_PCF_TG
     println(eval(p, g))
   }
 
   time {
     import StackEvaluator.eval
-    val p = WrappedParser(and(not(atMost(5, acceptIf(_ => true))),
-        parsers.preprocess(parsers.file_input)))
     println("Let's go! One parse pass with BFS TG")
-    val g = new BFS_PythonTG
+    val g = new BFS_PCF_TG
     println(eval(p, g))
   }
 
   time {
     import ScrapAllEvaluator.eval
-    val p = WrappedParser(and(not(atMost(5, acceptIf(_ => true))),
-        parsers.preprocess(parsers.file_input)))
     println("Let's go! One parse pass with BFS TG, scrapping all")
-    val g = new BFS_PythonTG
+    val g = new BFS_PCF_TG
     println(eval(p, g))
   }
 }

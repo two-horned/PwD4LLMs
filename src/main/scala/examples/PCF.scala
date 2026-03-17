@@ -64,7 +64,7 @@ object PCF {
   val strict_expr: Parser[Expr] = {
     val typ: Parser[Type] = {
       val arr: Parser[String] = "->" | "→"
-      val nat = "Nat" ^^^ Nat
+      val nat = ("Nat" | 'ℕ') ^^^ Nat
       lazy val fun = (level0 <~ arr) ~ level1 ^^ { case (x, y) => Fun(x, y) }
       lazy val level1: NT[Type] = fun | level0
       lazy val level0: NT[Type] = nat | '(' ~> level1 <~ ')'
@@ -72,7 +72,7 @@ object PCF {
     }
 
     val lambda: Parser[Char] = alt('\\', 'λ')
-    val id_name: Parser[String] = some(acceptIf(_.isLower))
+    val id_name: Parser[String] = some(acceptIf(x => x <= 'a' && x >= 'z'))
     val id = id_name ^^ { Id(_) }
     val zero = '0' ^^^ Zero
     lazy val abs = (lambda ~> id_name <~ ':') ~ (typ <~ '.') ~ level3 ^^ {
@@ -163,5 +163,29 @@ object PCF {
       })
 
     stripComments(stripWS(strict_expr))
+  }
+
+  val TOKEN_LIST =
+    Array('λ', 'ℕ', '→', '(', ')', ':', '.', '?', '~', ' ', 'x', '↑', '↓', '0')
+  val START_TOKEN_LIST = Array('λ', 'ℕ', '(', 'x', '↑', '↓', '0')
+
+  import pwd4llm.*
+  import scala.util.Random
+
+  private val random = new Random()
+  private def node(): Node[Char] =
+    Node(random.shuffle(TOKEN_LIST).view.map(x => (x, () => node())).iterator)
+  private def rand_seed() = Node(random
+      .shuffle(START_TOKEN_LIST)
+      .view
+      .map(x => (x, () => node()))
+      .iterator)
+
+  class DFS_PCF_TG extends DFS_TG[Char] {
+    def seed() = rand_seed()
+  }
+
+  class BFS_PCF_TG extends BFS_TG[Char] {
+    def seed() = rand_seed()
   }
 }

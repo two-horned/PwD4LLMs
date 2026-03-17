@@ -139,7 +139,7 @@ object ScrapAllEvaluator extends Evaluator {
       ts.foldLeft(p)((p, t) => feed(p, t))
 
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
-      ts.foldLeft(p)((p, t) => p.feed(t)) // does not modify stack
+      ts.iterator.foldLeft(p)((p, t) => p.feed(t)) // does not modify stack
 
     def go(p: Parser[T, R]): EvalResult[R] = {
       g.receiveFeedback(p.state)
@@ -202,7 +202,7 @@ object RememberActionEvaluator extends Evaluator {
       p.feed(t)
     }
 
-    def feedAll(p: Parser[T, R], ts: Iterator[T]) = {
+    def feedAll(p: Parser[T, R], ts: Iterator[T]): Parser[T, R] = {
       var (cur, lst, len) = ts.nextOption() match {
         case Some(x) => (p.feed(x), x, 1)
         case _       => return p
@@ -221,21 +221,21 @@ object RememberActionEvaluator extends Evaluator {
     }
 
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
-      ts.foldLeft(p)((p, t) => p.feed(t))
+      ts.iterator.foldLeft(p)((p, t) => p.feed(t))
 
     // Build the parser state correlating to deleting one token (can throw exception)
-    def pop() = {
+    def pop(): Parser[T, R] = {
       val (n, x) = parser_history.pop()
       val diff = n - 1
       if diff == 0 then return x
-      val y = pureFeedAll(x, token_history.take(diff))
+      val y = pureFeedAll(x, token_history.iterator.take(diff))
       token_history.dropInPlace(diff)
       parser_history.push((diff, y))
       y
     }
 
     // Build the parser state correlating to deleting >1 tokens (can throw exception)
-    def dropLast(m: Int) = {
+    def dropLast(m: Int): Parser[T, R] = {
       var k = m
       var cur = parser_history.pop()
       while cur._1 < k do {
@@ -246,7 +246,7 @@ object RememberActionEvaluator extends Evaluator {
       val (n, x) = cur
       val diff = n - k
       if diff == 0 then return x
-      val y = pureFeedAll(x, token_history.take(diff))
+      val y = pureFeedAll(x, token_history.iterator.take(diff))
       token_history.dropInPlace(diff)
       parser_history.push((diff, y))
       y
@@ -262,19 +262,19 @@ object RememberActionEvaluator extends Evaluator {
         case DropLast(n) => {
           val x =
             try dropLast(n)
-            catch case _ => return CriticialFailure()
+            catch case _ => return CriticalFailure()
           go(x)
         }
         case DeleteLast() => {
           val x =
             try pop()
-            catch case _ => return CriticialFailure()
+            catch case _ => return CriticalFailure()
           go(x)
         }
         case ReplaceLast(t) => {
           val x =
             try pop()
-            catch case _ => return CriticialFailure()
+            catch case _ => return CriticalFailure()
           go(feed(x, t))
         }
         case Rebuild(ts) => {

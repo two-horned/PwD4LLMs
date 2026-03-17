@@ -23,7 +23,7 @@ class DFS_PythonTG extends DFS_TG[Lexeme] {
   private def node(): Node[Lexeme] =
     Node(random.shuffle(TOKEN_LIST).view.map(x => (x, () => node())).iterator)
 
-  def seed: Node[Lexeme] = Node(Iterator((Id("xyz"), () => node())))
+  def seed() = Node(Iterator((Id("xyz"), () => node())))
 }
 
 class BFS_PythonTG extends BFS_TG[Lexeme] {
@@ -32,7 +32,7 @@ class BFS_PythonTG extends BFS_TG[Lexeme] {
   private def node(): Node[Lexeme] =
     Node(random.shuffle(TOKEN_LIST).view.map(x => (x, () => node())).iterator)
 
-  def seed: Node[Lexeme] = Node(Iterator((Id("xyz"), () => node())))
+  def seed() = Node(Iterator((Id("xyz"), () => node())))
 }
 
 class RandoPythonTokenGen extends TokenGenerator[Lexeme] {
