@@ -223,7 +223,7 @@ object RememberActionEvaluator extends Evaluator {
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
       ts.iterator.foldLeft(p)((p, t) => p.feed(t))
 
-    // Build the parser state correlating to deleting one token (can throw exception)
+    // Build the parser state correlating to deleting one token
     def pop(): Parser[T, R] = {
       val (n, x) = parser_history.pop()
       val diff = n - 1
@@ -234,7 +234,7 @@ object RememberActionEvaluator extends Evaluator {
       y
     }
 
-    // Build the parser state correlating to deleting >1 tokens (can throw exception)
+    // Build the parser state correlating to deleting >1 tokens
     def dropLast(m: Int): Parser[T, R] = {
       var k = m
       var cur = parser_history.pop()
