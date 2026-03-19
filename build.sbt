@@ -1,5 +1,4 @@
 val scala3Version = "3.7.4"
-
 lazy val root = project
   .in(file("."))
   .settings(
@@ -9,5 +8,13 @@ lazy val root = project
     libraryDependencies := Seq(
       "org.scalameta" %% "munit" % "1.0.0" % Test,
       "first-class-derivatives" %% "first-class-derivatives" % "2.0.0"
+    ),
+    scalacOptions ++= Seq(
+      "-deprecation",
+      "-feature",
+      "-unchecked",
+      "-Xfatal-warnings",   // fail on warnings (optional)
+      "-explain",           // detailed explanations
+      "-explain-types"      // deeper type errors
     )
   )
