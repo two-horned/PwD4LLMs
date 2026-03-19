@@ -1,5 +1,6 @@
 package pwd4llm.examples
 
+import scala.language.implicitConversions
 import fcd.DerivativeParsers.*
 
 object PCF {
@@ -72,7 +73,7 @@ object PCF {
     }
 
     val lambda: Parser[Char] = alt('\\', 'λ')
-    val id_name: Parser[String] = some(acceptIf(x => x <= 'a' && x >= 'z'))
+    val id_name: Parser[String] = alt("_", some(acceptIf(x => x <= 'a' && x >= 'z')))
     val id = id_name ^^ { Id(_) }
     val zero = '0' ^^^ Zero
     lazy val abs = (lambda ~> id_name <~ ':') ~ (typ <~ '.') ~ level3 ^^ {
@@ -165,12 +166,12 @@ object PCF {
     stripComments(stripWS(strict_expr))
   }
 
+  import pwd4llm.*
+  import scala.util.Random
+
   val TOKEN_LIST =
     Array('λ', 'ℕ', '→', '(', ')', ':', '.', '?', '~', ' ', 'x', '↑', '↓', '0')
   val START_TOKEN_LIST = Array('λ', 'ℕ', '(', 'x', '↑', '↓', '0')
-
-  import pwd4llm.*
-  import scala.util.Random
 
   private val random = new Random()
   private def node(): Node[Char] =
@@ -188,4 +189,5 @@ object PCF {
   class BFS_PCF_TG extends BFS_TG[Char] {
     def seed() = rand_seed()
   }
+
 }
