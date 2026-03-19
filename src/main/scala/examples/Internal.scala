@@ -2,7 +2,12 @@ package pwd4llm.internal
 
 import pwd4llm.*
 
-import scala.collection.mutable.{ArrayBuffer, IndexedSeq as MIndexedSeq}
+import scala.collection.IndexedSeqOps
+
+import scala.collection.mutable.{
+  ArraySeq as MArraySeq,
+  IndexedSeq as MIndexedSeq
+}
 import scala.collection.Factory
 import scala.util.Random
 
@@ -25,48 +30,7 @@ extension [A](seq: MIndexedSeq[A]) {
   }
 }
 
-extension [A](arr: Array[A]) {
-
-  /** Performs an exponential search on an array, so one can perform
-    * ordering-preserving (unsafe) insertions.
-    *
-    * @param value
-    *   is the potential value to insert
-    *
-    * @param lower
-    *   is the lower bound (included) to start searching from
-    *
-    * @param upper
-    *   is the upper bound (excluded) to search till
-    *
-    * @return
-    *   index in which value can be inserted
-    */
-  def expSearchInsPoint[B >: A](elem: B)(using ord: Ordering[B]): Int = {
-    import scala.math.min
-
-    var lower = 0
-    var upper = arr.length
-
-    while lower < upper do {
-      var inc = 1
-
-      while lower < upper && ord.lteq(arr(lower), elem) do {
-        lower += inc
-        inc <<= 1
-      }
-
-      inc >>= 1
-      if inc == 1 then return lower
-      upper = min(upper, lower)
-      lower -= inc
-    }
-
-    lower
-  }
-}
-
-extension [A](seq: IndexedSeq[A]) {
+extension [A, CC[_], C](seq: IndexedSeqOps[A, CC, C]) {
 
   /** Performs an exponential search on an indexed sequence, so one can perform
     * ordering-preserving insertions, not guaranteed by `IndexedSeq.search`.
@@ -128,9 +92,9 @@ extension (r: Random) {
       xs: IterableOnce[(Int, T)]
   )(using ft: Factory[T, C]): C = {
 
-    val buf: Array[(Int, T)] = Array.from(xs)
-    val cummWeights: Array[Int] =
-      buf.iterator.scanLeft(0)((acc, x) => acc + x._1).drop(1).toArray
+    val buf: MArraySeq[(Int, T)] = MArraySeq.from(xs)
+    val cummWeights: MArraySeq[Int] =
+      MArraySeq.from(buf.iterator.scanLeft(0)((acc, x) => acc + x._1).drop(1))
 
     val builder = ft.newBuilder
     for _ <- 0 until buf.length do {
@@ -150,7 +114,7 @@ extension (r: Random) {
   * @param tokens
   *   the tokens it should handle
   */
-class MarkovChain[T](tokens: Array[T], rand: Random = Random()) {
+class MarkovChain[T](tokens: IndexedSeq[T], rand: Random = Random()) {
   final def tokenAtIndex(index: Int) = tokens(index)
   final def indexForToken(token: T) = mapTokenToIndex(token)
   private val size = tokens.length
