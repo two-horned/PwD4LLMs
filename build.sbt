@@ -7,7 +7,11 @@ lazy val root = project
     scalaVersion := scala3Version,
     libraryDependencies := Seq(
       "org.scalameta" %% "munit" % "1.0.0" % Test,
-      "first-class-derivatives" %% "first-class-derivatives" % "2.0.0"
+      "com.typesafe.scala-logging" %% "scala-logging" % "3.9.6",
+      "first-class-derivatives" %% "first-class-derivatives" % "2.0.0",
+      "org.typelevel" %% "log4cats-slf4j"   % "2.8.0",
+      "org.slf4j" % "slf4j-api" % "2.0.12",
+      "org.slf4j" % "slf4j-simple" % "2.0.12"
     ),
     scalacOptions ++= Seq(
       "-deprecation",

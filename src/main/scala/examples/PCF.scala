@@ -179,13 +179,17 @@ object PCF {
   private val not_start_token_list =
     ArraySeq(')', 'ℕ', '→', ':', '.', '?', '~', ' ')
 
-  val markov_chain = {
+  private def newMarkovChain = {
     val tmp = MarkovChain(token_list)
     for t <- not_start_token_list do {
       val i = tmp.indexForToken(t)
       tmp.initial(i) = 0
     }
     tmp
+  }
+  var markov_chain = newMarkovChain
+  def resetMarkovChain(): Unit = {
+    markov_chain = newMarkovChain
   }
 
   def updateMarkovChain(validInput: String): Unit = {
