@@ -95,10 +95,15 @@ extension (r: Random) {
   * @param tokens
   *   the tokens it should handle
   */
-final class MarkovChain[T](tokens: IndexedSeq[T], rand: Random = Random()) {
+final class MarkovChain[T](
+  tokens: IndexedSeq[T],
+  rand: Random = Random(),
+  max_branch: Int = Int.MaxValue,
+  fill_inital_with: Int = 50
+) {
   val size = tokens.length
-  val initial: Array[Int] = Array.fill(size)(1)
-  val matrix: Array[Int] = Array.fill(size * size)(1)
+  val initial: Array[Int] = Array.fill(size)(fill_inital_with)
+  val matrix: Array[Int] = Array.fill(size * size)(fill_inital_with)
   private val mapTokenToIndex: Map[T, Int] =
     tokens.iterator.zip(0 until size).toMap
 
@@ -113,6 +118,7 @@ final class MarkovChain[T](tokens: IndexedSeq[T], rand: Random = Random()) {
           case (x, _) => x > 0
         })
         .iterator
+        .take(max_branch)
         .map(i => (tokens(i), () => node(i))))
 
   def seed(): Node[T] = Node(rand
@@ -121,5 +127,6 @@ final class MarkovChain[T](tokens: IndexedSeq[T], rand: Random = Random()) {
         x > 0
       })
       .iterator
+      .take(max_branch)
       .map(i => (tokens(i), () => node(i))))
 }

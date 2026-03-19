@@ -69,13 +69,13 @@ object PCF {
       val nat = ("Nat" | 'ℕ') ^^^ Nat
       lazy val fun = (level0 <~ arr) ~ level1 ^^ { case (x, y) => Fun(x, y) }
       lazy val level1: NT[Type] = fun | level0
-      lazy val level0: NT[Type] = nat | '(' ~> level1 <~ ')'
+      lazy val level0: NT[Type] = nat | '[' ~> level1 <~ ']'
       level1
     }
 
     val lambda: Parser[Char] = alt('\\', 'λ')
     val id_name: Parser[String] =
-      alt("_", some(acceptIf(x => x <= 'a' && x >= 'z')))
+      alt("_", some(acceptIf(x => 'a' <= x && x <= 'z')))
     val id = id_name ^^ { Id(_) }
     val zero = '0' ^^^ Zero
     lazy val abs = (lambda ~> id_name <~ ':') ~ (typ <~ '.') ~ level3 ^^ {
@@ -172,24 +172,89 @@ object PCF {
   import internal.*
   import scala.util.Random
 
-  private val random = new Random()
-  private val token_list = ArraySeq('λ', 'ℕ', '→', '(', ')', ':', '.', '?', '~',
-    ' ', '_', '↑', '↓', '0')
-  private val start_token_list = ArraySeq('(', 'λ', '_', '↑', '↓', '0')
-  private val not_start_token_list =
-    ArraySeq(')', 'ℕ', '→', ':', '.', '?', '~', ' ')
+  private val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.',
+    '?', '~', ' ', '_', '↑', '↓', '0')
 
-  private def newMarkovChain = {
+  private def newMarkovChain() = {
     val tmp = MarkovChain(token_list)
-    for t <- not_start_token_list do {
+    // set weights to zero for certain not-possible transitions
+    val not_start_token =
+      ArraySeq(')', 'ℕ', '→', ':', '.', '?', '~', ' ', '[', ']')
+    for t <- not_start_token do {
       val i = tmp.indexForToken(t)
       tmp.initial(i) = 0
     }
+    for i <- Iterator('(', '.', '?', '~').map(tmp.indexForToken) do {
+      for t <- not_start_token do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
+      }
+    }
+    {
+      val allowed = ArraySeq('↑', '↓', '0', '_')
+      for i <- Iterator('↑', '↓').map(tmp.indexForToken) do {
+        for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+          val j = tmp.indexForToken(t)
+          tmp.matrix(tmp.matrixIndex(i, j)) = 0
+        }
+      }
+    }
+    {
+      val i = tmp.indexForToken('λ')
+      for t <- token_list.iterator.filter(_ != '_') do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
+      }
+    }
+    {
+      val allowed = ArraySeq(')', ':', '?', '~', ' ')
+      val i = tmp.indexForToken('_')
+      for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
+      }
+    }
+    {
+      val allowed = ArraySeq('[', 'ℕ')
+      for i <- Iterator(':', '[', '→').map(tmp.indexForToken) do {
+        for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+          val j = tmp.indexForToken(t)
+          tmp.matrix(tmp.matrixIndex(i, j)) = 0
+        }
+      }
+    }
+    {
+      val allowed = ArraySeq('→', ']', '.')
+      for i <- Iterator('ℕ', ']').map(tmp.indexForToken) do {
+        for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+          val j = tmp.indexForToken(t)
+          tmp.matrix(tmp.matrixIndex(i, j)) = 0
+
+        }
+      }
+    }
+    {
+      val allowed = ArraySeq(')', '?', '~', ' ')
+      for i <- Iterator(')', '0').map(tmp.indexForToken) do {
+        for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+          val j = tmp.indexForToken(t)
+          tmp.matrix(tmp.matrixIndex(i, j)) = 0
+        }
+      }
+    }
+    {
+      val allowed = ArraySeq('↑', '↓', '0', '_', '(')
+      val i = tmp.indexForToken(' ')
+      for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
+      }
+    }
     tmp
   }
-  var markov_chain = newMarkovChain
+  var markov_chain = newMarkovChain()
   def resetMarkovChain(): Unit = {
-    markov_chain = newMarkovChain
+    markov_chain = newMarkovChain()
   }
 
   def updateMarkovChain(validInput: String): Unit = {
