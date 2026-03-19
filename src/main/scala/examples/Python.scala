@@ -12,7 +12,8 @@ import scala.language.implicitConversions
 import scala.collection.immutable.ArraySeq
 import scala.util.Random
 
-private val token_list: ArraySeq[Lexeme] = ArraySeq(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
+private val token_list: ArraySeq[Lexeme] =
+  ArraySeq(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
 
 /** The tools for the PythonParsers object.
   */

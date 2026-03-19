@@ -13,8 +13,8 @@ lazy val root = project
       "-deprecation",
       "-feature",
       "-unchecked",
-      "-Xfatal-warnings",   // fail on warnings (optional)
-      "-explain",           // detailed explanations
-      "-explain-types"      // deeper type errors
+      "-Xfatal-warnings", // fail on warnings (optional)
+      "-explain", // detailed explanations
+      "-explain-types" // deeper type errors
     )
   )
