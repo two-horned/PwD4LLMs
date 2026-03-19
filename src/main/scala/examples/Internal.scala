@@ -11,25 +11,6 @@ import scala.collection.mutable.{
 import scala.collection.Factory
 import scala.util.Random
 
-extension [A](seq: MIndexedSeq[A]) {
-
-  /** Swaps two elements in in an indexed sequents.
-    *
-    * @param seq
-    *   indexed sequence of elements
-    * @param i
-    *   index of first element to swap with
-    * @param j
-    *   index of second element to swap with
-    */
-
-  def swap[T](i: Int, j: Int): Unit = {
-    val tmp = seq(i)
-    seq(i) = seq(j)
-    seq(j) = tmp
-  }
-}
-
 extension [A, CC[_], C](seq: IndexedSeqOps[A, CC, C]) {
 
   /** Performs an exponential search on an indexed sequence, so one can perform
