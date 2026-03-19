@@ -33,7 +33,7 @@ trait Parser[T, R] {
 
 /** Allows to use the Parser type from any DeriviativeParsers trait
   */
-trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
+trait DerivativeParserTools(val parsers: fcd.DerivativeParsers) {
   class WrappedParser[R](
       inner: parsers.Parser[R]
   ) extends Parser[parsers.Elem, parsers.Results[R]] {

@@ -41,7 +41,7 @@ trait Evaluator {
     * @return
     *   an evaluation result, depending on succession or failure
     */
-  def eval[T, R, G <: TokenGenerator[T]](p: Parser[T, R], g: G): EvalResult[R]
+  def eval[T, R](p: Parser[T, R], g: TokenGenerator[T]): EvalResult[R]
 }
 
 import pwd4llm.ParserState.*
@@ -54,9 +54,9 @@ object StackEvaluator extends Evaluator {
 
   import scala.collection.mutable.Stack
 
-  def eval[T, R, G <: TokenGenerator[T]](
+  def eval[T, R](
       p: Parser[T, R],
-      g: G
+      g: TokenGenerator[T]
   ): EvalResult[R] = {
     val history: Stack[Parser[T, R]] = Stack()
     val initial = p
@@ -123,9 +123,9 @@ object ScrapAllEvaluator extends Evaluator {
 
   import scala.collection.mutable.Stack
 
-  def eval[T, R, G <: TokenGenerator[T]](
+  def eval[T, R](
       p: Parser[T, R],
-      g: G
+      g: TokenGenerator[T]
   ): EvalResult[R] = {
     val history: Stack[T] = Stack()
     val initial = p
@@ -189,9 +189,9 @@ object RememberActionEvaluator extends Evaluator {
 
   import scala.collection.mutable.Stack
 
-  def eval[T, R, G <: TokenGenerator[T]](
+  def eval[T, R](
       p: Parser[T, R],
-      g: G
+      g: TokenGenerator[T]
   ): EvalResult[R] = {
     val parser_history: Stack[(Int, Parser[T, R])] = Stack()
     val token_history: Stack[T] = Stack()
