@@ -73,6 +73,7 @@ object PCF {
       level1
     }
 
+    val fix: Parser[Char] = alt('&', 'Υ') | '⥁'
     val lambda: Parser[Char] = alt('\\', 'λ')
     val id_name: Parser[String] =
       alt("_", some(acceptIf(x => 'a' <= x && x <= 'z')))
@@ -87,10 +88,12 @@ object PCF {
     lazy val app = (level1 <~ ' ') ~ level0 ^^ { case (x, y) => App(x, y) }
     lazy val succ = alt('S', '↑') ~> level0 ^^ { Succ(_) }
     lazy val pred = alt('P', '↓') ~> level0 ^^ { Pred(_) }
+    lazy val fixpoint = fix ~> level0 ^^ { Fix(_) }
     lazy val level3: NT[Expr] = abs | level2
     lazy val level2: NT[Expr] = iet | level1
     lazy val level1: NT[Expr] = app | level0
-    lazy val level0: NT[Expr] = id | zero | succ | pred | '(' ~> level3 <~ ')'
+    lazy val level0: NT[Expr] =
+      id | zero | succ | pred | fixpoint | '(' ~> level3 <~ ')'
     level3
   }
 
@@ -173,7 +176,7 @@ object PCF {
   import scala.util.Random
 
   private val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.',
-    '?', '~', ' ', '_', '↑', '↓', '0')
+    '?', '~', ' ', '_', '↑', '↓', '0', '⥁')
 
   private def newMarkovChain() = {
     val tmp = MarkovChain(token_list)
@@ -244,10 +247,11 @@ object PCF {
     }
     {
       val allowed = ArraySeq('↑', '↓', '0', '_', '(')
-      val i = tmp.indexForToken(' ')
-      for t <- token_list.iterator.filter(!allowed.contains(_)) do {
-        val j = tmp.indexForToken(t)
-        tmp.matrix(tmp.matrixIndex(i, j)) = 0
+      for i <- Iterator(' ', '⥁').map(tmp.indexForToken) do {
+        for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+          val j = tmp.indexForToken(t)
+          tmp.matrix(tmp.matrixIndex(i, j)) = 0
+        }
       }
     }
     tmp
