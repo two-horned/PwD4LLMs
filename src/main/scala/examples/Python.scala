@@ -8,10 +8,11 @@ import fcd.PythonParsers
 import PythonParsers.*
 import Lexeme.*
 
+import scala.language.implicitConversions
+import scala.collection.immutable.ArraySeq
 import scala.util.Random
 
-private val TOKEN_LIST =
-  Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
+private val token_list: ArraySeq[Lexeme] = ArraySeq(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
 
 /** The tools for the PythonParsers object.
   */
@@ -21,7 +22,7 @@ class DFS_PythonTG extends DFS_TG[Lexeme] {
   private val random = new Random()
 
   private def node(): Node[Lexeme] =
-    Node(random.shuffle(TOKEN_LIST).view.map(x => (x, () => node())).iterator)
+    Node(random.shuffle(token_list).view.map(x => (x, () => node())).iterator)
 
   def seed() = Node(Iterator((Id("xyz"), () => node())))
 }
@@ -30,27 +31,24 @@ class BFS_PythonTG extends BFS_TG[Lexeme] {
   private val random = new Random()
 
   private def node(): Node[Lexeme] =
-    Node(random.shuffle(TOKEN_LIST).view.map(x => (x, () => node())).iterator)
+    Node(random.shuffle(token_list).view.map(x => (x, () => node())).iterator)
 
   def seed() = Node(Iterator((Id("xyz"), () => node())))
 }
 
 class RandoPythonTokenGen extends TokenGenerator[Lexeme] {
-  private val MAX_TOKENS = 30
-  private val BIAS = 10
+  private val max_tokens = 30
+  private val bias = 10
 
   private var random = new Random
   private var token_length = 0
   private var last_state = Pending
 
-  private var token_list =
-    Array(Id("xyz"), WS, NL, Punct("="), Punct("+"), Punct("*"), EOS)
-
   def suggest(): GeneratorAction[Lexeme] = {
     last_state match {
       case Failed => {
         if 0 == random.nextInt(
-            MAX_TOKENS - scala.math.min(MAX_TOKENS, token_length)
+            max_tokens - scala.math.min(max_tokens, token_length)
           )
         then {
           token_length = 0
@@ -62,7 +60,7 @@ class RandoPythonTokenGen extends TokenGenerator[Lexeme] {
       }
       case Accepting => {
         if 0 == random.nextInt(
-            MAX_TOKENS - scala.math.min(MAX_TOKENS - BIAS, token_length)
+            max_tokens - scala.math.min(max_tokens - bias, token_length)
           )
         then Finish()
         else {
@@ -72,7 +70,7 @@ class RandoPythonTokenGen extends TokenGenerator[Lexeme] {
       }
       case Pending => {
         if 0 == random.nextInt(
-            MAX_TOKENS - scala.math.min(MAX_TOKENS, token_length)
+            max_tokens - scala.math.min(max_tokens, token_length)
           )
         then {
           token_length = 0
