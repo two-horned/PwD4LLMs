@@ -20,10 +20,10 @@ enum ParserState {
 import ParserState.*
 
 /** Basic trait that denotes what a parser is.
-  * @tparameter
-  *   T is the token type
-  * @tparameter
-  *   R is the type of the results
+  * @tparam T
+  *   is the token type
+  * @tparam R
+  *   is the type of the results
   */
 trait Parser[T, R] {
   def feed(t: T): Parser[T, R]

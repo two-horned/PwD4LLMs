@@ -4,8 +4,8 @@ package pwd4llm
   * an Evaluator and applied such that a new and correct parser state
   * correlating to the then produced token input is yielded.
   *
-  * @tparameter
-  *   T is type of the tokens the TokenGenerator generates
+  * @tparam T
+  *   is type of the tokens the TokenGenerator generates
   */
 enum GeneratorAction[Token] {
 
@@ -68,8 +68,8 @@ import GeneratorAction.*
 
 /** Basic trait that denotes what a token generator is.
   *
-  * @tparameter
-  *   T is the type of the tokens it may generate
+  * @tparam T
+  *   is the type of the tokens it may generate
   */
 import pwd4llm.ParserState.*
 
@@ -91,8 +91,8 @@ trait TokenGenerator[T] {
 /** An abstract node or vertice in a search tree that connects to other nodes or
   * vertices via tokens.
   *
-  * @tparameter
-  *   T is the type of the tokens the edges require
+  * @tparam T
+  *   is the type of the tokens the edges require
   *
   * @param neighbors
   *   is an iterator that lists all the neighbors
@@ -102,8 +102,8 @@ case class Node[T](neighbors: Iterator[(T, () => Node[T])])
 /** A token generator that traverses a search tree defined by a seed Node in DFS
   * fashion.
   *
-  * @tparameter
-  *   T is type of the tokens it generates
+  * @tparam T
+  *   is type of the tokens it generates
   */
 abstract class DFS_TG[T] extends TokenGenerator[T] {
   import scala.collection.mutable.Stack
@@ -144,8 +144,8 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
 /** A token generator that traverses a search tree defined by a seed Node in BFS
   * fashion.
   *
-  * @tparameter
-  *   T is type of the tokens it generates
+  * @tparam T
+  *   is type of the tokens it generates
   */
 abstract class BFS_TG[T] extends TokenGenerator[T] {
   import scala.collection.mutable.Queue
