@@ -114,26 +114,16 @@ extension (r: Random) {
   * @param tokens
   *   the tokens it should handle
   */
-class MarkovChain[T](tokens: IndexedSeq[T], rand: Random = Random()) {
-  final def tokenAtIndex(index: Int) = tokens(index)
-  final def indexForToken(token: T) = mapTokenToIndex(token)
-  private val size = tokens.length
-  private val initial: Array[Int] = Array.fill(size)(1)
-  private val matrix: Array[Int] = Array.fill(size * size)(1)
+final class MarkovChain[T](tokens: IndexedSeq[T], rand: Random = Random()) {
+  val size = tokens.length
+  val initial: Array[Int] = Array.fill(size)(1)
+  val matrix: Array[Int] = Array.fill(size * size)(1)
   private val mapTokenToIndex: Map[T, Int] =
     tokens.iterator.zip(0 until size).toMap
 
-  def setWeight(x: Int, y: Int, w: Int): Unit = {
-    matrix(x * size + y) = w
-  }
-
-  def getWeight(x: Int, y: Int): Int = matrix(x * size + y)
-
-  def setWeightInitial(x: Int, w: Int): Unit = {
-    initial(x) = w
-  }
-
-  def getWeightInitial(x: Int): Int = initial(x)
+  def tokenAtIndex(index: Int) = tokens(index)
+  def indexForToken(token: T) = mapTokenToIndex(token)
+  def matrixIndex(x: Int, y: Int): Int = x * size + y
 
   private def node(x: Int): Node[T] =
     Node(rand

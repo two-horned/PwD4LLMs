@@ -1,7 +1,8 @@
 package pwd4llm.examples
 
-import scala.language.implicitConversions
 import fcd.DerivativeParsers.*
+import scala.language.implicitConversions
+import scala.collection.immutable.ArraySeq
 
 object PCF {
   enum Expr {
@@ -73,7 +74,8 @@ object PCF {
     }
 
     val lambda: Parser[Char] = alt('\\', 'λ')
-    val id_name: Parser[String] = alt("_", some(acceptIf(x => x <= 'a' && x >= 'z')))
+    val id_name: Parser[String] =
+      alt("_", some(acceptIf(x => x <= 'a' && x >= 'z')))
     val id = id_name ^^ { Id(_) }
     val zero = '0' ^^^ Zero
     lazy val abs = (lambda ~> id_name <~ ':') ~ (typ <~ '.') ~ level3 ^^ {
@@ -167,27 +169,45 @@ object PCF {
   }
 
   import pwd4llm.*
+  import internal.*
   import scala.util.Random
 
-  val TOKEN_LIST =
-    Array('λ', 'ℕ', '→', '(', ')', ':', '.', '?', '~', ' ', 'x', '↑', '↓', '0')
-  val START_TOKEN_LIST = Array('λ', 'ℕ', '(', 'x', '↑', '↓', '0')
-
   private val random = new Random()
-  private def node(): Node[Char] =
-    Node(random.shuffle(TOKEN_LIST).view.map(x => (x, () => node())).iterator)
-  private def rand_seed() = Node(random
-      .shuffle(START_TOKEN_LIST)
-      .view
-      .map(x => (x, () => node()))
-      .iterator)
+  private val token_list = ArraySeq('λ', 'ℕ', '→', '(', ')', ':', '.', '?', '~',
+    ' ', '_', '↑', '↓', '0')
+  private val start_token_list = ArraySeq('(', 'λ', '_', '↑', '↓', '0')
+  private val not_start_token_list =
+    ArraySeq(')', 'ℕ', '→', ':', '.', '?', '~', ' ')
+
+  val markov_chain = {
+    val tmp = MarkovChain(token_list)
+    for t <- not_start_token_list do {
+      val i = tmp.indexForToken(t)
+      tmp.initial(i) = 0
+    }
+    tmp
+  }
+
+  def updateMarkovChain(validInput: String): Unit = {
+    val chars = validInput.iterator
+    var last = 0
+    for c <- chars.nextOption() do {
+      val i = markov_chain.indexForToken(c)
+      markov_chain.initial(i) += 1
+      last = i
+    }
+    for c <- chars do {
+      val i = markov_chain.indexForToken(c)
+      markov_chain.matrix(markov_chain.matrixIndex(last, i)) += 1
+      last = i
+    }
+  }
 
   class DFS_PCF_TG extends DFS_TG[Char] {
-    def seed() = rand_seed()
+    def seed() = markov_chain.seed()
   }
 
   class BFS_PCF_TG extends BFS_TG[Char] {
-    def seed() = rand_seed()
+    def seed() = markov_chain.seed()
   }
-
 }
