@@ -182,10 +182,9 @@ object PCF {
   import internal.*
   import scala.util.Random
 
-  private val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.',
-    '?', '~', ' ', '_', '↑', '↓', '0', '⥁')
-
   private def newMarkovChain() = {
+    val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.', '?',
+      '~', ' ', '_', '↑', '↓', '0', '⥁')
     val tmp = MarkovChain(token_list)
     // set weights to zero for certain not-possible transitions
     val not_start_token =
@@ -201,12 +200,19 @@ object PCF {
       }
     }
     {
-      val allowed = ArraySeq('↑', '↓', '0', '_')
-      for i <- Iterator('↑', '↓').map(tmp.indexForToken) do {
-        for t <- token_list.iterator.filter(!allowed.contains(_)) do {
-          val j = tmp.indexForToken(t)
-          tmp.matrix(tmp.matrixIndex(i, j)) = 0
-        }
+      val allowed = ArraySeq('↑', '0', '_')
+      val i = tmp.indexForToken('↑')
+      for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
+      }
+    }
+    {
+      val allowed = ArraySeq('↓', '0', '_')
+      val i = tmp.indexForToken('↓')
+      for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
       }
     }
     {
@@ -254,11 +260,18 @@ object PCF {
     }
     {
       val allowed = ArraySeq('↑', '↓', '0', '_', '(')
-      for i <- Iterator(' ', '⥁').map(tmp.indexForToken) do {
-        for t <- token_list.iterator.filter(!allowed.contains(_)) do {
-          val j = tmp.indexForToken(t)
-          tmp.matrix(tmp.matrixIndex(i, j)) = 0
-        }
+      val i = tmp.indexForToken(' ')
+      for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
+      }
+    }
+    {
+      val allowed = ArraySeq('_', '(')
+      val i = tmp.indexForToken('⥁')
+      for t <- token_list.iterator.filter(!allowed.contains(_)) do {
+        val j = tmp.indexForToken(t)
+        tmp.matrix(tmp.matrixIndex(i, j)) = 0
       }
     }
     tmp
