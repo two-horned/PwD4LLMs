@@ -62,6 +62,13 @@ object PCF {
 
   /** A very simple parser for PCF-expressions, that expects a very strict
     * format.
+    *
+    * Example parse:
+    *
+    * > parse(strict_expr, "⥁(λrec:ℕ→ℕ.λx:ℕ.x?↑0~mul x (rec ↓x))")
+    *
+    * > val res0: List[pwd4llm.examples.PCF.Expr] =
+    * List(Fix(Abs(rec,Fun(Nat,Nat),Abs(x,Nat,IfThenElse(Id(x),Succ(Zero),App(App(Id(mul),Id(x)),App(Id(rec),Pred(Id(x)))))))))
     */
   val strict_expr: Parser[Expr] = {
     val typ: Parser[Type] = {
