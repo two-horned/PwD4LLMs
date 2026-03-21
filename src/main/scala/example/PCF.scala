@@ -179,17 +179,6 @@ val expr = {
   stripComments(stripWS(strict_expr))
 }
 
-def verbosifiedExpr(repetitions: Int): DParser[Expr] = {
-  if repetitions <= 0 then return strict_expr
-
-  def go[T](p: DParser[T], count: Int = 0, char: Char = 0): DParser[T] = {
-    if count == 0 then return done(p) | eat(c => go(p << c, repetitions, c))
-    eat(c => go(p, count - 1, char))
-  }
-
-  go(strict_expr)
-}
-
 private def newMarkovChain() = {
   val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.', '?',
     '~', ' ', '_', '↑', '↓', '0', '⥁')

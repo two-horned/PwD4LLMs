@@ -1,7 +1,6 @@
 package pwd4llm.internal
 
 import pwd4llm.*
-
 import scala.collection.IndexedSeqOps
 
 import scala.collection.mutable.{

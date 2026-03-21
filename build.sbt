@@ -25,6 +25,11 @@ lazy val root = project
     javaOptions ++= Seq(
       "-Xms1G",
       "-Xmx4G",
-      "-XX:+UseG1GC"
+      "-XX:+UseG1GC",
+    ),
+    javaOptions ++= Seq(
+      "-XX:+FlightRecorder",
+      "-XX:StartFlightRecording=filename=recording.jfr,settings=profile,dumponexit=true",
+      "-XX:FlightRecorderOptions=stackdepth=256"
     )
   )

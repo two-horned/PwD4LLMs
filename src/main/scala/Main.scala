@@ -1,5 +1,6 @@
 import pwd4llm.*
 import example.pcf.*
+import util.verbosify
 import fcd.DerivativeParsers.*
 import DerivativeParsersTools.*
 import EvalResult.*
@@ -11,8 +12,8 @@ import scala.language.implicitConversions
 
 val logger = Logger(LoggerFactory.getLogger(this.getClass.getSimpleName))
 
-val repetitions = 99
-val verbose_language = verbosifiedExpr(repetitions)
+val repetitions = 19
+val verbose_language = verbosify(strict_expr, repetitions)
 def newTG(): TokenGenerator[Char] = new DFS_PCF_VERBOSE_TG(repetitions)
 
 def useParserOutput(output: List[(String, Expr)]) = {
@@ -25,14 +26,14 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
 @main def main() = {
 
   val train_commands: List[EvaluationCommand] = List(
-    EvaluationCommand(5, 7, 50000),
-    EvaluationCommand(7, 9, 10000),
-    EvaluationCommand(9, 11, 1000)
+    EvaluationCommand(5, 7, 5000),
+    EvaluationCommand(7, 9, 1000),
+    EvaluationCommand(9, 11, 100)
   )
   {
     import StackEvaluator.eval
     for command <- train_commands do {
-      logger.info("Traning on cmd {}", command);
+      logger.info("Training on cmd {}", command);
 
       for _ <- 0 until command.iterations do {
 
@@ -41,13 +42,13 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
         val p = WrappedParser(at_least_at_most & strict_expr)
         val g = new DFS_PCF_TG
         eval(p, g) match {
-          case Success(r) => useParserOutput(r)
+          case Success(r) => useParserOutput(r())
           case _          => logger.warn("One evaluation failed")
         }
       }
     }
   }
-  val command = EvaluationCommand(900, 1000, 10)
+  val command = EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 1)
   logger.info("Time of \"pretrained\" stack evaluator and cmd {}", command);
   time {
     import StackEvaluator.eval
