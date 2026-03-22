@@ -1,5 +1,7 @@
 package pwd4llm
 
+import scala.annotation.tailrec
+
 /** Denotes whether an evaluator is successful or not.
   */
 enum EvalResult[R] {
@@ -69,6 +71,7 @@ object StackEvaluator extends Evaluator {
     def feedAll(p: Parser[T, R], ts: Iterator[T]) =
       ts.foldLeft(p)((p, t) => feed(p, t))
 
+    @tailrec
     def go(p: Parser[T, R]): EvalResult[R] = {
       g.receiveFeedback(p.state)
       val a = g.suggest()
@@ -141,6 +144,7 @@ object ScrapAllEvaluator extends Evaluator {
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
       ts.iterator.foldLeft(p)((p, t) => p.feed(t)) // does not modify stack
 
+    @tailrec
     def go(p: Parser[T, R]): EvalResult[R] = {
       g.receiveFeedback(p.state)
       val a = g.suggest()
@@ -252,6 +256,7 @@ object RememberActionEvaluator extends Evaluator {
       y
     }
 
+    @tailrec
     def go(p: Parser[T, R]): EvalResult[R] = {
       g.receiveFeedback(p.state)
       val a = g.suggest()
