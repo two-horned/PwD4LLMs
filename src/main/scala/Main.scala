@@ -30,15 +30,14 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
     EvaluationCommand(7, 9, 1000),
     EvaluationCommand(9, 11, 100)
   )
+
   {
     import StackEvaluator.eval
     for command <- train_commands do {
+      val at_least_at_most: fcd.DerivativeParsers.Parser[String] =
+        not(atMost(command.least, any)) &> atMost(command.most, any)
       logger.info("Training on cmd {}", command);
-
       for _ <- 0 until command.iterations do {
-
-        val at_least_at_most: fcd.DerivativeParsers.Parser[String] =
-          not(atMost(command.least, any)) &> atMost(command.most, any)
         val p = WrappedParser(at_least_at_most & strict_expr)
         val g = new DFS_PCF_TG
         eval(p, g) match {
@@ -48,86 +47,45 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
       }
     }
   }
-  val command = EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 1)
-  logger.info("Time of \"pretrained\" stack evaluator and cmd {}", command);
-  time {
-    import StackEvaluator.eval
-    for _ <- 0 until command.iterations do {
-      val at_least_at_most: DParser[String] =
-        not(atMost(command.least, any)) &> atMost(command.most, any)
-      val p = WrappedParser(at_least_at_most & verbose_language)
-      eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded")
-        case Failure(r) => logger.warn("One evaluation failed with {}", r)
-        case CriticalFailure() => logger.warn("One evaluation critically failed")
+
+  val command =
+    EvaluationCommand((1 + repetitions) * 7, (1 + repetitions) * 9, 10)
+  val at_least_at_most: DParser[String] =
+    not(atMost(command.least, any)) &> atMost(command.most, any)
+  val evaluators =
+    Array(StackEvaluator, ScrapAllEvaluator, RememberActionEvaluator)
+  for e <- evaluators do {
+    logger.info("Time of \"pretrained\" {} and cmd {}",
+      e.getClass.getSimpleName, command);
+    time {
+      import e.eval
+      for _ <- 0 until command.iterations do {
+        val p = WrappedParser(at_least_at_most & verbose_language)
+        eval(p, newTG()) match {
+          case Success(r) => logger.info("Evaluation succeeded")
+          case Failure(r) => logger.warn("One evaluation failed with {}", r)
+          case CriticalFailure() =>
+            logger.warn("One evaluation critically failed")
+        }
       }
     }
   }
-  logger.info("Time of \"pretrained\" scrap all evaluator and cmd {}", command);
-  time {
-    import ScrapAllEvaluator.eval
-    for _ <- 0 until command.iterations do {
-      val at_least_at_most: DParser[String] =
-        not(atMost(command.least, any)) &> atMost(command.most, any)
-      val p = WrappedParser(at_least_at_most & verbose_language)
-      eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded")
-        case _          => logger.warn("One evaluation failed")
-      }
-    }
-  }
-  logger.info("Time of \"pretrained\" remember action evaluator and cmd {}",
-    command);
-  time {
-    import ScrapAllEvaluator.eval
-    for _ <- 0 until command.iterations do {
-      val at_least_at_most: DParser[String] =
-        not(atMost(command.least, any)) &> atMost(command.most, any)
-      val p = WrappedParser(at_least_at_most & verbose_language)
-      eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded")
-        case _          => logger.warn("One evaluation failed")
-      }
-    }
-  }
+
   resetMarkovChain()
-  logger.info("Time of \"untrained\" stack evaluator and cmd {}", command);
-  time {
-    import StackEvaluator.eval
-    for _ <- 0 until command.iterations do {
-      val at_least_at_most: DParser[String] =
-        not(atMost(command.least, any)) &> atMost(command.most, any)
-      val p = WrappedParser(at_least_at_most & verbose_language)
-      eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded")
-        case _          => logger.warn("One evaluation failed")
-      }
-    }
-  }
-  logger.info("Time of \"untrained\" scrap all evaluator and cmd {}", command);
-  time {
-    import ScrapAllEvaluator.eval
-    for _ <- 0 until command.iterations do {
-      val at_least_at_most: DParser[String] =
-        not(atMost(command.least, any)) &> atMost(command.most, any)
-      val p = WrappedParser(at_least_at_most & verbose_language)
-      eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded")
-        case _          => logger.warn("One evaluation failed")
-      }
-    }
-  }
-  logger.info("Time of \"untrained\" remember action evaluator and cmd {}",
-    command);
-  time {
-    import ScrapAllEvaluator.eval
-    for _ <- 0 until command.iterations do {
-      val at_least_at_most: DParser[String] =
-        not(atMost(command.least, any)) &> atMost(command.most, any)
-      val p = WrappedParser(at_least_at_most & verbose_language)
-      eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded")
-        case _          => logger.warn("One evaluation failed")
+
+  for e <- evaluators do {
+    logger.info("Time of \"untrained\" {} and cmd {}", e.getClass.getSimpleName,
+      command);
+    time {
+      import e.eval
+      for _ <- 0 until command.iterations do {
+        val p = WrappedParser(at_least_at_most & verbose_language)
+        eval(p, newTG()) match {
+          case Success(r) => logger.info("Evaluation succeeded")
+          case Failure(r) => logger.warn("One evaluation failed with {}", r)
+          case CriticalFailure() =>
+            logger.warn("One evaluation critically failed")
+        }
       }
     }
   }
