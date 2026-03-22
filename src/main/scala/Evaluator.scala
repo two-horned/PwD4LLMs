@@ -142,7 +142,7 @@ object ScrapAllEvaluator extends Evaluator {
       ts.foldLeft(p)((p, t) => feed(p, t))
 
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
-      ts.iterator.foldLeft(p)((p, t) => p.feed(t)) // does not modify stack
+      ts.foldLeft(p)((p, t) => p.feed(t)) // does not modify stack
 
     @tailrec
     def go(p: Parser[T, R]): EvalResult[R] = {
@@ -214,9 +214,9 @@ object RememberActionEvaluator extends Evaluator {
 
       for t <- ts do {
         token_history.push(lst)
+        cur = cur.feed(t)
         len += 1
         lst = t
-        cur = cur.feed(t)
       }
 
       parser_history.push((len, p))
@@ -225,33 +225,37 @@ object RememberActionEvaluator extends Evaluator {
     }
 
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
-      ts.iterator.foldLeft(p)((p, t) => p.feed(t))
+      ts.foldLeft(p)((p, t) => p.feed(t))
 
     // Build the parser state correlating to deleting one token
     def pop(): Parser[T, R] = {
       val (n, x) = parser_history.pop()
       val diff = n - 1
+
       if diff == 0 then return x
-      val y = pureFeedAll(x, token_history.iterator.take(diff))
-      token_history.dropInPlace(diff)
+
+      val y = pureFeedAll(x, token_history.view.take(diff).reverseIterator)
+      token_history.pop()
       parser_history.push((diff, y))
       y
     }
 
     // Build the parser state correlating to deleting >1 tokens
+    @tailrec
     def dropLast(m: Int): Parser[T, R] = {
-      var k = m
-      var cur = parser_history.pop()
-      while cur._1 < k do {
-        k -= cur._1
-        cur = parser_history.pop()
+      val (n, x) = parser_history.pop()
+      val diff = n - m
+
+      if diff < 0 then {
+        token_history.dropInPlace(n - 1)
+        return dropLast(m - n)
+      } else if diff == 0 then {
+        token_history.dropInPlace(n - 1)
+        return x
       }
 
-      val (n, x) = cur
-      val diff = n - k
-      if diff == 0 then return x
-      val y = pureFeedAll(x, token_history.iterator.take(diff))
-      token_history.dropInPlace(diff)
+      val y = pureFeedAll(x, token_history.view.take(diff).reverseIterator)
+      token_history.dropInPlace(m)
       parser_history.push((diff, y))
       y
     }
@@ -267,7 +271,7 @@ object RememberActionEvaluator extends Evaluator {
         case DropLast(n) => {
           val x =
             try dropLast(n)
-            catch case _ => return CriticalFailure()
+            catch case _ => initial
           go(x)
         }
         case DeleteLast() => {
