@@ -36,7 +36,7 @@ trait Parser[T, R] {
 trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
   class WrappedParser[R](
       inner: parsers.Parser[R]
-  ) extends Parser[parsers.Elem, parsers.Results[R]] {
+  ) extends Parser[parsers.Elem, Iterable[R]] {
     def feed(t: parsers.Elem) = WrappedParser(inner.consume(t))
     def results = inner.results
     def state =

@@ -9,6 +9,7 @@ import com.typesafe.scalalogging.Logger
 import org.slf4j.LoggerFactory
 
 import scala.language.implicitConversions
+import scala.collection.immutable.ArraySeq
 
 val logger = Logger(LoggerFactory.getLogger(this.getClass.getSimpleName))
 
@@ -16,7 +17,7 @@ val repetitions = 19
 val verbose_language = verbosify(strict_expr, repetitions)
 def newTG(): TokenGenerator[Char] = new DFS_PCF_VERBOSE_TG(repetitions)
 
-def useParserOutput(output: List[(String, Expr)]) = {
+def useParserOutput(output: ArraySeq[(String, Expr)]) = {
   require(output.length == 1) // grammar is deterministic
   for case (input, expr) <- output do updateMarkovChain(input)
 }
@@ -41,7 +42,7 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
         val p = WrappedParser(at_least_at_most & strict_expr)
         val g = new DFS_PCF_TG
         eval(p, g) match {
-          case Success(r) => useParserOutput(r())
+          case Success(r) => useParserOutput(ArraySeq.from(r()))
           case _          => logger.warn("One evaluation failed")
         }
       }
@@ -49,7 +50,7 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
   }
 
   val command =
-    EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 1)
+    EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 10)
   val at_least_at_most: DParser[String] =
     not(atMost(command.least, any)) &> atMost(command.most, any)
   val evaluators =
@@ -62,8 +63,8 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
       for _ <- 0 until command.iterations do {
         val p = WrappedParser(at_least_at_most & verbose_language)
         eval(p, newTG()) match {
-          case Success(r) => logger.info("Evaluation succeeded")
-          case Failure(r) => logger.warn("One evaluation failed with {}", r)
+          case Success(r) => logger.info("Evaluation succeeded with {}.", r())
+          case Failure(r) => logger.warn("One evaluation failed with {}.", r())
           case CriticalFailure() =>
             logger.warn("One evaluation critically failed")
         }
@@ -81,8 +82,8 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
       for _ <- 0 until command.iterations do {
         val p = WrappedParser(at_least_at_most & verbose_language)
         eval(p, newTG()) match {
-          case Success(r) => logger.info("Evaluation succeeded")
-          case Failure(r) => logger.warn("One evaluation failed with {}", r)
+          case Success(r) => logger.info("Evaluation succeeded with {}.", r())
+          case Failure(r) => logger.warn("One evaluation failed with {}.", r())
           case CriticalFailure() =>
             logger.warn("One evaluation critically failed")
         }
