@@ -25,7 +25,7 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
 
 @main def main() = {
 
-  val train_commands: List[EvaluationCommand] = List(
+  val train_commands: Array[EvaluationCommand] = Array(
     EvaluationCommand(5, 7, 5000),
     EvaluationCommand(7, 9, 1000),
     EvaluationCommand(9, 11, 100)
@@ -49,7 +49,7 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
   }
 
   val command =
-    EvaluationCommand((1 + repetitions) * 7, (1 + repetitions) * 9, 10)
+    EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 1)
   val at_least_at_most: DParser[String] =
     not(atMost(command.least, any)) &> atMost(command.most, any)
   val evaluators =

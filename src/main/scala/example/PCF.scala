@@ -7,6 +7,8 @@ import scala.language.implicitConversions
 import scala.collection.immutable.ArraySeq
 import scala.util.Random
 
+import scala.collection.immutable.Map
+
 enum Expr {
   case Zero
   case Id(name: String)
