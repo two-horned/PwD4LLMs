@@ -181,7 +181,7 @@ val expr = {
   stripComments(stripWS(strict_expr))
 }
 
-private def newMarkovChain() = {
+def preparedMarkovChain = {
   val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.', '?',
     '~', ' ', '_', '↑', '↓', '0', '⥁')
   val tmp = MarkovChain(token_list)
@@ -275,12 +275,11 @@ private def newMarkovChain() = {
   }
   tmp
 }
-var markov_chain = newMarkovChain()
-def resetMarkovChain(): Unit = {
-  markov_chain = newMarkovChain()
-}
 
-def updateMarkovChain(validInput: String): Unit = {
+def updateMarkovChain(
+    markov_chain: MarkovChain[Char],
+    validInput: String
+): Unit = {
   val chars = validInput.iterator
   var last = 0
   for c <- chars.nextOption() do {
@@ -295,13 +294,16 @@ def updateMarkovChain(validInput: String): Unit = {
   }
 }
 
-final class DFS_PCF_TG extends DFS_TG[Char] {
+final class DFS_PCF_TG(markov_chain: MarkovChain[Char]) extends DFS_TG[Char] {
   def seed() = markov_chain.seed()
 }
 
-final class DFS_PCF_VERBOSE_TG(repetitions: Int) extends TokenGenerator[Char] {
+final class DFS_PCF_VERBOSE_TG(
+    repetitions: Int,
+    markov_chain: MarkovChain[Char]
+) extends TokenGenerator[Char] {
   import GeneratorAction.*
-  private val inner = new DFS_PCF_TG
+  private val inner = new DFS_PCF_TG(markov_chain)
 
   def suggest(): GeneratorAction[Char] = {
     inner.suggest() match {
@@ -316,6 +318,7 @@ final class DFS_PCF_VERBOSE_TG(repetitions: Int) extends TokenGenerator[Char] {
 
 }
 
-final class BFS_PCF_TG extends BFS_TG[Char] {
+final class BFS_PCF_TG(private val markov_chain: MarkovChain[Char])
+    extends BFS_TG[Char] {
   def seed() = markov_chain.seed()
 }

@@ -7,25 +7,31 @@ import EvalResult.*
 
 import com.typesafe.scalalogging.Logger
 import org.slf4j.LoggerFactory
-
 import scala.language.implicitConversions
-import scala.collection.immutable.ArraySeq
-
 val logger = Logger(LoggerFactory.getLogger(this.getClass.getSimpleName))
 
 val repetitions = 19
-val verbose_language = verbosify(strict_expr, repetitions)
-def newTG(): TokenGenerator[Char] = new DFS_PCF_VERBOSE_TG(repetitions)
+val language = strict_expr
+val verbose_language = verbosify(language, repetitions)
+var markov_chain = preparedMarkovChain
 
-def useParserOutput(output: ArraySeq[(String, Expr)]) = {
+def newTG(): TokenGenerator[Char] =
+  new DFS_PCF_TG(markov_chain)
+
+def newVerboseTG(): TokenGenerator[Char] =
+  new DFS_PCF_VERBOSE_TG(repetitions, markov_chain)
+
+def useParserOutput(output: List[(String, Expr)]) = {
   require(output.length == 1) // grammar is deterministic
-  for case (input, expr) <- output do updateMarkovChain(input)
+  for case (input, expr) <- output do updateMarkovChain(markov_chain, input)
 }
+
+def atLeastAtMost(least: Int, most: Int): DParser[String] =
+  not(atMost(least, any)) &> atMost(most, any)
 
 case class EvaluationCommand(least: Int, most: Int, iterations: Int)
 
 @main def main() = {
-
   val train_commands: Array[EvaluationCommand] = Array(
     EvaluationCommand(5, 7, 5000),
     EvaluationCommand(7, 9, 1000),
@@ -34,70 +40,49 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
 
   {
     import StackEvaluator.eval
-    for command <- train_commands do {
-      val at_least_at_most: fcd.DerivativeParsers.Parser[String] =
-        not(atMost(command.least, any)) &> atMost(command.most, any)
-      logger.info("Training on cmd {}", command);
-      for _ <- 0 until command.iterations do {
-        val p = WrappedParser(at_least_at_most & strict_expr)
-        val g = new DFS_PCF_TG
+    for cmd <- train_commands do {
+      logger.info("Training on cmd {}", cmd);
+      for _ <- 0 until cmd.iterations do {
+        val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & language)
+        val g = newTG()
         eval(p, g) match {
-          case Success(r) => useParserOutput(ArraySeq.from(r()))
+          case Success(r) => useParserOutput(List.from(r()))
           case _          => logger.warn("One evaluation failed")
         }
       }
     }
   }
 
-  val command =
-    EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 10)
-  val at_least_at_most: DParser[String] =
-    not(atMost(command.least, any)) &> atMost(command.most, any)
+  val cmd = EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 10)
+  val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & verbose_language)
+
   val evaluators =
     Array(StackEvaluator, ScrapAllEvaluator, RememberActionEvaluator)
   for e <- evaluators do {
     logger.info("Time of \"pretrained\" {} and cmd {}",
-      e.getClass.getSimpleName, command);
-    time {
-      import e.eval
-      for _ <- 0 until command.iterations do {
-        val p = WrappedParser(at_least_at_most & verbose_language)
-        eval(p, newTG()) match {
-          case Success(r) => logger.info("Evaluation succeeded with {}.", r())
-          case Failure(r) => logger.warn("One evaluation failed with {}.", r())
-          case CriticalFailure() =>
-            logger.warn("One evaluation critically failed")
-        }
+      e.getClass.getSimpleName, cmd);
+    for _ <- 0 until cmd.iterations do {
+      e.eval(p, newTG()) match {
+        case Success(r) => logger.info("Evaluation succeeded with {}.", r())
+        case Failure(r) => logger.warn("One evaluation failed with {}.", r())
+        case CriticalFailure() =>
+          logger.warn("One evaluation critically failed")
       }
     }
   }
 
-  resetMarkovChain()
+  markov_chain = preparedMarkovChain
 
   for e <- evaluators do {
     logger.info("Time of \"untrained\" {} and cmd {}", e.getClass.getSimpleName,
-      command);
-    time {
-      import e.eval
-      for _ <- 0 until command.iterations do {
-        val p = WrappedParser(at_least_at_most & verbose_language)
-        eval(p, newTG()) match {
-          case Success(r) => logger.info("Evaluation succeeded with {}.", r())
-          case Failure(r) => logger.warn("One evaluation failed with {}.", r())
-          case CriticalFailure() =>
-            logger.warn("One evaluation critically failed")
-        }
+      cmd);
+    for _ <- 0 until cmd.iterations do {
+      e.eval(p, newTG()) match {
+        case Success(r) => logger.info("Evaluation succeeded with {}.", r())
+        case Failure(r) => logger.warn("One evaluation failed with {}.", r())
+        case CriticalFailure() =>
+          logger.warn("One evaluation critically failed")
       }
     }
   }
-}
-
-def time[T](block: => T): T = {
-  val before = System.nanoTime
-  val result = block
-  val difference = System.nanoTime - before
-  if difference > 1000 then
-    logger.info("Elapsed time: " + difference / 1000000 + "ms")
-  else logger.info("Elapsed time: " + difference / 1000 + "µs")
-  result
 }
