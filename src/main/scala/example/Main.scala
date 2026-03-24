@@ -1,16 +1,19 @@
+package pwd4llm.example
+
+import pcf.*
+
 import pwd4llm.*
-import example.pcf.*
 import util.verbosify
-import fcd.DerivativeParsers.*
 import DerivativeParsersTools.*
 import EvalResult.*
+
+import fcd.DerivativeParsers.*
 
 import com.typesafe.scalalogging.Logger
 import org.slf4j.LoggerFactory
 import scala.language.implicitConversions
-val logger = Logger(LoggerFactory.getLogger(this.getClass.getSimpleName))
 
-import pl.project13.scala.sbt.JmhPlugin
+val logger = Logger(LoggerFactory.getLogger(this.getClass.getSimpleName))
 
 val repetitions = 19
 val language = strict_expr
