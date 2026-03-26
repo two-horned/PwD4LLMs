@@ -47,9 +47,11 @@ lazy val example = project
     publish / skip := true
   )
 
-lazy val benchmarks = project
+lazy val bench = project
   .in(file("bench"))
   .enablePlugins(JmhPlugin)
+  .dependsOn(library)
+  .dependsOn(example)
   .settings(
     name := "PwD4LLMs-benchmarks",
     Jmh / fork := true,
