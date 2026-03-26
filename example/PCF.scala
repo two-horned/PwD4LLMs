@@ -294,13 +294,14 @@ def updateMarkovChain(
   }
 }
 
-final class DFS_PCF_TG(markov_chain: MarkovChain[Char]) extends DFS_TG[Char] {
+final class DFS_PCF_TG(private val markov_chain: MarkovChain[Char])
+    extends DFS_TG[Char] {
   def seed() = markov_chain.seed()
 }
 
 final class DFS_PCF_VERBOSE_TG(
     repetitions: Int,
-    markov_chain: MarkovChain[Char]
+    private val markov_chain: MarkovChain[Char]
 ) extends TokenGenerator[Char] {
   import GeneratorAction.*
   private val inner = new DFS_PCF_TG(markov_chain)

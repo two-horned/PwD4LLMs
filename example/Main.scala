@@ -59,19 +59,21 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
   }
 
   val cmd = EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 10)
-  val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & verbose_language)
+  val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) &> verbose_language)
 
   val evaluators =
     Array(StackEvaluator, ScrapAllEvaluator, RememberActionEvaluator)
   for e <- evaluators do {
-    logger.info("Time of \"pretrained\" {} and cmd {}",
-      e.getClass.getSimpleName, cmd);
-    for _ <- 0 until cmd.iterations do {
-      e.eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded with {}.", r())
-        case Failure(r) => logger.warn("One evaluation failed with {}.", r())
-        case CriticalFailure() =>
-          logger.warn("One evaluation critically failed")
+    time {
+      logger.info("Time of \"pretrained\" {} and cmd {}",
+        e.getClass.getSimpleName, cmd);
+      for _ <- 0 until cmd.iterations do {
+        e.eval(p, newVerboseTG()) match {
+          case Success(r) => logger.info("Evaluation succeeded with {}.", r())
+          case Failure(r) => logger.warn("One evaluation failed with {}.", r())
+          case CriticalFailure() =>
+            logger.warn("One evaluation critically failed")
+        }
       }
     }
   }
@@ -79,15 +81,27 @@ case class EvaluationCommand(least: Int, most: Int, iterations: Int)
   markov_chain = preparedMarkovChain
 
   for e <- evaluators do {
-    logger.info("Time of \"untrained\" {} and cmd {}", e.getClass.getSimpleName,
-      cmd);
-    for _ <- 0 until cmd.iterations do {
-      e.eval(p, newTG()) match {
-        case Success(r) => logger.info("Evaluation succeeded with {}.", r())
-        case Failure(r) => logger.warn("One evaluation failed with {}.", r())
-        case CriticalFailure() =>
-          logger.warn("One evaluation critically failed")
+    time {
+      logger.info("Time of \"untrained\" {} and cmd {}",
+        e.getClass.getSimpleName, cmd);
+      for _ <- 0 until cmd.iterations do {
+        e.eval(p, newVerboseTG()) match {
+          case Success(r) => logger.info("Evaluation succeeded with {}.", r())
+          case Failure(r) => logger.warn("One evaluation failed with {}.", r())
+          case CriticalFailure() =>
+            logger.warn("One evaluation critically failed")
+        }
       }
     }
   }
+}
+
+def time[T](block: => T): T = {
+  val before = System.nanoTime
+  val result = block
+  val difference = System.nanoTime - before
+  if difference > 1000 then
+    logger.info("Elapsed time: " + difference / 1000000 + "ms")
+  else logger.info("Elapsed time: " + difference / 1000 + "µs")
+  result
 }
