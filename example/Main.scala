@@ -37,18 +37,18 @@ def atLeastAtMost(least: Int, most: Int): DParser[String] =
 case class EvaluationCommand(least: Int, most: Int, iterations: Int)
 
 @main def main() = {
-  val train_commands: Array[EvaluationCommand] = Array(
-    EvaluationCommand(5, 7, 5000),
-    EvaluationCommand(7, 9, 1000),
-    EvaluationCommand(9, 11, 100)
+  val train_commands = Array(
+    EvaluationCommand(5, 7, 16000),
+    EvaluationCommand(7, 9,  8000),
+    EvaluationCommand(9, 11, 4000)
   )
 
   {
     import StackEvaluator.eval
     for cmd <- train_commands do {
       logger.info("Training on cmd {}", cmd);
+      val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & language)
       for _ <- 0 until cmd.iterations do {
-        val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & language)
         val g = newTG()
         eval(p, g) match {
           case Success(r) => useParserOutput(List.from(r()))
