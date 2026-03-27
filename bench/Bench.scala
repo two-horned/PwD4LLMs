@@ -40,6 +40,26 @@ def useParserOutput(
 @BenchmarkMode(Array(Mode.AverageTime))
 class Bench {
 
+  import Bench.*
+
+  @Benchmark
+  def bmStackEvaluator(s: TrainedState.type) = {
+    StackEvaluator.eval(p, newVerboseTG(s.markov_chain))
+  }
+
+  @Benchmark
+  def bmScrapAllEvaluator(s: TrainedState.type) = {
+    ScrapAllEvaluator.eval(p, newVerboseTG(s.markov_chain))
+  }
+
+  @Benchmark
+  def bmRememberActionEvaluator(s: TrainedState.type) = {
+    RememberActionEvaluator.eval(p, newVerboseTG(s.markov_chain))
+  }
+}
+
+
+object Bench {
   @State(Scope.Benchmark)
   abstract class TrainState {
     var markov_chain: MarkovChain[Char] = null
@@ -74,20 +94,4 @@ class Bench {
       markov_chain = preparedMarkovChain
     }
   }
-
-  @Benchmark
-  def bmStackEvaluator(s: TrainState) = {
-    StackEvaluator.eval(p, newVerboseTG(s.markov_chain))
-  }
-
-  @Benchmark
-  def bmScrapAllEvaluator(s: TrainState) = {
-    ScrapAllEvaluator.eval(p, newVerboseTG(s.markov_chain))
-  }
-
-  @Benchmark
-  def bmRememberActionEvaluator(s: TrainState) = {
-    RememberActionEvaluator.eval(p, newVerboseTG(s.markov_chain))
-  }
-
 }
