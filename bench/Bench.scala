@@ -37,61 +37,62 @@ def useParserOutput(
   for case (input, expr) <- output do updateMarkovChain(markov_chain, input)
 }
 
-@BenchmarkMode(Array(Mode.AverageTime))
-class Bench {
 
-  import Bench.*
+@State(Scope.Benchmark)
+abstract class TrainState {
+  var markov_chain: MarkovChain[Char] = null
 
-  @Benchmark
-  def bmStackEvaluator(s: TrainedState.type) = {
-    StackEvaluator.eval(p, newVerboseTG(s.markov_chain))
-  }
+  def markovChain: MarkovChain[Char] = markov_chain
 
-  @Benchmark
-  def bmScrapAllEvaluator(s: TrainedState.type) = {
-    ScrapAllEvaluator.eval(p, newVerboseTG(s.markov_chain))
-  }
-
-  @Benchmark
-  def bmRememberActionEvaluator(s: TrainedState.type) = {
-    RememberActionEvaluator.eval(p, newVerboseTG(s.markov_chain))
-  }
+  @Setup(Level.Trial)
+  def prepare(): Unit
 }
 
-
-object Bench {
-  @State(Scope.Benchmark)
-  abstract class TrainState {
-    var markov_chain: MarkovChain[Char] = null
-    @Setup(Level.Trial)
-    def prepare(): Unit
-  }
-
-  object TrainedState extends TrainState {
-    def prepare(): Unit = {
-      markov_chain = preparedMarkovChain
-      val train_commands = Array(
-        EvaluationCommand(5, 7, 16000),
-        EvaluationCommand(7, 9, 8000),
-        EvaluationCommand(9, 11, 4000)
-      )
-      import StackEvaluator.eval
-      for cmd <- train_commands do {
-        val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & language)
-        for _ <- 0 until cmd.iterations do {
-          val g = newTG(markov_chain)
-          eval(p, g) match {
-            case Success(r) => useParserOutput(markov_chain, List.from(r()))
-            case _          => ()
-          }
+class TrainedState extends TrainState {
+  def prepare(): Unit = {
+    markov_chain = preparedMarkovChain
+    val train_commands = Array(
+      EvaluationCommand(5, 7, 16000),
+      EvaluationCommand(7, 9, 8000),
+      EvaluationCommand(9, 11, 4000)
+    )
+    import StackEvaluator.eval
+    for cmd <- train_commands do {
+      val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & language)
+      for _ <- 0 until cmd.iterations do {
+        val g = newTG(markov_chain)
+        eval(p, g) match {
+          case Success(r) => useParserOutput(markov_chain, List.from(r()))
+          case _          => ()
         }
       }
     }
   }
+}
 
-  object UntrainedState extends TrainState {
-    def prepare(): Unit = {
-      markov_chain = preparedMarkovChain
-    }
+class UntrainedState extends TrainState {
+  def prepare(): Unit = {
+    markov_chain = preparedMarkovChain
   }
 }
+
+@BenchmarkMode(Array(Mode.AverageTime))
+class Bench {
+
+  @Benchmark
+  def bmStackEvaluator(s: TrainedState) = {
+    StackEvaluator.eval(p, newVerboseTG(s.markovChain))
+  }
+
+  @Benchmark
+  def bmScrapAllEvaluator(s: TrainedState) = {
+    ScrapAllEvaluator.eval(p, newVerboseTG(s.markovChain))
+  }
+
+  @Benchmark
+  def bmRememberActionEvaluator(s: TrainedState) = {
+    RememberActionEvaluator.eval(p, newVerboseTG(s.markovChain))
+  }
+}
+
+
