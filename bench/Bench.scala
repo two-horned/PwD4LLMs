@@ -80,17 +80,32 @@ class UntrainedState extends TrainState {
 class Bench {
 
   @Benchmark
-  def bmStackEvaluator(s: TrainedState) = {
+  def untrainedStackEvaluator(s: UntrainedState) = {
     StackEvaluator.eval(p, newVerboseTG(s.markovChain))
   }
 
   @Benchmark
-  def bmScrapAllEvaluator(s: TrainedState) = {
+  def untrainedScrapAllEvaluator(s: UntrainedState) = {
     ScrapAllEvaluator.eval(p, newVerboseTG(s.markovChain))
   }
 
   @Benchmark
-  def bmRememberActionEvaluator(s: TrainedState) = {
+  def untrainedRememberActionEvaluator(s: UntrainedState) = {
+    RememberActionEvaluator.eval(p, newVerboseTG(s.markovChain))
+  }
+
+  @Benchmark
+  def trainedStackEvaluator(s: TrainedState) = {
+    StackEvaluator.eval(p, newVerboseTG(s.markovChain))
+  }
+
+  @Benchmark
+  def trainedScrapAllEvaluator(s: TrainedState) = {
+    ScrapAllEvaluator.eval(p, newVerboseTG(s.markovChain))
+  }
+
+  @Benchmark
+  def trainedRememberActionEvaluator(s: TrainedState) = {
     RememberActionEvaluator.eval(p, newVerboseTG(s.markovChain))
   }
 }
