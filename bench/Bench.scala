@@ -37,7 +37,6 @@ def useParserOutput(
   for case (input, expr) <- output do updateMarkovChain(markov_chain, input)
 }
 
-
 @State(Scope.Benchmark)
 abstract class TrainState {
   var markov_chain: MarkovChain[Char] = null
@@ -109,5 +108,3 @@ class Bench {
     RememberActionEvaluator.eval(p, newVerboseTG(s.markovChain))
   }
 }
-
-
