@@ -55,8 +55,5 @@ lazy val bench = project
   .settings(
     name := "PwD4LLMs-benchmarks",
     Jmh / fork := true,
-    Jmh / javaOptions ++= betterGC ++ Seq("-XX:+HeapDumpOnOutOfMemoryError",
-      "-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintCompilation")
+    Jmh / run / javaOptions ++= betterGC
   )
-
-addCommandAlias("bench", "benchmarks/jmh:run")
