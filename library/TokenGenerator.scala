@@ -184,3 +184,41 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
     case _         => ()
   }
 }
+
+/** A token generator that traverses a search tree defined by a seed Node. If a
+  * node is reached that does not allow an accepting future state, the search is
+  * being restarted by creating a new seed and going from there.
+  *
+  * @tparam T
+  *   is type of the tokens it generates
+  */
+abstract class RetryAll_TG[T] extends TokenGenerator[T] {
+  private var good = false
+  private var backtrack = false
+  private var current = seed()
+
+  def seed(): Node[T]
+
+  final def suggest() = {
+    if good then return Finish()
+
+    if backtrack then {
+      backtrack = false
+      return Reset()
+    }
+
+    current.neighbors.nextOption() match {
+      case None => return Reset()
+      case Some((t, n)) => {
+        current = n()
+        Append(t)
+      }
+    }
+  }
+
+  final def receiveFeedback(state: ParserState) = state match {
+    case Accepting => good = true
+    case Failed    => backtrack = true
+    case _         => ()
+  }
+}
