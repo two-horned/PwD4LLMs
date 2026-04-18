@@ -222,3 +222,32 @@ abstract class RetryAll_TG[T] extends TokenGenerator[T] {
     case _         => ()
   }
 }
+
+/** A token generator that just gives up finding for a solution.
+  *
+  * @tparam T
+  *   is type of the tokens it generates
+  */
+abstract class GiveUp_TG[T] extends TokenGenerator[T] {
+  private var finish = false
+  private var current = seed()
+
+  def seed(): Node[T]
+
+  final def suggest() = {
+    if finish then return Finish()
+
+    current.neighbors.nextOption() match {
+      case None => return Reset()
+      case Some((t, n)) => {
+        current = n()
+        Append(t)
+      }
+    }
+  }
+
+  final def receiveFeedback(state: ParserState) = state match {
+    case Accepting | Failed => finish = true
+    case _                  => ()
+  }
+}
