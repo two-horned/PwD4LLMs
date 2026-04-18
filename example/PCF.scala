@@ -4,7 +4,10 @@ import pwd4llm.*
 import internal.*
 import fcd.DerivativeParsers.*
 import scala.language.implicitConversions
+import scala.annotation.tailrec
+import scala.collection.Factory
 import scala.collection.immutable.ArraySeq
+import scala.collection.mutable.ArraySeq as MArraySeq
 import scala.util.Random
 
 import scala.collection.immutable.Map
@@ -107,6 +110,11 @@ val strict_expr: DParser[Expr] = {
   level3
 }
 
+/** Just like `strict_expr`, but has to end with the enter symbol (like an EOS
+  * symbol)
+  */
+val strict_expr_enter = strict_expr <~ '↩'
+
 /** A more user-friendly parser for PCF-expressions, that allows one-line
   * comments starting with `#` and allows inserting, replacing or omitting
   * arbritrary whitespace characters at any place, as long the resulting
@@ -180,6 +188,10 @@ val expr = {
 
   stripComments(stripWS(strict_expr))
 }
+
+/** Just like `expr`, but has to end with the enter symbol (like an EOS symbol)
+  */
+val expr_enter = strict_expr <~ '↩'
 
 def preparedMarkovChain = {
   val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.', '?',
@@ -294,14 +306,190 @@ def updateMarkovChain(
   }
 }
 
+/** Probabilistic Context Free Grammar for strict_expr */
+final class PCFG_Node(
+    context: List[Char | PCFG.Label],
+    typo_rate: Double,
+    rand: Random
+) {
 
+  import PCFG.*
 
+  val (head: Option[Char], tail: List[Char | Label]) = {
+
+    @tailrec
+    def go(ctx: List[Char | Label]): (Option[Char], List[Char | Label]) =
+      ctx match {
+        case (x: Char) :: xs  => (Some(x), xs)
+        case (x: Label) :: xs => go(nextProduct(rand, x) ++: xs)
+        case _                => (None, Nil)
+      }
+
+    go(context)
   }
+
+  private def child(ctx: List[Char | Label]): () => Node[Char] =
+    () => PCFG_Node(ctx, typo_rate, rand).node()
+
+  private def neighbors: Iterator[(Char, () => Node[Char])] = {
+    Iterator
+      .continually(
+        head match
+          case Some(h) => {
+            val r = rand.nextDouble()
+            // Typo mode
+            if r <= typo_rate then {
+              if tail != Nil then
+                rand.nextInt(4) match {
+                  case 0 => (h, child(h :: tail)) // Duplicate next
+                  case 1 => (h, child('$' :: tail)) // Add bogus next
+                  case 2 => ('%', child(tail)) // Replace with bogus
+                  case 3 => (h, child(tail.tail)) // Forget next label
+                }
+              else
+                rand.nextInt(3) match {
+                  case 0 => (h, child(h :: tail)) // Duplicate next
+                  case 1 => (h, child('$' :: tail)) // Add bogus next
+                  case 2 => ('%', child(tail)) // Replace with bogus
+                }
+            } else (h, child(tail))
+          }
+          case None => {
+            val r = rand.nextDouble()
+            // Typo mode
+            if r <= typo_rate then ('&', child(Nil)) // Not ending right
+            else ('↩', child(Nil)) // End-of-stream
+          }
+      )
+      .take(2) // for typo_rate=0.001 1 : 1M, there is no correct neighbor
+  }
+
+  def node(): Node[Char] = Node(neighbors)
 
 }
 
+def seedPCFG(
+    initial_budget: Int = 10,
+    typo_rate: Double = 0.01,
+    rand: Random = Random()
+) = {
+  PCFG_Node(List(PCFG.ExprLabel(initial_budget, rand)), typo_rate, rand).node()
 }
+
+object PCFG {
+  type Weight = Int
+  private val steps = 1
+  private val shift = 2
+
+  def nextProduct(rand: Random, label: Label): Iterable[Char | Label] = {
+    val it: Iterator[Iterable[Char | Label]] =
+      rand.weightedShuffle(label.productions)
+    return it.next
+  }
+
+  sealed trait Label {
+    def productions: Iterable[(Weight, Iterable[Char | Label])]
+  }
+
+  abstract class BudgetLabel(budget: Int, r: Random) extends Label {
+    import scala.math.{max, min}
+
+    def pies[C](pieces: Int, bc: Int)(using
+        ft: Factory[Int, C]
+    ): C = {
+      val bg = budget - bc
+      val builder = ft.newBuilder
+      builder.sizeHint(pieces)
+      if bg <= 0 then {
+        builder.addAll(Iterator.fill(pieces)(bg))
+        return builder.result
+      }
+      val arr = MArraySeq.fill(pieces - 1)(r.nextInt(bg))
+      arr.sortInPlace()
+      var n = 0
+      for k <- arr do {
+        builder.addOne(k - n)
+        n = k
+      }
+      builder.addOne(bg - n)
+      builder.result
+    }
+
+    def up(bias: Int): Int = {
+      val b = budget - shift
+      (b * max(b, 0) + steps) * bias
+    }
+
+    def down(bias: Int): Int = {
+      val b = budget - shift
+      (b * min(b, 0) + steps) * bias
+    }
 
   }
 
+  final class TypLabel(b: Int, r: Random) extends BudgetLabel(b, r) {
+    def productions = {
+      val ps: ArraySeq[Int] = pies(2, 1)
+      ArraySeq(
+        (up(2), ArraySeq(TypLevel0(ps(0), r), '→', TypLabel(ps(1), r))),
+        (up(1) + down(4), Some(TypLevel0(b, r)))
+      )
+    }
+  }
+
+  final class TypLevel0(b: Int, r: Random) extends BudgetLabel(b, r) {
+    def productions = ArraySeq(
+      (up(1), ArraySeq('[', TypLabel(b - 2, r), ']')),
+      (down(4), Some('ℕ'))
+    )
+  }
+
+  final class ExprLabel(b: Int, r: Random) extends BudgetLabel(b, r) {
+    def productions = {
+      val ps: ArraySeq[Int] = pies(8, 4)
+      ArraySeq(
+        (up(12), ArraySeq('λ', IdLabel, ':', TypLabel(ps(0), r), '.', ExprLabel(ps.iterator.drop(1).sum, r))),
+        (up(38) + down(49), Some(Level2(b, r)))
+      )
+    }
+  }
+
+  final class Level2(b: Int, r: Random) extends BudgetLabel(b, r) {
+    def productions = {
+      val ps: ArraySeq[Int] = pies(3, 2)
+      ArraySeq(
+        (up(10), ArraySeq(Level1(ps(0), r), '?', ExprLabel(ps(1), r), '~', ExprLabel(ps(2), r))),
+        (up(28) + down(49), Some(Level1(b, r)))
+      )
+    }
+  }
+
+  final class Level1(b: Int, r: Random) extends BudgetLabel(b, r) {
+    def productions = {
+      val ps: ArraySeq[Int] = pies(2, 1)
+      ArraySeq(
+        (up(16), ArraySeq(Level1(ps(0), r), ' ', Level0(ps(1), r))),
+        (up(12) + down(49), Some(Level0(b, r)))
+      )
+    }
+  }
+
+  final class Level0(b: Int, r: Random) extends BudgetLabel(b, r) {
+    def productions = ArraySeq(
+      (down(25), Some(IdLabel)),
+      (down(18), Some('0')),
+      (up(1) + down(3), ArraySeq('↑', Level0(b - 1, r))),
+      (up(1) + down(3), ArraySeq('↓', Level0(b - 1, r))),
+      (up(1), ArraySeq('⥁', Level0(b - 1, r))),
+      (up(9), ArraySeq('(', ExprLabel(b - 2, r), ')'))
+    )
+  }
+
+  case object IdLabel extends Label {
+    def productions = ArraySeq(
+      (1, Some('x')),
+      (1, Some('y')),
+      (1, Some('z'))
+    )
+  }
 }
