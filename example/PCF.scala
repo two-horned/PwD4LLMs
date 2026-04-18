@@ -378,8 +378,9 @@ def seedPCFG(
 
 object PCFG {
   type Weight = Int
-  private val steps = 1
-  private val shift = 2
+  // best pairs (8, 22/23), (4, 11), (2, 5)
+  private val steps = 2
+  private val shift = 5
 
   def nextProduct(rand: Random, label: Label): Iterable[Char | Label] = {
     val it: Iterator[Iterable[Char | Label]] =
@@ -416,13 +417,13 @@ object PCFG {
     }
 
     def up(bias: Int): Int = {
-      val b = budget - shift
-      (b * max(b, 0) + steps) * bias
+      val b = steps * budget - shift
+      (b * max(b, 0) + 1) * bias
     }
 
     def down(bias: Int): Int = {
-      val b = budget - shift
-      (b * min(b, 0) + steps) * bias
+      val b = steps * budget - shift
+      (b * min(b, 0) + 1) * bias
     }
 
   }
@@ -446,7 +447,7 @@ object PCFG {
 
   final class ExprLabel(b: Int, r: Random) extends BudgetLabel(b, r) {
     def productions = {
-      val ps: ArraySeq[Int] = pies(8, 4)
+      val ps: ArraySeq[Int] = pies(16, 4)
       ArraySeq(
         (up(12), ArraySeq('λ', IdLabel, ':', TypLabel(ps(0), r), '.', ExprLabel(ps.iterator.drop(1).sum, r))),
         (up(38) + down(49), Some(Level2(b, r)))
