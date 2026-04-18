@@ -77,6 +77,7 @@ extension (r: Random) {
       MArraySeq.from(buf.iterator.scanLeft(0)((acc, x) => acc + x._1).drop(1))
 
     val builder = ft.newBuilder
+    builder.sizeHint(cummWeights.length)
     for _ <- 0 until buf.length do {
       val total = cummWeights.last
       val k = r.nextInt(total)
