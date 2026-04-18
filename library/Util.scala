@@ -1,6 +1,8 @@
 package pwd4llm.util
 
-import pwd4llm.DParser
+import pwd4llm.*
+import GeneratorAction.*
+import ParserState.*
 import fcd.DerivativeParsers.*
 
 /** Verbosify a language by requiring each symbol to be repeated a number of
@@ -25,7 +27,6 @@ final class DFS_VERBOSE_TG(
     repetitions: Int,
     seed: () => Node[Char]
 ) extends TokenGenerator[Char] {
-  import GeneratorAction.*
   private val inner = new DFS_TG(seed)
 
   def suggest(): GeneratorAction[Char] = {
@@ -44,7 +45,6 @@ final class RetryAll_VERBOSE_TG(
     repetitions: Int,
     seed: () => Node[Char]
 ) extends TokenGenerator[Char] {
-  import GeneratorAction.*
   private val inner = new RetryAll_TG(seed)
 
   def suggest(): GeneratorAction[Char] = {
@@ -62,7 +62,6 @@ final class GiveUp_VERBOSE_TG(
     repetitions: Int,
     seed: () => Node[Char]
 ) extends TokenGenerator[Char] {
-  import GeneratorAction.*
   private val inner = new GiveUp_TG(seed)
 
   def suggest(): GeneratorAction[Char] = {

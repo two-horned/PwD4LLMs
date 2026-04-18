@@ -3,7 +3,7 @@ package pwd4llm.example
 import pcf.*
 
 import pwd4llm.*
-import util.verbosify
+import util.*
 import DerivativeParsersTools.*
 import EvalResult.*
 
