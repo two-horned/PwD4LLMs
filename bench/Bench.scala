@@ -24,7 +24,7 @@ def atLeastAtMost(least: Int, most: Int): DParser[String] =
   not(atMost(least, any)) &> atMost(most, any)
 
 def newTG(markov_chain: MarkovChain[Char]): TokenGenerator[Char] =
-  new DFS_PCF_TG(markov_chain)
+  new DFS_TG(markov_chain.seed)
 
 def newVerboseTG(markov_chain: MarkovChain[Char]): TokenGenerator[Char] =
   new DFS_PCF_VERBOSE_TG(repetitions, markov_chain)

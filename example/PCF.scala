@@ -294,49 +294,14 @@ def updateMarkovChain(
   }
 }
 
-final class DFS_PCF_TG(private val markov_chain: MarkovChain[Char])
-    extends DFS_TG[Char] {
-  def seed() = markov_chain.seed()
-}
 
-final class DFS_PCF_VERBOSE_TG(
-    repetitions: Int,
-    private val markov_chain: MarkovChain[Char]
-) extends TokenGenerator[Char] {
-  import GeneratorAction.*
-  private val inner = new DFS_PCF_TG(markov_chain)
 
-  def suggest(): GeneratorAction[Char] = {
-    inner.suggest() match {
-      case Append(token) => Concatenate(Iterator.fill(1 + repetitions)(token))
-      case DeleteLast()  => DropLast(1 + repetitions)
-      case x @ Finish()  => x
-      case _             => ???
-    }
   }
 
-  def receiveFeedback(state: ParserState) = inner.receiveFeedback(state)
 }
 
-final class RetryAll_PCF_TG(private val markov_chain: MarkovChain[Char])
-    extends RetryAll_TG[Char] {
-  def seed() = markov_chain.seed()
 }
 
-final class RetryAll_PCF_VERBOSE_TG(
-    repetitions: Int,
-    private val markov_chain: MarkovChain[Char]
-) extends TokenGenerator[Char] {
-  import GeneratorAction.*
-  private val inner = new RetryAll_PCF_TG(markov_chain)
-
-  def suggest(): GeneratorAction[Char] = {
-    inner.suggest() match {
-      case Append(token) => Concatenate(Iterator.fill(1 + repetitions)(token))
-      case x @ (Finish() | Reset()) => x
-      case _                        => ???
-    }
   }
 
-  def receiveFeedback(state: ParserState) = inner.receiveFeedback(state)
 }

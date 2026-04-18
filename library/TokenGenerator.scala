@@ -105,15 +105,13 @@ case class Node[T](neighbors: Iterator[(T, () => Node[T])])
   * @tparam T
   *   is type of the tokens it generates
   */
-abstract class DFS_TG[T] extends TokenGenerator[T] {
+final class DFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   import scala.collection.mutable.Stack
   private val levels: Stack[Node[T]] = Stack()
   private var backtrack = false
   levels.push(seed())
 
-  def seed(): Node[T]
-
-  final def suggest() = {
+  def suggest() = {
     if levels.isEmpty then return Finish()
 
     if backtrack then {
@@ -134,7 +132,7 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
     }
   }
 
-  final def receiveFeedback(state: ParserState) = state match {
+  def receiveFeedback(state: ParserState) = state match {
     case Accepting => levels.clear()
     case Failed    => backtrack = true
     case _         => ()
@@ -147,16 +145,14 @@ abstract class DFS_TG[T] extends TokenGenerator[T] {
   * @tparam T
   *   is type of the tokens it generates
   */
-abstract class BFS_TG[T] extends TokenGenerator[T] {
+final class BFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   import scala.collection.mutable.Queue
   private val levels: Queue[(List[T], Node[T])] = Queue()
   private var backtrack = false
   private var last_list: List[T] = List()
   levels.enqueue((last_list, seed()))
 
-  def seed(): Node[T]
-
-  final def suggest() = {
+  def suggest() = {
     if levels.isEmpty then return Finish()
 
     if backtrack then {
@@ -178,7 +174,7 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
     action
   }
 
-  final def receiveFeedback(state: ParserState) = state match {
+  def receiveFeedback(state: ParserState) = state match {
     case Accepting => levels.clear()
     case Failed    => backtrack = true
     case _         => ()
@@ -192,18 +188,17 @@ abstract class BFS_TG[T] extends TokenGenerator[T] {
   * @tparam T
   *   is type of the tokens it generates
   */
-abstract class RetryAll_TG[T] extends TokenGenerator[T] {
+final class RetryAll_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   private var good = false
   private var backtrack = false
   private var current = seed()
 
-  def seed(): Node[T]
-
-  final def suggest() = {
+  def suggest() = {
     if good then return Finish()
 
     if backtrack then {
       backtrack = false
+      current = seed()
       return Reset()
     }
 
@@ -216,7 +211,7 @@ abstract class RetryAll_TG[T] extends TokenGenerator[T] {
     }
   }
 
-  final def receiveFeedback(state: ParserState) = state match {
+  def receiveFeedback(state: ParserState) = state match {
     case Accepting => good = true
     case Failed    => backtrack = true
     case _         => ()
@@ -228,13 +223,11 @@ abstract class RetryAll_TG[T] extends TokenGenerator[T] {
   * @tparam T
   *   is type of the tokens it generates
   */
-abstract class GiveUp_TG[T] extends TokenGenerator[T] {
+final class GiveUp_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   private var finish = false
   private var current = seed()
 
-  def seed(): Node[T]
-
-  final def suggest() = {
+  def suggest() = {
     if finish then return Finish()
 
     current.neighbors.nextOption() match {
@@ -246,7 +239,7 @@ abstract class GiveUp_TG[T] extends TokenGenerator[T] {
     }
   }
 
-  final def receiveFeedback(state: ParserState) = state match {
+  def receiveFeedback(state: ParserState) = state match {
     case Accepting | Failed => finish = true
     case _                  => ()
   }
