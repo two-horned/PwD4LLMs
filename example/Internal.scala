@@ -95,10 +95,10 @@ extension (r: Random) {
   *   the tokens it should handle
   */
 final class MarkovChain[T](
-  tokens: IndexedSeq[T],
-  rand: Random = Random(),
-  max_branch: Int = Int.MaxValue,
-  fill_inital_with: Int = 50
+    tokens: IndexedSeq[T],
+    rand: Random = Random(),
+    max_branch: Int = Int.MaxValue,
+    fill_inital_with: Int = 50
 ) {
   val size = tokens.length
   val initial: Array[Int] = Array.fill(size)(fill_inital_with)
