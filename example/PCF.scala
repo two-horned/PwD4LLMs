@@ -380,8 +380,8 @@ def seedPCFG(
 object PCFG {
   type Weight = Int
   // best pairs (8, 22/23), (4, 11), (2, 5)
-  private val steps = 2
-  private val shift = 5
+  private val steps = 4
+  private val shift = 11
 
   def nextProduct(rand: Random, label: Label): Iterable[Char | Label] = {
     val it: Iterator[Iterable[Char | Label]] =
@@ -393,28 +393,35 @@ object PCFG {
     def productions: Iterable[(Weight, Iterable[Char | Label])]
   }
 
-  abstract class BudgetLabel(budget: Int, r: Random) extends Label {
+  abstract class BudgetLabel(budget: Int, rand: Random) extends Label {
     import scala.math.{max, min}
 
-    def pies[C](pieces: Int, bc: Int)(using
-        ft: Factory[Int, C]
-    ): C = {
+    def pies2[C](bc: Int): (Int, Int) = {
       val bg = budget - bc
-      val builder = ft.newBuilder
-      builder.sizeHint(pieces)
-      if bg <= 0 then {
-        builder.addAll(Iterator.fill(pieces)(bg))
-        return builder.result
+      if bg <= 0 then return (bg, bg)
+      val x = rand.nextInt(bg + 1)
+      (x, bg - x)
+    }
+
+    def pies3[C](bc: Int): (Int, Int, Int) = {
+      val bg = budget - bc
+      if bg <= 0 then return (bg, bg, bg)
+      val x = rand.nextInt(bg + 1)
+      val y = rand.nextInt(bg + 1)
+      if x <= y then (x, y - x, bg - y)
+      else (y, x - y, bg - x)
+    }
+
+    def piesSkewed2(it: Int, bc: Int): (Int, Int) = {
+      val bg = budget - bc
+      if bg <= 0 then return (bg, bg)
+      var min_x = bg
+      for _ <- 0 to it do {
+        val x = rand.nextInt(bg + 1)
+        min_x = min(min_x, x)
       }
-      val arr = MArraySeq.fill(pieces - 1)(r.nextInt(bg))
-      arr.sortInPlace()
-      var n = 0
-      for k <- arr do {
-        builder.addOne(k - n)
-        n = k
-      }
-      builder.addOne(bg - n)
-      builder.result
+      val y = bg - min_x
+      (min_x, y)
     }
 
     def up(bias: Int): Int = {
@@ -431,9 +438,9 @@ object PCFG {
 
   final class TypLabel(b: Int, r: Random) extends BudgetLabel(b, r) {
     def productions = {
-      val ps: ArraySeq[Int] = pies(2, 1)
+      val (x, y) = pies2(1)
       ArraySeq(
-        (up(2), ArraySeq(TypLevel0(ps(0), r), '→', TypLabel(ps(1), r))),
+        (up(2), ArraySeq(TypLevel0(x, r), '→', TypLabel(y, r))),
         (up(1) + down(4), Some(TypLevel0(b, r)))
       )
     }
@@ -448,9 +455,10 @@ object PCFG {
 
   final class ExprLabel(b: Int, r: Random) extends BudgetLabel(b, r) {
     def productions = {
-      val ps: ArraySeq[Int] = pies(16, 4)
+      val (x, y) = piesSkewed2(16, 4)
       ArraySeq(
-        (up(12), ArraySeq('λ', IdLabel, ':', TypLabel(ps(0), r), '.', ExprLabel(ps.iterator.drop(1).sum, r))),
+        (up(12),
+          ArraySeq('λ', IdLabel, ':', TypLabel(x, r), '.', ExprLabel(y, r))),
         (up(38) + down(49), Some(Level2(b, r)))
       )
     }
@@ -458,9 +466,10 @@ object PCFG {
 
   final class Level2(b: Int, r: Random) extends BudgetLabel(b, r) {
     def productions = {
-      val ps: ArraySeq[Int] = pies(3, 2)
+      val (x, y, z) = pies3(2)
       ArraySeq(
-        (up(10), ArraySeq(Level1(ps(0), r), '?', ExprLabel(ps(1), r), '~', ExprLabel(ps(2), r))),
+        (up(10),
+          ArraySeq(Level1(x, r), '?', ExprLabel(y, r), '~', ExprLabel(z, r))),
         (up(28) + down(49), Some(Level1(b, r)))
       )
     }
@@ -468,9 +477,9 @@ object PCFG {
 
   final class Level1(b: Int, r: Random) extends BudgetLabel(b, r) {
     def productions = {
-      val ps: ArraySeq[Int] = pies(2, 1)
+      val (x, y) = pies2(1)
       ArraySeq(
-        (up(16), ArraySeq(Level1(ps(0), r), ' ', Level0(ps(1), r))),
+        (up(16), ArraySeq(Level1(x, r), ' ', Level0(y, r))),
         (up(12) + down(49), Some(Level0(b, r)))
       )
     }
