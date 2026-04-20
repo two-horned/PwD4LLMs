@@ -9,6 +9,7 @@ import scala.collection.Factory
 import scala.collection.immutable.ArraySeq
 import scala.collection.mutable.ArraySeq as MArraySeq
 import scala.util.Random
+import DerivativeParsersTools.DParser
 
 import scala.collection.immutable.Map
 

@@ -4,6 +4,7 @@ import pwd4llm.*
 import GeneratorAction.*
 import ParserState.*
 import fcd.DerivativeParsers.*
+import DerivativeParsersTools.DParser
 
 /** Verbosify a language by requiring each symbol to be repeated a number of
   * times. For example, {ab, bba, cd} becomes {aaabbb, bbbbbbaaa, cccddd} when

@@ -44,14 +44,13 @@ trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
       else if inner.failed then Failed
       else Pending
   }
+
+  /** Alias for parsers.Parser, so it is not confused with pwd4llm.Parser
+    */
+  type DParser[R] = parsers.Parser[R]
 }
 
 /** The tools for the DerivativeParsers object
   */
 object DerivativeParsersTools
     extends DerivativeParserTools(fcd.DerivativeParsers)
-
-/** Alias for fcd.DerivativeParsers.Parser, so it is not confused with
-  * pwd4llm.Parser
-  */
-type DParser[R] = fcd.DerivativeParsers.Parser[R]
