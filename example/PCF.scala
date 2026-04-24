@@ -322,7 +322,7 @@ final class WCFG_Node(
     def go(ctx: List[Char | Label]): (Option[Char], List[Char | Label]) =
       ctx match {
         case (x: Char) :: xs  => (Some(x), xs)
-        case (x: Label) :: xs => go(nextProduct(rand, x) ++: xs)
+        case (x: Label) :: xs => go(x.nextProduction(rand) ++: xs)
         case _                => (None, Nil)
       }
 
@@ -378,30 +378,28 @@ def seedWCFG(
 }
 
 object WCFG {
-  type Weight = Int
   // best pairs (8, 22/23), (4, 11), (2, 5)
   private val steps = 4
   private val shift = 11
 
-  def nextProduct(rand: Random, label: Label): Iterable[Char | Label] = {
-    rand.weightedChoice(label.productions)
-  }
-
   sealed trait Label {
-    def productions: Iterable[(Weight, Iterable[Char | Label])]
+    def productions: ArraySeq[(Int, ArraySeq[Char | Label])]
+    final def nextProduction(rand: Random): ArraySeq[Char | Label] = {
+      rand.weightedChoice(productions)
+    }
   }
 
   abstract class BudgetLabel(budget: Int, rand: Random) extends Label {
     import scala.math.{max, min}
 
-    def pies2[C](bc: Int): (Int, Int) = {
+    final def pies2[C](bc: Int): (Int, Int) = {
       val bg = budget - bc
       if bg <= 0 then return (bg, bg)
       val x = rand.nextInt(bg + 1)
       (x, bg - x)
     }
 
-    def pies3[C](bc: Int): (Int, Int, Int) = {
+    final def pies3[C](bc: Int): (Int, Int, Int) = {
       val bg = budget - bc
       if bg <= 0 then return (bg, bg, bg)
       val x = rand.nextInt(bg + 1)
@@ -410,7 +408,7 @@ object WCFG {
       else (y, x - y, bg - x)
     }
 
-    def piesSkewed2(it: Int, bc: Int): (Int, Int) = {
+    final def piesSkewed2(it: Int, bc: Int): (Int, Int) = {
       val bg = budget - bc
       if bg <= 0 then return (bg, bg)
       var min_x = bg
@@ -422,12 +420,12 @@ object WCFG {
       (min_x, y)
     }
 
-    def up(bias: Int): Int = {
+    final def up(bias: Int): Int = {
       val b = steps * budget - shift
       (b * max(b, 0) + 1) * bias
     }
 
-    def down(bias: Int): Int = {
+    final def down(bias: Int): Int = {
       val b = steps * budget - shift
       (b * min(b, 0) + 1) * bias
     }
@@ -439,7 +437,7 @@ object WCFG {
       val (x, y) = pies2(1)
       ArraySeq(
         (up(2), ArraySeq(TypLevel0(x, r), '→', TypLabel(y, r))),
-        (up(1) + down(4), Some(TypLevel0(b, r)))
+        (up(1) + down(4), ArraySeq(TypLevel0(b, r)))
       )
     }
   }
@@ -447,7 +445,7 @@ object WCFG {
   final class TypLevel0(b: Int, r: Random) extends BudgetLabel(b, r) {
     def productions = ArraySeq(
       (up(1), ArraySeq('[', TypLabel(b - 2, r), ']')),
-      (down(4), Some('ℕ'))
+      (down(4), ArraySeq('ℕ'))
     )
   }
 
@@ -457,7 +455,7 @@ object WCFG {
       ArraySeq(
         (up(12),
           ArraySeq('λ', IdLabel, ':', TypLabel(x, r), '.', ExprLabel(y, r))),
-        (up(38) + down(49), Some(Level2(b, r)))
+        (up(38) + down(49), ArraySeq(Level2(b, r)))
       )
     }
   }
@@ -468,7 +466,7 @@ object WCFG {
       ArraySeq(
         (up(10),
           ArraySeq(Level1(x, r), '?', ExprLabel(y, r), '~', ExprLabel(z, r))),
-        (up(28) + down(49), Some(Level1(b, r)))
+        (up(28) + down(49), ArraySeq(Level1(b, r)))
       )
     }
   }
@@ -478,15 +476,15 @@ object WCFG {
       val (x, y) = pies2(1)
       ArraySeq(
         (up(16), ArraySeq(Level1(x, r), ' ', Level0(y, r))),
-        (up(12) + down(49), Some(Level0(b, r)))
+        (up(12) + down(49), ArraySeq(Level0(b, r)))
       )
     }
   }
 
   final class Level0(b: Int, r: Random) extends BudgetLabel(b, r) {
     def productions = ArraySeq(
-      (down(25), Some(IdLabel)),
-      (down(18), Some('0')),
+      (down(25), ArraySeq(IdLabel)),
+      (down(18), ArraySeq('0')),
       (up(1) + down(3), ArraySeq('↑', Level0(b - 1, r))),
       (up(1) + down(3), ArraySeq('↓', Level0(b - 1, r))),
       (up(1), ArraySeq('⥁', Level0(b - 1, r))),
@@ -496,9 +494,9 @@ object WCFG {
 
   object IdLabel extends Label {
     def productions = ArraySeq(
-      (1, Some('x')),
-      (1, Some('y')),
-      (1, Some('z'))
+      (1, ArraySeq('x')),
+      (1, ArraySeq('y')),
+      (1, ArraySeq('z'))
     )
   }
 }
