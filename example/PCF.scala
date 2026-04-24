@@ -87,7 +87,7 @@ val strict_expr: DParser[Expr] = {
     level1
   }
 
-  val fix = alt('&', 'Υ') | '⥁'
+  val fix = alt('Y', '⥁')
   val lambda = alt('\\', 'λ')
   val id_name: DParser[String] =
     alt("_", some(acceptIf(x => 'a' <= x && x <= 'z')))
@@ -152,9 +152,9 @@ val expr = {
       OpeningBrace // some characters may not be used in our grammar
     case '}' | ']' | ')' =>
       ClosingBrace // some characters may not be used in our grammar
-    case _ if c.isLetterOrDigit => Literal
-    case _ if c.isWhitespace    => Whitespace
-    case _                      => Operator
+    case _ if c.isLower || c.isDigit => Literal
+    case _ if c.isWhitespace         => Whitespace
+    case _                           => Operator
   }
 
   def stripWS[T](p: DParser[T], last_state: EType = Whitespace): DParser[T] =
@@ -494,7 +494,7 @@ object WCFG {
     )
   }
 
-  case object IdLabel extends Label {
+  object IdLabel extends Label {
     def productions = ArraySeq(
       (1, Some('x')),
       (1, Some('y')),
