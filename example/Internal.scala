@@ -7,6 +7,7 @@ import scala.collection.mutable.{
   ArraySeq as MArraySeq,
   IndexedSeq as MIndexedSeq
 }
+import scala.collection.immutable.ArraySeq
 import scala.collection.Factory
 import scala.util.Random
 
@@ -72,8 +73,8 @@ extension (r: Random) {
       xs: IterableOnce[(Int, T)]
   )(using ft: Factory[T, C]): C = {
 
-    val buf: MArraySeq[(Int, T)] = MArraySeq.from(xs)
-    val cummWeights: MArraySeq[Int] =
+    val buf = ArraySeq.from(xs)
+    val cummWeights =
       MArraySeq.from(buf.iterator.scanLeft(0)((acc, x) => acc + x._1).drop(1))
 
     val builder = ft.newBuilder
@@ -87,6 +88,29 @@ extension (r: Random) {
       builder.addOne(x)
     }
     builder.result
+  }
+
+  /** Performs a weighted shuffle of an iteration of items.
+    *
+    * @tparam T
+    *   type of items
+    * @param xs
+    *   the weight-item-pairs to choose from
+    * @return
+    *   the chosen item
+    * @throws java.lang.IllegalArgumentException
+    *   if some weight is non-positive
+    */
+  def weightedChoice[T, C](xs: IterableOnce[(Int, T)]): T = {
+    val buf = ArraySeq.from(xs)
+    val cummWeights =
+      ArraySeq.from(buf.iterator.scanLeft(0)((acc, x) => acc + x._1).drop(1))
+
+    val total = cummWeights.last
+    val k = r.nextInt(total)
+    val i = cummWeights.expSearchInsPoint(k)
+    val (_, x) = buf(i)
+    x
   }
 }
 

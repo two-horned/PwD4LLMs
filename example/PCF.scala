@@ -307,14 +307,14 @@ def updateMarkovChain(
   }
 }
 
-/** Probabilistic Context Free Grammar for strict_expr */
-final class PCFG_Node(
-    context: List[Char | PCFG.Label],
+/** Weighted Context Free Grammar for strict_expr */
+final class WCFG_Node(
+    context: List[Char | WCFG.Label],
     typo_rate: Double,
     rand: Random
 ) {
 
-  import PCFG.*
+  import WCFG.*
 
   val (head: Option[Char], tail: List[Char | Label]) = {
 
@@ -330,7 +330,7 @@ final class PCFG_Node(
   }
 
   private def child(ctx: List[Char | Label]): () => Node[Char] =
-    () => PCFG_Node(ctx, typo_rate, rand).node()
+    () => WCFG_Node(ctx, typo_rate, rand).node()
 
   private def neighbors: Iterator[(Char, () => Node[Char])] = {
     Iterator
@@ -369,24 +369,22 @@ final class PCFG_Node(
 
 }
 
-def seedPCFG(
+def seedWCFG(
     initial_budget: Int = 10,
     typo_rate: Double = 0.01,
     rand: Random = Random()
 ) = {
-  PCFG_Node(List(PCFG.ExprLabel(initial_budget, rand)), typo_rate, rand).node()
+  WCFG_Node(List(WCFG.ExprLabel(initial_budget, rand)), typo_rate, rand).node()
 }
 
-object PCFG {
+object WCFG {
   type Weight = Int
   // best pairs (8, 22/23), (4, 11), (2, 5)
   private val steps = 4
   private val shift = 11
 
   def nextProduct(rand: Random, label: Label): Iterable[Char | Label] = {
-    val it: Iterator[Iterable[Char | Label]] =
-      rand.weightedShuffle(label.productions)
-    return it.next
+    rand.weightedChoice(label.productions)
   }
 
   sealed trait Label {
