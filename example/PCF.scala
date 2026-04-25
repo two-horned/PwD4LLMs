@@ -358,7 +358,7 @@ final class WCFG_Node(
           case None => {
             val r = rand.nextDouble()
             // Typo mode
-            if r <= typo_rate then ('&', child(Nil)) // Not ending right
+            if r <= typo_rate then ('#', child(Nil)) // Not ending right
             else ('↩', child(Nil)) // End-of-stream
           }
       )
