@@ -97,7 +97,7 @@ trait TokenGenerator[T] {
   * @param neighbors
   *   is an iterator that lists all the neighbors
   */
-case class Node[T](neighbors: Iterator[(T, () => Node[T])])
+case class Node[T](neighbors: Iterator[(T, Node[T])])
 
 /** A token generator that traverses a search tree defined by a seed Node in DFS
   * fashion.
@@ -121,8 +121,8 @@ final class DFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
     }
 
     levels.top.neighbors.nextOption() match {
-      case Some((token, nodeMaker)) => {
-        levels.push(nodeMaker())
+      case Some((token, node)) => {
+        levels.push(node)
         Append(token)
       }
       case _ => {
@@ -164,13 +164,13 @@ final class BFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
     if levels.isEmpty then return Finish()
 
     val (ls, current) = levels.front
-    val (token, nodeMaker) = current.neighbors.next()
+    val (token, node) = current.neighbors.next()
     val action =
       if ls eq last_list then Append(token)
       else if !last_list.isEmpty && last_list.tail == ls then ReplaceLast(token)
       else Rebuild((token :: ls).reverseIterator)
     last_list = token :: ls
-    levels.enqueue((last_list, nodeMaker()))
+    levels.enqueue((last_list, node))
     action
   }
 
@@ -204,9 +204,9 @@ final class RetryAll_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
 
     current.neighbors.nextOption() match {
       case None => return Reset()
-      case Some((t, n)) => {
-        current = n()
-        Append(t)
+      case Some((token, node)) => {
+        current = node
+        Append(token)
       }
     }
   }
@@ -232,9 +232,9 @@ final class GiveUp_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
 
     current.neighbors.nextOption() match {
       case None => return Reset()
-      case Some((t, n)) => {
-        current = n()
-        Append(t)
+      case Some((token, node)) => {
+        current = node
+        Append(token)
       }
     }
   }

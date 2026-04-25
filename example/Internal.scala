@@ -143,7 +143,7 @@ final class MarkovChain[T](
         })
         .iterator
         .take(max_branch)
-        .map(i => (tokens(i), () => node(i))))
+        .map(i => (tokens(i), node(i))))
 
   def seed(): Node[T] = Node(rand
       .weightedShuffle(
@@ -152,5 +152,5 @@ final class MarkovChain[T](
       })
       .iterator
       .take(max_branch)
-      .map(i => (tokens(i), () => node(i))))
+      .map(i => (tokens(i), node(i))))
 }

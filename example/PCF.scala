@@ -329,10 +329,10 @@ final class WCFG_Node(
     go(context)
   }
 
-  private def child(ctx: List[Char | Label]): () => Node[Char] =
-    () => WCFG_Node(ctx, typo_rate, rand).node()
+  private def child(ctx: List[Char | Label]): Node[Char] =
+    WCFG_Node(ctx, typo_rate, rand).node()
 
-  private def neighbors: Iterator[(Char, () => Node[Char])] = {
+  private def neighbors: Iterator[(Char, Node[Char])] = {
     Iterator
       .continually(
         head match
