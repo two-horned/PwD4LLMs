@@ -15,7 +15,7 @@ lazy val library = project
   .settings(
     name := "PwD4LLMs",
     libraryDependencies := Seq(
-      "first-class-derivatives" %% "first-class-derivatives" % "2.3.0",
+      "first-class-derivatives" %% "first-class-derivatives" % "3.0.1",
       "org.scalameta" %% "munit" % "1.0.0" % Test
     ),
     scalacOptions ++= Seq(
