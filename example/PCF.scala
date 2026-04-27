@@ -72,12 +72,12 @@ def typecheck(expr: Expr, env: Map[String, Type] = Map()): Option[Type] =
   *
   * Example parse:
   *
-  * > parse(strict_expr, "⥁(λrec:ℕ→ℕ.λx:ℕ.x?↑0~mul x (rec ↓x))")
+  * > parse(strictExpr, "⥁(λrec:ℕ→ℕ.λx:ℕ.x?↑0~mul x (rec ↓x))")
   *
   * > val res0: List[pwd4llm.examples.PCF.Expr] =
   * List(Fix(Abs(rec,Fun(Nat,Nat),Abs(x,Nat,IfThenElse(Id(x),Succ(Zero),App(App(Id(mul),Id(x)),App(Id(rec),Pred(Id(x)))))))))
   */
-val strict_expr: DParser[Expr] = {
+def strictExpr: DParser[Expr] = {
   val typ: DParser[Type] = {
     val arr: DParser[String] = "->" | "→"
     val nat = ("Nat" | 'ℕ') ^^^ Nat
@@ -111,17 +111,17 @@ val strict_expr: DParser[Expr] = {
   level3
 }
 
-/** Just like `strict_expr`, but has to end with the enter symbol (like an EOS
+/** Just like `strictExpr`, but has to end with the enter symbol (like an EOS
   * symbol)
   */
-val strict_expr_enter = strict_expr <~ '↩'
+def strictExprEnter = strictExpr <~ '↩'
 
 /** A more user-friendly parser for PCF-expressions, that allows one-line
   * comments starting with `#` and allows inserting, replacing or omitting
   * arbritrary whitespace characters at any place, as long the resulting
   * expression is understood unambigously as the same.
   */
-val expr = {
+def expr = {
   val commentTail = many(not('\n')) ~> '\n'
 
   def stripComments[T](p: DParser[T]): DParser[T] = {
@@ -134,7 +134,7 @@ val expr = {
 
   /* Used to categorize subexpressions for further processing.
    * Naming doesn't really matter, but classification heavily depends
-   * on existing strict_expr parser.
+   * on existing strictExpr parser.
    */
   enum EType {
     case Operator
@@ -187,12 +187,12 @@ val expr = {
         )
     })
 
-  stripComments(stripWS(strict_expr))
+  stripComments(stripWS(strictExpr))
 }
 
 /** Just like `expr`, but has to end with the enter symbol (like an EOS symbol)
   */
-val expr_enter = strict_expr <~ '↩'
+def exprEnter = strictExpr <~ '↩'
 
 def preparedMarkovChain = {
   val token_list = ArraySeq('(', ')', 'λ', 'ℕ', '→', '[', ']', ':', '.', '?',
@@ -370,8 +370,8 @@ final class WCFG_Node(
 }
 
 def seedWCFG(
-    initial_budget: Int = 10,
-    typo_rate: Double = 0.01,
+    initial_budget: Int,
+    typo_rate: Double,
     rand: Random = Random()
 ) = {
   WCFG_Node(List(WCFG.ExprLabel(initial_budget, rand)), typo_rate, rand).node()
