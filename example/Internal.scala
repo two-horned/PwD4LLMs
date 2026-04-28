@@ -11,6 +11,16 @@ import scala.collection.immutable.ArraySeq
 import scala.collection.Factory
 import scala.util.Random
 
+// fp = 1 - (1 - tr)**tl
+def fpRateFromTypoRate(typo_rate: Double, token_length: Double) = {
+  1 - math.pow(1 - typo_rate, token_length)
+}
+
+// tr = 1 - (1 - fp)**(1/tl)
+def typoRateFromFpRate(fp_rate: Double, token_length: Double) = {
+  1 - math.pow(1 - fp_rate, 1 / token_length)
+}
+
 extension [A, CC[_], C](seq: IndexedSeqOps[A, CC, C]) {
 
   /** Performs an exponential search on an indexed sequence, so one can perform

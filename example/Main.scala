@@ -16,7 +16,7 @@ import scala.language.implicitConversions
 val logger = Logger(LoggerFactory.getLogger(this.getClass.getSimpleName))
 
 val repetitions = 19
-val language = strict_expr
+val language = strictExpr
 val verbose_language = verbosify(language, repetitions)
 var markov_chain = preparedMarkovChain
 

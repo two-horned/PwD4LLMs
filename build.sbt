@@ -1,7 +1,7 @@
 ThisBuild / scalaVersion := "3.7.4"
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
-val betterGC = Seq("-Xms1G", "-Xmx4G", "-XX:+UseG1GC")
+val betterGC = Seq("-Xms4G", "-Xmx8G", "-XX:+UseG1GC")
 
 lazy val root = project
   .aggregate(library, example)

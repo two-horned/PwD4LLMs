@@ -1,110 +1,45 @@
 package bench
 
 import pwd4llm.*
-import internal.MarkovChain
-import example.pcf.*
-import util.verbosify
-import fcd.DerivativeParsers.*
+import internal.typoRateFromFpRate
+import example.pcf.{strictExprEnter, Expr, seedWCFG}
 import DerivativeParsersTools.*
 import EvalResult.*
 
 import org.openjdk.jmh.annotations.*
 import scala.language.implicitConversions
+import org.openjdk.jmh.infra.Blackhole
+import scala.compiletime.uninitialized
 
-val repetitions = 19
-val language = strict_expr
-val verbose_language = verbosify(language, repetitions)
+def parser: Parser[Char, Expr] = WrappedParser(strictExprEnter).asInstanceOf
 
-case class EvaluationCommand(least: Int, most: Int, iterations: Int)
-
-val cmd = EvaluationCommand((1 + repetitions) * 5, (1 + repetitions) * 7, 10)
-val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & verbose_language)
-
-def atLeastAtMost(least: Int, most: Int): DParser[String] =
-  not(atMost(least, any)) &> atMost(most, any)
-
-def newTG(markov_chain: MarkovChain[Char]): TokenGenerator[Char] =
-  new DFS_TG(markov_chain.seed)
-
-def newVerboseTG(markov_chain: MarkovChain[Char]): TokenGenerator[Char] =
-  new DFS_PCF_VERBOSE_TG(repetitions, markov_chain)
-
-def useParserOutput(
-    markov_chain: MarkovChain[Char],
-    output: List[(String, Expr)]
-) = {
-  require(output.length == 1) // grammar is deterministic
-  for case (input, expr) <- output do updateMarkovChain(markov_chain, input)
-}
-
+@BenchmarkMode(Mode.AverageTime)
 @State(Scope.Benchmark)
-abstract class TrainState {
-  var markov_chain: MarkovChain[Char] = null
-
-  def markovChain: MarkovChain[Char] = markov_chain
-
-  @Setup(Level.Trial)
-  def prepare(): Unit
-}
-
-class TrainedState extends TrainState {
-  def prepare(): Unit = {
-    markov_chain = preparedMarkovChain
-    val train_commands = Array(
-      EvaluationCommand(5, 7, 16000),
-      EvaluationCommand(7, 9, 8000),
-      EvaluationCommand(9, 11, 4000)
-    )
-    import StackEvaluator.eval
-    for cmd <- train_commands do {
-      val p = WrappedParser(atLeastAtMost(cmd.least, cmd.most) & language)
-      for _ <- 0 until cmd.iterations do {
-        val g = newTG(markov_chain)
-        eval(p, g) match {
-          case Success(r) => useParserOutput(markov_chain, List.from(r()))
-          case _          => ()
-        }
-      }
-    }
-  }
-}
-
-class UntrainedState extends TrainState {
-  def prepare(): Unit = {
-    markov_chain = preparedMarkovChain
-  }
-}
-
-@BenchmarkMode(Array(Mode.AverageTime))
 class Bench {
+  @Param(Array("100", "200", "400"))
+  var token_length: Int = uninitialized
+
+  @Param(Array("0.05", "0.1", "0.2", "0.4"))
+  var fp_rate: Double = uninitialized
+
+  def seed(): Node[Char] =
+    seedWCFG(token_length, typoRateFromFpRate(fp_rate, token_length))
 
   @Benchmark
-  def untrainedStackEvaluator(s: UntrainedState) = {
-    StackEvaluator.eval(p, newVerboseTG(s.markovChain))
+  def dfsEval() = {
+    val tg = new DFS_TG(seed)
+    StackEvaluator.eval(parser, tg)
   }
 
   @Benchmark
-  def untrainedScrapAllEvaluator(s: UntrainedState) = {
-    ScrapAllEvaluator.eval(p, newVerboseTG(s.markovChain))
+  def retryAllEval() = {
+    val tg = new RetryAll_TG(seed)
+    ScrapAllEvaluator.eval(parser, tg)
   }
 
   @Benchmark
-  def untrainedRememberActionEvaluator(s: UntrainedState) = {
-    RememberActionEvaluator.eval(p, newVerboseTG(s.markovChain))
-  }
-
-  @Benchmark
-  def trainedStackEvaluator(s: TrainedState) = {
-    StackEvaluator.eval(p, newVerboseTG(s.markovChain))
-  }
-
-  @Benchmark
-  def trainedScrapAllEvaluator(s: TrainedState) = {
-    ScrapAllEvaluator.eval(p, newVerboseTG(s.markovChain))
-  }
-
-  @Benchmark
-  def trainedRememberActionEvaluator(s: TrainedState) = {
-    RememberActionEvaluator.eval(p, newVerboseTG(s.markovChain))
+  def giveUpEval() = {
+    val tg = new GiveUp_TG(seed)
+    ScrapAllEvaluator.eval(parser, tg)
   }
 }
