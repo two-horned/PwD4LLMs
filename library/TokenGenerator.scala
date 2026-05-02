@@ -104,15 +104,25 @@ case class Node[T](neighbors: Iterator[(T, Node[T])])
   *
   * @tparam T
   *   is type of the tokens it generates
+  *
+  * @param seed
+  *   the function to generate the seed node
+  *
+  * @param max_steps
+  *   the maximum amount of suggestions to make till giving up
   */
-final class DFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
+final class DFS_TG[T](seed: () => Node[T], max_steps: Int = Int.MaxValue)
+    extends TokenGenerator[T] {
   import scala.collection.mutable.Stack
   private val levels: Stack[Node[T]] = Stack()
   private var backtrack = false
   levels.push(seed())
 
+  var steps = 0
+
   def suggest() = {
-    if levels.isEmpty then return Finish()
+    if levels.isEmpty || steps >= max_steps then return Finish()
+    steps += 1
 
     if backtrack then {
       backtrack = false
@@ -144,16 +154,25 @@ final class DFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   *
   * @tparam T
   *   is type of the tokens it generates
+  *
+  * @param seed
+  *   the function to generate the seed node
+  *
+  * @param max_steps
+  *   the maximum amount of suggestions to make till giving up
   */
-final class BFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
+final class BFS_TG[T](seed: () => Node[T], max_steps: Int = Int.MaxValue)
+    extends TokenGenerator[T] {
   import scala.collection.mutable.Queue
   private val levels: Queue[(List[T], Node[T])] = Queue()
   private var backtrack = false
   private var last_list: List[T] = List()
   levels.enqueue((last_list, seed()))
+  var steps = 0
 
   def suggest() = {
-    if levels.isEmpty then return Finish()
+    if levels.isEmpty || steps >= max_steps then return Finish()
+    steps += 1
 
     if backtrack then {
       backtrack = false
@@ -187,6 +206,9 @@ final class BFS_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   *
   * @tparam T
   *   is type of the tokens it generates
+  *
+  * @param seed
+  *   the function to generate the seed node
   */
 final class RetryAll_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   private var good = false
@@ -222,6 +244,9 @@ final class RetryAll_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   *
   * @tparam T
   *   is type of the tokens it generates
+  *
+  * @param seed
+  *   the function to generate the seed node
   */
 final class GiveUp_TG[T](seed: () => Node[T]) extends TokenGenerator[T] {
   private var finish = false
