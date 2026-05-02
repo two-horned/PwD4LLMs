@@ -311,6 +311,7 @@ def updateMarkovChain(
 final class WCFG_Node(
     context: List[Char | WCFG.Label],
     typo_rate: Double,
+    branch_factor: Int,
     rand: Random
 ) {
 
@@ -330,7 +331,7 @@ final class WCFG_Node(
   }
 
   private def child(ctx: List[Char | Label]): Node[Char] =
-    WCFG_Node(ctx, typo_rate, rand).node()
+    WCFG_Node(ctx, typo_rate, branch_factor, rand).node()
 
   private def neighbors: Iterator[(Char, Node[Char])] = {
     Iterator
@@ -362,7 +363,8 @@ final class WCFG_Node(
             else ('↩', child(Nil)) // End-of-stream
           }
       )
-      .take(2) // for typo_rate=0.001 1 : 1M, there is no correct neighbor
+      .take(branch_factor) // branches or options per node
+    // non-zero probabilty, all options are typos
   }
 
   def node(): Node[Char] = Node(neighbors)
@@ -372,9 +374,11 @@ final class WCFG_Node(
 def seedWCFG(
     initial_budget: Int,
     typo_rate: Double,
+    branch_factor: Int = 2,
     rand: Random = Random()
 ) = {
-  WCFG_Node(List(WCFG.ExprLabel(initial_budget, rand)), typo_rate, rand).node()
+  WCFG_Node(List(WCFG.ExprLabel(initial_budget, rand)), typo_rate,
+    branch_factor, rand).node()
 }
 
 object WCFG {
