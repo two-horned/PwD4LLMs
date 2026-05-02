@@ -1,0 +1,3495 @@
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 0.00% complete, ETA 00:30:00
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1366.678 ops/s
+Iteration   1: 1585.307 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  1585.307 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 0.83% complete, ETA 00:30:14
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 575.175 ops/s
+Iteration   1: 656.775 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  656.775 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 1.67% complete, ETA 00:29:57
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 259.688 ops/s
+Iteration   1: 287.391 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  287.391 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 2.50% complete, ETA 00:29:41
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1383.679 ops/s
+Iteration   1: 1553.634 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  1553.634 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 3.33% complete, ETA 00:29:26
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 573.856 ops/s
+Iteration   1: 646.342 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  646.342 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 4.17% complete, ETA 00:29:11
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 247.330 ops/s
+Iteration   1: 284.855 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  284.855 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 5.00% complete, ETA 00:28:55
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1410.161 ops/s
+Iteration   1: 1576.106 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  1576.106 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 5.83% complete, ETA 00:28:40
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 592.072 ops/s
+Iteration   1: 670.387 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  670.387 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 6.67% complete, ETA 00:28:25
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 248.503 ops/s
+Iteration   1: 279.046 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  279.046 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 7.50% complete, ETA 00:28:09
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1360.653 ops/s
+Iteration   1: 1530.614 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  1530.614 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 8.33% complete, ETA 00:27:54
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 593.263 ops/s
+Iteration   1: 666.153 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  666.153 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 9.17% complete, ETA 00:27:39
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 258.269 ops/s
+Iteration   1: 289.579 ops/s
+
+
+Result "bench.Bench.dfsEvalBF2":
+  289.579 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 10.00% complete, ETA 00:27:24
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1375.907 ops/s
+Iteration   1: 1563.653 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  1563.653 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 10.83% complete, ETA 00:27:08
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 603.504 ops/s
+Iteration   1: 679.361 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  679.361 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 11.67% complete, ETA 00:26:53
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 256.143 ops/s
+Iteration   1: 286.296 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  286.296 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 12.50% complete, ETA 00:26:38
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1379.318 ops/s
+Iteration   1: 1595.702 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  1595.702 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 13.33% complete, ETA 00:26:23
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 614.605 ops/s
+Iteration   1: 684.314 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  684.314 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 14.17% complete, ETA 00:26:07
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 254.043 ops/s
+Iteration   1: 280.724 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  280.724 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 15.00% complete, ETA 00:25:52
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1380.028 ops/s
+Iteration   1: 1579.413 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  1579.413 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 15.83% complete, ETA 00:25:37
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 601.940 ops/s
+Iteration   1: 675.716 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  675.716 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 16.67% complete, ETA 00:25:22
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 245.570 ops/s
+Iteration   1: 278.251 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  278.251 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 17.50% complete, ETA 00:25:07
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1330.254 ops/s
+Iteration   1: 1524.256 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  1524.256 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 18.33% complete, ETA 00:24:51
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 620.122 ops/s
+Iteration   1: 702.024 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  702.024 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 19.17% complete, ETA 00:24:36
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 261.252 ops/s
+Iteration   1: 291.883 ops/s
+
+
+Result "bench.Bench.dfsEvalBF3":
+  291.883 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 20.00% complete, ETA 00:24:21
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1321.378 ops/s
+Iteration   1: 1524.360 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  1524.360 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 20.83% complete, ETA 00:24:06
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 581.843 ops/s
+Iteration   1: 659.727 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  659.727 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 21.67% complete, ETA 00:23:50
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 261.255 ops/s
+Iteration   1: 291.599 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  291.599 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 22.50% complete, ETA 00:23:35
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1321.271 ops/s
+Iteration   1: 1534.637 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  1534.637 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 23.33% complete, ETA 00:23:20
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 600.066 ops/s
+Iteration   1: 674.107 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  674.107 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 24.17% complete, ETA 00:23:05
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 271.000 ops/s
+Iteration   1: 305.278 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  305.278 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 25.00% complete, ETA 00:22:50
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1375.977 ops/s
+Iteration   1: 1584.506 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  1584.506 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 25.83% complete, ETA 00:22:34
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 585.014 ops/s
+Iteration   1: 671.195 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  671.195 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 26.67% complete, ETA 00:22:19
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 262.856 ops/s
+Iteration   1: 298.248 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  298.248 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 27.50% complete, ETA 00:22:04
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1374.798 ops/s
+Iteration   1: 1591.487 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  1591.487 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 28.33% complete, ETA 00:21:49
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 576.342 ops/s
+Iteration   1: 655.653 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  655.653 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 29.17% complete, ETA 00:21:33
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 249.937 ops/s
+Iteration   1: 278.389 ops/s
+
+
+Result "bench.Bench.dfsEvalBF4":
+  278.389 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 30.00% complete, ETA 00:21:18
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1411.018 ops/s
+Iteration   1: 1596.967 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  1596.967 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 30.83% complete, ETA 00:21:03
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 615.030 ops/s
+Iteration   1: 693.775 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  693.775 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 31.67% complete, ETA 00:20:48
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 266.800 ops/s
+Iteration   1: 304.257 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  304.257 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 32.50% complete, ETA 00:20:32
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1475.603 ops/s
+Iteration   1: 1680.374 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  1680.374 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 33.33% complete, ETA 00:20:17
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 621.649 ops/s
+Iteration   1: 710.217 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  710.217 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 34.17% complete, ETA 00:20:02
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 259.574 ops/s
+Iteration   1: 297.346 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  297.346 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 35.00% complete, ETA 00:19:47
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1570.543 ops/s
+Iteration   1: 1791.928 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  1791.928 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 35.83% complete, ETA 00:19:32
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 641.560 ops/s
+Iteration   1: 736.281 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  736.281 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 36.67% complete, ETA 00:19:16
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 276.561 ops/s
+Iteration   1: 313.918 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  313.918 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 37.50% complete, ETA 00:19:01
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1679.993 ops/s
+Iteration   1: 1914.519 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  1914.519 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 38.33% complete, ETA 00:18:46
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 730.059 ops/s
+Iteration   1: 829.283 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  829.283 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 39.17% complete, ETA 00:18:31
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 331.694 ops/s
+Iteration   1: 369.752 ops/s
+
+
+Result "bench.Bench.giveUpEval":
+  369.752 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 40.00% complete, ETA 00:18:15
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1350.644 ops/s
+Iteration   1: 1535.114 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  1535.114 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 40.83% complete, ETA 00:18:00
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 568.593 ops/s
+Iteration   1: 637.626 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  637.626 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 41.67% complete, ETA 00:17:45
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 249.524 ops/s
+Iteration   1: 277.106 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  277.106 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 42.50% complete, ETA 00:17:30
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1349.426 ops/s
+Iteration   1: 1532.452 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  1532.452 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 43.33% complete, ETA 00:17:15
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 562.524 ops/s
+Iteration   1: 628.735 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  628.735 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 44.17% complete, ETA 00:16:59
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 252.685 ops/s
+Iteration   1: 280.002 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  280.002 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 45.00% complete, ETA 00:16:44
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1252.192 ops/s
+Iteration   1: 1422.633 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  1422.633 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 45.83% complete, ETA 00:16:29
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 526.591 ops/s
+Iteration   1: 591.965 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  591.965 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 46.67% complete, ETA 00:16:14
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 235.945 ops/s
+Iteration   1: 259.659 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  259.659 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 47.50% complete, ETA 00:15:58
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1124.256 ops/s
+Iteration   1: 1264.978 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  1264.978 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 48.33% complete, ETA 00:15:43
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 476.655 ops/s
+Iteration   1: 541.260 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  541.260 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 49.17% complete, ETA 00:15:28
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 198.379 ops/s
+Iteration   1: 227.941 ops/s
+
+
+Result "bench.Bench.retryAllEval":
+  227.941 ops/s
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 50.00% complete, ETA 00:15:13
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 50.83% complete, ETA 00:14:58
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 51.67% complete, ETA 00:14:42
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 52.50% complete, ETA 00:14:27
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 53.33% complete, ETA 00:14:12
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 54.17% complete, ETA 00:13:57
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 55.00% complete, ETA 00:13:41
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 55.83% complete, ETA 00:13:26
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 56.67% complete, ETA 00:13:11
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 57.50% complete, ETA 00:12:56
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 58.33% complete, ETA 00:12:41
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF2
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 59.17% complete, ETA 00:12:25
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.dfsEvalBF2":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 60.00% complete, ETA 00:12:10
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 60.83% complete, ETA 00:11:55
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 61.67% complete, ETA 00:11:40
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 62.50% complete, ETA 00:11:24
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 63.33% complete, ETA 00:11:09
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 64.17% complete, ETA 00:10:54
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 65.00% complete, ETA 00:10:39
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 65.83% complete, ETA 00:10:24
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 66.67% complete, ETA 00:10:08
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 67.50% complete, ETA 00:09:53
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 68.33% complete, ETA 00:09:38
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF3
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 69.17% complete, ETA 00:09:23
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.dfsEvalBF3":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 70.00% complete, ETA 00:09:07
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 70.83% complete, ETA 00:08:52
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 71.67% complete, ETA 00:08:37
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 72.50% complete, ETA 00:08:22
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 73.33% complete, ETA 00:08:07
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 74.17% complete, ETA 00:07:51
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 75.00% complete, ETA 00:07:36
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 75.83% complete, ETA 00:07:21
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 76.67% complete, ETA 00:07:06
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 77.50% complete, ETA 00:06:50
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 78.33% complete, ETA 00:06:35
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.dfsEvalBF4
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 79.17% complete, ETA 00:06:20
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.dfsEvalBF4":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 80.00% complete, ETA 00:06:05
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 80.83% complete, ETA 00:05:50
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 81.67% complete, ETA 00:05:34
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 82.50% complete, ETA 00:05:19
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 83.33% complete, ETA 00:05:04
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 84.17% complete, ETA 00:04:49
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 85.00% complete, ETA 00:04:33
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 85.83% complete, ETA 00:04:18
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 86.67% complete, ETA 00:04:03
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 87.50% complete, ETA 00:03:48
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 88.33% complete, ETA 00:03:33
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.giveUpEval
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 89.17% complete, ETA 00:03:17
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.003 s/op
+Iteration   1: 0.003 s/op
+
+
+Result "bench.Bench.giveUpEval":
+  0.003 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.05, token_length = 100)
+
+# Run progress: 90.00% complete, ETA 00:03:02
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.05, token_length = 200)
+
+# Run progress: 90.83% complete, ETA 00:02:47
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.05, token_length = 400)
+
+# Run progress: 91.67% complete, ETA 00:02:32
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.1, token_length = 100)
+
+# Run progress: 92.50% complete, ETA 00:02:16
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.1, token_length = 200)
+
+# Run progress: 93.33% complete, ETA 00:02:01
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.1, token_length = 400)
+
+# Run progress: 94.17% complete, ETA 00:01:46
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.2, token_length = 100)
+
+# Run progress: 95.00% complete, ETA 00:01:31
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.2, token_length = 200)
+
+# Run progress: 95.83% complete, ETA 00:01:16
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.2, token_length = 400)
+
+# Run progress: 96.67% complete, ETA 00:01:00
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.004 s/op
+Iteration   1: 0.004 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.004 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.4, token_length = 100)
+
+# Run progress: 97.50% complete, ETA 00:00:45
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.001 s/op
+Iteration   1: 0.001 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.001 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.4, token_length = 200)
+
+# Run progress: 98.33% complete, ETA 00:00:30
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.002 s/op
+Iteration   1: 0.002 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.002 s/op
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms4G -Xmx8G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 1 iterations, 5 s each
+# Measurement: 1 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: bench.Bench.retryAllEval
+# Parameters: (fp_rate = 0.4, token_length = 400)
+
+# Run progress: 99.17% complete, ETA 00:00:15
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_27eec128/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 0.005 s/op
+Iteration   1: 0.005 s/op
+
+
+Result "bench.Bench.retryAllEval":
+  0.005 s/op
+
+
+# Run complete. Total time: 00:30:26
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark           (fp_rate)  (token_length)   Mode  Cnt     Score   Error  Units
+Bench.dfsEvalBF2         0.05             100  thrpt       1585.307          ops/s
+Bench.dfsEvalBF2         0.05             200  thrpt        656.775          ops/s
+Bench.dfsEvalBF2         0.05             400  thrpt        287.391          ops/s
+Bench.dfsEvalBF2          0.1             100  thrpt       1553.634          ops/s
+Bench.dfsEvalBF2          0.1             200  thrpt        646.342          ops/s
+Bench.dfsEvalBF2          0.1             400  thrpt        284.855          ops/s
+Bench.dfsEvalBF2          0.2             100  thrpt       1576.106          ops/s
+Bench.dfsEvalBF2          0.2             200  thrpt        670.387          ops/s
+Bench.dfsEvalBF2          0.2             400  thrpt        279.046          ops/s
+Bench.dfsEvalBF2          0.4             100  thrpt       1530.614          ops/s
+Bench.dfsEvalBF2          0.4             200  thrpt        666.153          ops/s
+Bench.dfsEvalBF2          0.4             400  thrpt        289.579          ops/s
+Bench.dfsEvalBF3         0.05             100  thrpt       1563.653          ops/s
+Bench.dfsEvalBF3         0.05             200  thrpt        679.361          ops/s
+Bench.dfsEvalBF3         0.05             400  thrpt        286.296          ops/s
+Bench.dfsEvalBF3          0.1             100  thrpt       1595.702          ops/s
+Bench.dfsEvalBF3          0.1             200  thrpt        684.314          ops/s
+Bench.dfsEvalBF3          0.1             400  thrpt        280.724          ops/s
+Bench.dfsEvalBF3          0.2             100  thrpt       1579.413          ops/s
+Bench.dfsEvalBF3          0.2             200  thrpt        675.716          ops/s
+Bench.dfsEvalBF3          0.2             400  thrpt        278.251          ops/s
+Bench.dfsEvalBF3          0.4             100  thrpt       1524.256          ops/s
+Bench.dfsEvalBF3          0.4             200  thrpt        702.024          ops/s
+Bench.dfsEvalBF3          0.4             400  thrpt        291.883          ops/s
+Bench.dfsEvalBF4         0.05             100  thrpt       1524.360          ops/s
+Bench.dfsEvalBF4         0.05             200  thrpt        659.727          ops/s
+Bench.dfsEvalBF4         0.05             400  thrpt        291.599          ops/s
+Bench.dfsEvalBF4          0.1             100  thrpt       1534.637          ops/s
+Bench.dfsEvalBF4          0.1             200  thrpt        674.107          ops/s
+Bench.dfsEvalBF4          0.1             400  thrpt        305.278          ops/s
+Bench.dfsEvalBF4          0.2             100  thrpt       1584.506          ops/s
+Bench.dfsEvalBF4          0.2             200  thrpt        671.195          ops/s
+Bench.dfsEvalBF4          0.2             400  thrpt        298.248          ops/s
+Bench.dfsEvalBF4          0.4             100  thrpt       1591.487          ops/s
+Bench.dfsEvalBF4          0.4             200  thrpt        655.653          ops/s
+Bench.dfsEvalBF4          0.4             400  thrpt        278.389          ops/s
+Bench.giveUpEval         0.05             100  thrpt       1596.967          ops/s
+Bench.giveUpEval         0.05             200  thrpt        693.775          ops/s
+Bench.giveUpEval         0.05             400  thrpt        304.257          ops/s
+Bench.giveUpEval          0.1             100  thrpt       1680.374          ops/s
+Bench.giveUpEval          0.1             200  thrpt        710.217          ops/s
+Bench.giveUpEval          0.1             400  thrpt        297.346          ops/s
+Bench.giveUpEval          0.2             100  thrpt       1791.928          ops/s
+Bench.giveUpEval          0.2             200  thrpt        736.281          ops/s
+Bench.giveUpEval          0.2             400  thrpt        313.918          ops/s
+Bench.giveUpEval          0.4             100  thrpt       1914.519          ops/s
+Bench.giveUpEval          0.4             200  thrpt        829.283          ops/s
+Bench.giveUpEval          0.4             400  thrpt        369.752          ops/s
+Bench.retryAllEval       0.05             100  thrpt       1535.114          ops/s
+Bench.retryAllEval       0.05             200  thrpt        637.626          ops/s
+Bench.retryAllEval       0.05             400  thrpt        277.106          ops/s
+Bench.retryAllEval        0.1             100  thrpt       1532.452          ops/s
+Bench.retryAllEval        0.1             200  thrpt        628.735          ops/s
+Bench.retryAllEval        0.1             400  thrpt        280.002          ops/s
+Bench.retryAllEval        0.2             100  thrpt       1422.633          ops/s
+Bench.retryAllEval        0.2             200  thrpt        591.965          ops/s
+Bench.retryAllEval        0.2             400  thrpt        259.659          ops/s
+Bench.retryAllEval        0.4             100  thrpt       1264.978          ops/s
+Bench.retryAllEval        0.4             200  thrpt        541.260          ops/s
+Bench.retryAllEval        0.4             400  thrpt        227.941          ops/s
+Bench.dfsEvalBF2         0.05             100   avgt          0.001           s/op
+Bench.dfsEvalBF2         0.05             200   avgt          0.002           s/op
+Bench.dfsEvalBF2         0.05             400   avgt          0.003           s/op
+Bench.dfsEvalBF2          0.1             100   avgt          0.001           s/op
+Bench.dfsEvalBF2          0.1             200   avgt          0.002           s/op
+Bench.dfsEvalBF2          0.1             400   avgt          0.004           s/op
+Bench.dfsEvalBF2          0.2             100   avgt          0.001           s/op
+Bench.dfsEvalBF2          0.2             200   avgt          0.002           s/op
+Bench.dfsEvalBF2          0.2             400   avgt          0.004           s/op
+Bench.dfsEvalBF2          0.4             100   avgt          0.001           s/op
+Bench.dfsEvalBF2          0.4             200   avgt          0.002           s/op
+Bench.dfsEvalBF2          0.4             400   avgt          0.004           s/op
+Bench.dfsEvalBF3         0.05             100   avgt          0.001           s/op
+Bench.dfsEvalBF3         0.05             200   avgt          0.001           s/op
+Bench.dfsEvalBF3         0.05             400   avgt          0.004           s/op
+Bench.dfsEvalBF3          0.1             100   avgt          0.001           s/op
+Bench.dfsEvalBF3          0.1             200   avgt          0.001           s/op
+Bench.dfsEvalBF3          0.1             400   avgt          0.003           s/op
+Bench.dfsEvalBF3          0.2             100   avgt          0.001           s/op
+Bench.dfsEvalBF3          0.2             200   avgt          0.002           s/op
+Bench.dfsEvalBF3          0.2             400   avgt          0.003           s/op
+Bench.dfsEvalBF3          0.4             100   avgt          0.001           s/op
+Bench.dfsEvalBF3          0.4             200   avgt          0.002           s/op
+Bench.dfsEvalBF3          0.4             400   avgt          0.004           s/op
+Bench.dfsEvalBF4         0.05             100   avgt          0.001           s/op
+Bench.dfsEvalBF4         0.05             200   avgt          0.001           s/op
+Bench.dfsEvalBF4         0.05             400   avgt          0.003           s/op
+Bench.dfsEvalBF4          0.1             100   avgt          0.001           s/op
+Bench.dfsEvalBF4          0.1             200   avgt          0.001           s/op
+Bench.dfsEvalBF4          0.1             400   avgt          0.004           s/op
+Bench.dfsEvalBF4          0.2             100   avgt          0.001           s/op
+Bench.dfsEvalBF4          0.2             200   avgt          0.002           s/op
+Bench.dfsEvalBF4          0.2             400   avgt          0.004           s/op
+Bench.dfsEvalBF4          0.4             100   avgt          0.001           s/op
+Bench.dfsEvalBF4          0.4             200   avgt          0.002           s/op
+Bench.dfsEvalBF4          0.4             400   avgt          0.003           s/op
+Bench.giveUpEval         0.05             100   avgt          0.001           s/op
+Bench.giveUpEval         0.05             200   avgt          0.001           s/op
+Bench.giveUpEval         0.05             400   avgt          0.003           s/op
+Bench.giveUpEval          0.1             100   avgt          0.001           s/op
+Bench.giveUpEval          0.1             200   avgt          0.001           s/op
+Bench.giveUpEval          0.1             400   avgt          0.003           s/op
+Bench.giveUpEval          0.2             100   avgt          0.001           s/op
+Bench.giveUpEval          0.2             200   avgt          0.001           s/op
+Bench.giveUpEval          0.2             400   avgt          0.003           s/op
+Bench.giveUpEval          0.4             100   avgt          0.001           s/op
+Bench.giveUpEval          0.4             200   avgt          0.001           s/op
+Bench.giveUpEval          0.4             400   avgt          0.003           s/op
+Bench.retryAllEval       0.05             100   avgt          0.001           s/op
+Bench.retryAllEval       0.05             200   avgt          0.002           s/op
+Bench.retryAllEval       0.05             400   avgt          0.004           s/op
+Bench.retryAllEval        0.1             100   avgt          0.001           s/op
+Bench.retryAllEval        0.1             200   avgt          0.002           s/op
+Bench.retryAllEval        0.1             400   avgt          0.004           s/op
+Bench.retryAllEval        0.2             100   avgt          0.001           s/op
+Bench.retryAllEval        0.2             200   avgt          0.002           s/op
+Bench.retryAllEval        0.2             400   avgt          0.004           s/op
+Bench.retryAllEval        0.4             100   avgt          0.001           s/op
+Bench.retryAllEval        0.4             200   avgt          0.002           s/op
+Bench.retryAllEval        0.4             400   avgt          0.005           s/op
