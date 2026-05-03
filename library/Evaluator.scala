@@ -107,8 +107,8 @@ object StackEvaluator extends Evaluator {
           go(initial)
         }
         case Finish() =>
-          if p.state == Accepting then Success(() => p.results)
-          else Failure(() => p.results)
+          if p.state == Accepting then Success(() => p.result)
+          else Failure(() => p.result)
       }
     }
 
@@ -174,8 +174,8 @@ object ScrapAllEvaluator extends Evaluator {
           go(initial)
         }
         case Finish() =>
-          if p.state == Accepting then Success(() => p.results)
-          else Failure(() => p.results)
+          if p.state == Accepting then Success(() => p.result)
+          else Failure(() => p.result)
       }
     }
 
@@ -297,8 +297,8 @@ object RememberActionEvaluator extends Evaluator {
           go(initial)
         }
         case Finish() =>
-          if p.state == Accepting then Success(() => p.results)
-          else Failure(() => p.results)
+          if p.state == Accepting then Success(() => p.result)
+          else Failure(() => p.result)
       }
     }
 
