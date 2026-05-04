@@ -1,0 +1,1175 @@
+#+TITLE: Parsing with Derivatives for improving LLM code generation
+#+AUTHOR: Said Kadrioski
+#+EMAIL: said@kadrioski.de
+#+DATE: \today
+
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: SimplePlus
+#+BEAMER_COLOR_THEME: seahorse
+# #+BEAMER_FONT_THEME: structurebold
+
+#+OPTIONS: H:2 toc:t num:t
+#+OPTIONS: TeX:t LaTeX:t
+#+OPTIONS: skip:t d:nil todo:nil pri:nil tags:not-in-toc
+#+OPTIONS: email:t
+
+#+LATEX_COMPILER: xelatex
+
+# Packages
+#+LATEX_HEADER: \usepackage{amsmath,amssymb,amsfonts,graphicx}
+#+LATEX_HEADER: \usepackage{fvextra}
+#+LATEX_HEADER: \usepackage[dvipsnames]{xcolor}
+#+LATEX_HEADER: \usepackage{tasks}
+#+LATEX_HEADER: \usepackage{twemojis}
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \usepackage{simplebnf}
+#+LATEX_HEADER: \usepackage[normalem]{ulem}
+
+#+LATEX_HEADER: \usepackage{tikz-uml}
+#+LATEX_HEADER: \tikzumlset{font=\footnotesize\ttfamily}
+#+LATEX_HEADER: \usetikzlibrary{positioning}
+#+LATEX_HEADER: \definecolor{color1bg}{rgb}{0.9,0.9,1}
+#+LATEX_HEADER: \definecolor{color3bg}{rgb}{1,0.9,0.9}
+#+LATEX_HEADER: \definecolor{color0bg}{rgb}{0.9,1,0.9}
+#+LATEX_HEADER: \definecolor{color2bg}{rgb}{1,1,0.9}
+
+#+LATEX_HEADER: \newcommand<>\highlight[1]{\color#2{#1}}
+
+
+# Fonts (XeLaTeX)
+# #+LATEX_HEADER: \setmainfont{Noto Serif}
+#+LATEX_HEADER: \setmainfont[ItalicFont={Z003}]{URW Bookman}
+#+LATEX_HEADER: \setsansfont{P052}
+# #+LATEX_HEADER: \setmonofont{JetBrains Mono}
+
+# Outline for each section
+#+LATEX_HEADER: \AtBeginSection[]{
+#+LATEX_HEADER:   \begin{frame}{Outline}
+#+LATEX_HEADER:     \tableofcontents[currentsection]
+#+LATEX_HEADER:   \end{frame}
+#+LATEX_HEADER: }
+
+# Accent color
+#+LATEX_HEADER: \definecolor{Accent}{HTML}{fb607f}
+
+# Section divider macro
+#+LATEX_HEADER: \newcommand{\SectionSlide}[1]{
+#+LATEX_HEADER: \begin{frame}[plain]
+#+LATEX_HEADER:   \begin{center}
+#+LATEX_HEADER:     {\Huge \textbf{#1}}\\[1em]
+#+LATEX_HEADER:     \begin{tikzpicture}
+#+LATEX_HEADER:       \fill[Accent] (0,0) rectangle (10,0.125);
+#+LATEX_HEADER:     \end{tikzpicture}
+#+LATEX_HEADER:   \end{center}
+#+LATEX_HEADER: \end{frame}
+#+LATEX_HEADER: }
+
+#+LATEX_HEADER: \AtBeginSection[]{
+#+LATEX_HEADER:   \SectionSlide{\insertsection}
+#+LATEX_HEADER: }
+
+
+* Motivation
+** Using LLMs for Code Generation
+Some facts about LLM adoption.
+- @@b:<2->@@ 85% of developers use AI for coding
+  @@latex:{\raggedleft \tiny --- JetBrains \cite{jetbrains:survey2025}}@@
+  # - @@b:<3->@@  Mostly for...
+  #   1) repetitive work
+  #   2) searching for tools
+  #   3) code translation
+  #   4) comments, documentation, summaries
+- @@b:<3->@@ GitHub Copilot has over 20M users
+  @@latex:{\raggedleft \tiny --- Yahoo!Finance \cite{copilot:users}}@@
+- @@b:<4->@@ ~30% of Google and Microsoft code AI written
+  @@latex:{\raggedleft \tiny --- Business Insider \cite{insider:ai-usage}}@@
+
+** Vibe Coding
+New programming paradigm emerged: Vibe Coding.
+
+*** Vibe Coding
+:PROPERTIES:
+:BEAMER_env: definition
+:BEAMER_act: <2>
+:END:
+Vibe coding is a new and loosely-defined term in software development
+that refers to the practice of \textbf{prompting AI tools to generate code} rather
+than writing code manually.
+@@latex:{\raggedleft \tiny --- IBM \cite{ibm:vibe-coding}}@@
+
+
+** Example: Vibe coding
+  [[file:vibe_example.png]]
+@@latex:{\raggedleft \tiny --- heise \cite{heise:vibe-coding}}@@
+
+** Problems with LLM Generated Code (1)
+Training LLMs is hard!!
+- @@b:<2->@@ No Free Lunch \twemoji{pensive}
+- @@b:<3->@@ Lots of parameters needed
+- @@b:<4->@@ Lots of training data needed
+
+*** Parameter Count Comparison
+:PROPERTIES:
+:BEAMER_act: <3->
+:END:
+|                  |            <r> |          <r> |
+| LLM              | Activer Params | Total Params |
+|------------------+----------------+--------------|
+| Llama 4 Scout    |            17B |         109B |
+| Llama 4 Maverick |            17B |         400B |
+| Llama 4 Behemoth |           288B |           2T |
+| Step 3.5 Flash   |            11B |         196B |
+@@latex:{\raggedleft \tiny --- Meta \cite{meta:llama4}, StepFun \cite{stepfun:step3.5}}@@
+
+*** Llama 4 Training Data
+:PROPERTIES:
+:BEAMER_act: <4->
+:END:
+The overall data mixture for training consisted of more than
+\textbf{30 trillion tokens}, [...]
+@@latex:{\raggedleft \tiny --- Meta \cite{meta:llama4}}@@
+
+** Problems with LLM Generated Code (2)
+LLMs are still far from perfect
+- @@b:<2->@@ “Just” predicting next token (NTP)
+  @@latex:{\raggedleft \tiny --- IBM \cite{ibm:llms}}@@
+  - @@b:<3->@@ No language specific handling of tokens
+  - @@b:<4->@@ No language specific guarantees of correctness
+- @@b:<5->@@ No capabilites for real problem solving
+  - @@b:<6->@@ I.e., no Maths/Physics/Logic engine
+
+** Problems with LLM Generated Code (3)
+Some evidence, LLM generated code is error-prone.
+- @@b:<2->@@ No LLM has a perfect score for \textbf{SWE-bench-Verified}
+ @@latex:{\raggedleft \tiny \cite{swebench}}@@
+ (best: \textbf{80.9\%} passage with Claude Opus 4.6
+ @@latex:{\raggedleft \tiny \cite{llmstats}}@@)
+- @@b:<3->@@ No LLM has a perfect score for \textbf{HumanEval}
+ @@latex:{\raggedleft \tiny \cite{humaneval}}@@
+ (best: \textbf{94.5\%} passage with Kimi K2 0905
+ @@latex:{\raggedleft \tiny \cite{llmstats}}@@)
+- @@b:<4->@@ 95% of code is syntactically correct
+  #+LATEX: { \footnotesize \color{gray!50} (still not perfect)}
+# - @@b:<4->@@ After 10 Iterations of refinment,
+#   \textbf{43.7\%} of code is \textbf{less secure} (GPT-4o)
+#   @@latex:{\raggedleft \tiny --- Chen et al. \cite{chen:preventsecdeg}}@@
+
+** Problems with LLM Generated Code (3)
+  @@latex: { \raggedleft \tiny --- Veracode \cite{veracode:llmsec}}@@
+- @@b:<1->@@ only 55% of code meets security standard
+  @@latex:{\raggedleft \tiny --- Veracode \cite{veracode:llmsec}}@@
+- @@b:<2->@@ Short/simple vs long/complex problems
+  - @@b:<3->@@ Task prompt $>150$ words or solution requires $>12$ LOC
+    $\mathbf{\longrightarrow~55.9\%}$ /garbage/
+    #+LATEX: { \color{gray!80} \footnotesize (syntax \textcolor{ForestGreen}{good}, but \textcolor{BrickRed}{garbage}) }
+    @@latex:{\raggedleft \tiny --- Wang et al. \cite{wang:understanding-errors}}@@
+- @@b:<4->@@ Synthetic benchmarks vs. real-world problems
+  - @@b:<5->@@ \textbf{84-89\%} synthetic vs. \textbf{25-34\%} real world correctness
+    @@latex:{\raggedleft \tiny --- Rahman et al. \cite{rahman:beyond-synthetic}}@@
+
+** Some Solutions
+- @@b:<1->@@ Improve architecture
+  - @@b:<2->@@ recent discoveries: MoE, TurboQuant
+    @@latex:{\raggedleft \tiny --- \cite{jiang:moe}, \cite{zandieh:turboquant}}@@
+- @@b:<3->@@ Prompt Engineering
+  @@latex:{\raggedleft \tiny --- \cite{openai:prompt-engineering}}@@
+  - @@b:<4->@@ Tailor prompt to task
+- @@b:<5->@@ Chain-of-Thought
+  @@latex:{\raggedleft \tiny --- \cite{wei:cot}, \cite{li:scot}}@@
+  - @@b:<6->@@ Either via prompt or learned
+  - @@b:<7->@@ Emulates human breakdown of a problem
+- @@b:<alert@11|8->@@ Agentic AI
+  @@latex:{\raggedleft \tiny --- \cite{ibm:agentic-ai}, \cite{chen:preventsecdeg}}@@
+  - @@b:<9->@@ System of many tools (search engine, sandboxed (testing) environment, etc.)
+  - @@b:<10->@@ Enhance LLM output with feedback loop
+    
+#+begin_export latex
+\begin{onlyenv}<11>
+#+end_export
+#+BEGIN_center
+\textbf{Parsing with Derivatives might help here!}
+#+END_center
+#+begin_export latex
+\end{onlyenv}
+#+end_export
+
+* Parsing with Derivatives
+** (Functional) Parsing
+#+attr_latex: :options [Parser]
+#+BEGIN_definition
+Parser:
+1) takes input data
+2) returns new data structure(s)
+   (or nothing / some error)
+#+END_definition
+
+#+begin_export latex
+\begin{onlyenv}<2>
+\begin{exampleblock}{Example Haskell Definition}
+#+end_export
+Often just:
+1) takes string
+2) returns list of type \textbf{a}
+#+BEGIN_src haskell
+  newtype Parser a = Parser (String -> [(a,String)])
+#+END_src
+@@latex: { \raggedleft \tiny \cite{hutton:monadic-parsing}}@@
+#+begin_export latex
+\end{exampleblock}
+\end{onlyenv}
+\begin{onlyenv}<3>
+\begin{exampleblock}{Parsing (Good) Arithmetic Expressions}
+#+end_export
+#+BEGIN_src scala
+  parse(arithmetic_expr, "2+3*4")
+  → List(14)
+#+END_src
+#+begin_export latex
+\end{exampleblock}
+\end{onlyenv}
+\begin{onlyenv}<4>
+\begin{exampleblock}{Parsing (Good) Arithmetic Expressions}
+#+end_export
+#+BEGIN_src scala
+  parse(arithmetic_expr, "(2+3)*4")
+  → List(20)
+#+END_src
+#+begin_export latex
+\end{exampleblock}
+\end{onlyenv}
+\begin{onlyenv}<5>
+\begin{alertblock}{Parsing (Bad) Arithmetic Expressions}
+#+end_export
+#+BEGIN_src scala
+  parse(arithmetic_expr, "(2+3)*")
+  → List()
+#+END_src
+#+begin_export latex
+\end{alertblock}
+\end{onlyenv}
+#+end_export
+
+** Parser Combinators
+Idea: Construct complex parsers from simple ones.
+@@latex: { \raggedleft \tiny \cite{hutton:parser-combinators}}@@
+
+*** Some Famous Parser Combinators
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:BEAMER_act: <2->
+:END:
+1) \textbf{fail}, fails always
+2) \textbf{succeed}\textit{(v)}, succeeds with value /v/
+3) \textbf{alt}\textit{(p,q)}, apply alternation on parser /p/ and /q/
+
+** (Brzozowski) Derivative
+*** 
+:PROPERTIES:
+:BEAMER_env: definition
+:BEAMER_act: <1->
+:END:
+The derivative of a language w.r.t. letter $u$
+1) filter for words beginning with $u$
+2) "cut away" first letter
+\[ D_u^{}S = \{ v \in \Sigma^* \mid uv \in S \} \]
+@@latex: { \raggedleft \tiny \cite{brz:derivative}, \cite{might:pwd}, \cite{moss:peg-derivative}}@@
+
+*** Example
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:BEAMER_act: <2->
+:END:
+Derivative on month names w.r.t. letter $a$.
+\[ D_\mathbf{a}^{}\{ august, september, april \} = \{ ugust, pril \} \]
+
+** Parsing with Derivatives
+Parsing reduced down to (repeated) application of the derivative (given respective input symbol).
+
+#+BEGIN_src scala
+  // fcd: library/Parsers.scala
+  def feed[R](p: Parser[R], in: Elem): Parser[R]
+  def feedAll[R](p: Parser[R], in: Iterable[Elem]): Parser[R] =
+    in.foldLeft(p)(feed)
+
+  // fcd: library/DerivativeParsers.scala
+  def parse[R](p: Parser[R], in: Iterable[Elem]): Results[R] =
+    List.from(feedAll(p, in).results)
+#+END_src
+
+** Usefulness
+PwD allows using previously created parsers for free.
+Meaning, backtracking does \textbf{not} require parsing everything anew.
+
+#+BEGIN_export latex
+\bigskip
+\begin{onlyenv}<2->
+#+END_export
+The question now arises...
+1) ... \textbf{how effective} is \textbf{backtracking} for token generation?
+2) ... \textbf{how necessary} is \textbf{PwD} for backtracking?
+  I.e. how necessary is creating intermediate parsers?
+#+BEGIN_export latex
+\end{onlyenv}
+\bigskip
+\begin{onlyenv}<3->
+#+END_export
+\textbf{Will be answered today!}
+#+BEGIN_export latex
+\end{onlyenv}
+#+END_export
+
+* Library: PwD for code generation
+** Overview
+The library \textbf{pwd4llm} defines
+1) derivative parsers
+2) token generator interface
+Both components work together to evaluate result.
+
+#+BEGIN_EXPORT latex
+\begin{center}
+  \begin{tikzpicture}[scale=0.8, transform shape]
+    \begin{umlpackage}[fill=color1bg]{pwd4llm}
+      \umlinterface{Evaluator}{}{}
+     \umlinterface[below=1.5cm of Evaluator.south]{Parser}{}{}
+      \umlinterface[right=1.5cm of Evaluator.east]{TokenGenerator}{}{}
+    \end{umlpackage}
+  \end{tikzpicture}
+\end{center}
+#+END_EXPORT
+
+** Parser
+The parser allows token input verification.
+#+BEGIN_src scala
+trait Parser[T, R] {
+  def feed(t: T): Parser[T, R]
+  def result: R
+  def state: ParserState
+}
+#+END_src
+- @@b:<2->@@ consumes tokens of type \textbf{T} to create new parser
+- @@b:<3->@@ returns (partial) result of type \textbf{R}
+- @@b:<4->@@ has a state (\textcolor{Orange}{pending}, \textcolor{ForestGreen}{accepting}, \textcolor{BrickRed}{failed})
+
+** Parser States
+The state of the parser.
+#+BEGIN_src scala
+  enum ParserState {
+    case Accepting
+    case Pending
+    case Failed
+  }
+#+END_src
+- @@b:<2->@@ \textcolor{Orange}{pending}: parser does \textbf{not} accept, children may be in any state
+- @@b:<3->@@ \textcolor{ForestGreen}{accepting}: parser does accept \textit{currently}, children may be in any state
+- @@b:<4->@@ \textcolor{BrickRed}{failed}: parser does \textbf{not} accept, children must also be failed
+
+** Useful Parsers
+Wrap a derivative parser built from \textbf{fcd} parser combinators.
+#+BEGIN_src scala
+trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
+  class WrappedParser[R](
+      inner: parsers.Parser[R]
+  ) extends Parser[parsers.Elem, Iterable[R]] {
+    def feed(t: parsers.Elem) = WrappedParser(inner.consume(t))
+    def result = inner.results
+    def state =
+      if inner.accepts then Accepting
+      else if inner.failed then Failed
+      else Pending
+  }
+
+  type DParser[R] = parsers.Parser[R]
+}
+#+END_src
+- @@b:<2->@@ pass parser combinator object \texttt{parsers} to create tools
+- @@b:<3->@@ wrap parser with \texttt{WrappedParser} use as \textbf{Parser} type
+
+
+** Token Generator
+The token generator defines a (dynamic) search tree of token inputs.
+#+BEGIN_src scala
+trait TokenGenerator[T] {
+  def suggest(): GeneratorAction[T]
+  def receiveFeedback(state: ParserState): Unit
+}
+#+END_src
+- @@b:<2->@@ suggests an (editing) action on the current token input
+- @@b:<3->@@ receives parser state as feedback to adapt
+
+** Generator Actions
+The actions defined on the current token input.
+#+BEGIN_src scala
+enum GeneratorAction[Token] {
+  case Concatenate(tokens: Iterator[Token])
+  case Append(token: Token)
+  case DropLast(number: Int)
+  case DeleteLast()
+  case ReplaceLast(token: Token)
+  case Rebuild(tokens: Iterator[Token])
+  case Finish()
+  case Reset()
+}
+#+END_src
+Mostly self-explanatory. Special editing commands:
+- @@b:<2->@@ \texttt{rebuild}: rebuild the whole input with new tokens.
+- @@b:<3->@@ \texttt{reset}: reset the current input stream.
+- @@b:<4->@@ \texttt{finish}: stop or abort editing.
+
+** Useful Token Generators (1)
+Using a graph, defining a search space becomes easy.
+*** Node
+Nodes can be used by implementations of \texttt{TokenGenerator}.
+Only a seed/start node needed!
+#+BEGIN_src scala
+  // Vertices: Nodes, Outgoing Edges: Token/Node pairs
+  case class Node[T](neighbors: Iterator[(T, Node[T])])
+#+END_src
+
+** Useful Token Generators (2)
+Good for testing: a token generator that gives up generating
+when parse state is \textcolor{BrickRed}{failure}.
+\rightarrow Allows inspecting raw token generation.
+*** Give-Up Token Generator
+#+BEGIN_src scala
+  final class GiveUp_TG[T](seed: () => Node[T]) extends TokenGenerator[T]
+#+END_src
+
+** Useful Token Generators (3)
+Viable strategy: retry generating from scratch if a failure occurs.
+*** Retry-All Token Generator
+#+BEGIN_src scala
+  final class RetryAll_TG[T](seed: () => Node[T]) extends TokenGenerator[T]
+#+END_src
+
+** Useful Token Generators (4)
+Alternative strategy: For failure, backtrack to last safe point and try again there.
+Typical Depth-First search.
+*** DFS Token Generator
+#+BEGIN_src scala
+  final class DFS_TG[T](seed: () => Node[T], max_steps: Int = Int.MaxValue) extends TokenGenerator
+#+END_src
+
+** Evaluator
+Brings parser and token generator together.
+#+BEGIN_src scala
+  trait Evaluator {
+    def eval[T, R](p: Parser[T, R], g: TokenGenerator[T]): EvalResult[R]
+  }
+#+END_src
+- @@b:<2->@@ \texttt{eval} must handle bookkeeping of generating action and their feedback
+
+** EvalResult
+The result of an evaluation.
+The (partial) result field is a function to avoid expensive computation, if not needed.
+#+BEGIN_src scala
+enum EvalResult[R] {
+  case Success(result: () => R)
+  case Failure(partial_result: () => R)
+  case CriticalFailure()
+}
+#+END_src
+
+- @@b:<2->@@ \textcolor{ForestGreen}{Success},
+  when everything goes well
+- @@b:<3->@@ \textcolor{BrickRed}{Failure},
+  when token generator finds no accepting state
+- @@b:<4->@@ \textcolor{Maroon}{CriticalFailure},
+  when token generator does something silly (e.g., \texttt{delete-last} on empty token input)
+
+** Useful Evaluators
+Choosing right evaluator depends on requirements, i.e. the token generator used.
+# | Evaluator               | Internal Datastructures            | Example Usecase                       |
+# |-------------------------+------------------------------------+---------------------------------------|
+# | StackEvaluator          | Stack of parsers                   | DFS search                            |
+# | ScrapAllEvaluator       | Stack of tokens (for backup)       | No backtracking logic needed          |
+# | RememberActionEvaluator | Stack of parsers (for each action) | Backtracking (big) reversible actions |
+# |                         | Stack of tokens (for backup)       | (i.e. concat many tokens)             |
+
+- @@b:<2->@@ \textbf{StackEvaluator}.
+  Internals: stack of parsers created for each token.
+  Good for backtracking in DFS.
+- @@b:<3->@@ \textbf{ScrapAllEvaluator}.
+  Internals: current token input.
+  Backtracking requires parsing everything anew.
+  Good for search not requiring backtracking.
+- @@b:<4->@@ \textbf{RememberActionEvaluator}.
+  Internals: parsers created by \texttt{GeneratorAction}s.
+  Good for backtracking (big) reversible actions
+  (i.e. concat many tokens).
+
+** Next Steps
+Library allows defining parser, token generator and evaluation strategies.
+Now example implementation is needed to answer the two previous questions.
+
+#+BEGIN_export latex
+\bigskip
+\begin{onlyenv}<2->
+#+END_export
+\small \color{gray!80} The question now arises...
+1) \color{gray!80} ... how effective is backtracking for token generation?
+2) \color{gray!80} ... how necessary is PwD for backtracking?
+  I.e. how necessary is creating intermediate parsers?
+#+BEGIN_export latex
+\end{onlyenv}
+#+END_export
+
+#+BEGIN_export latex
+\bigskip
+\begin{onlyenv}<3->
+#+END_export
+\rightarrow Define parser & token generator for PCF!
+
+Spoiler: Token generator can control syntactic correctness.
+#+BEGIN_export latex
+\end{onlyenv}
+#+END_export
+
+* Example Application: PCF
+** Definition
+Programming Computable Functions (\textbf{PCF}) \textbf{extends}
+Simply Typed Lambda Calculus (\textbf{STLC}) by a \textbf{Fixed-Point operator}
+and \textbf{Natural Numbers} \textcolor{gray!50}{(usually also Booleans)}.
+@@latex:{\raggedleft \tiny --- \cite{amadio:pcf}}@@
+
+** Fixed-Point Operator
+The Fixed-Point operator is the $\mathbf{Y}$ expression.
+\rightarrow Used to define recursive functions.
+
+#+BEGIN_export latex
+\begin{block}{$\mathbf{Y}$ in Untyped Lambda Calculus}
+\[ \mathbf{Y} = \lambda\ f\ .\ (\lambda\ x\ .\ f\ (x\ x))\ (\lambda\ x\ .\ f\ (x\ x)) \]
+\end{block}
+#+end_export
+
+
+** Types
+Natural Numbers is only primitive type.
+Of course, there is also function types.
+*** BNF Type Definition
+#+BEGIN_export latex
+  \begin{bnf}
+    $type$ ::=
+    | $\mathbb{N}$
+    | $type$ $\to$ $type$
+  \end{bnf}
+#+END_export
+
+** Expressions
+Only constant is 0. Every other natural numbers expressed by successor operator.
+*** BNF Expression Definition
+#+BEGIN_export latex
+  \begin{bnf}
+    $expr$ ::=
+    | 0
+    | identifier
+    | \texttt{succ} $expr$
+    | \texttt{pred} $expr$
+    | \texttt{if} $expr$ \texttt{then} $expr$ \texttt{else} $expr$
+    | \texttt{fix} $expr$
+    | $\lambda$ identifier $\colon$ $type$ . $expr$
+    | $expr$ $expr$
+  \end{bnf}
+#+END_export
+
+** Ambiguity
+ - @@b:<1->@@ Previous BNF definitions only useful for AST
+ - @@b:<2->@@ Concrete syntax tree \textbf{must} be unambigious
+
+*** Ambigious Expression
+:PROPERTIES:
+:BEAMER_env: alertblock
+:BEAMER_act: <3->
+:END:
+\[
+{\color{ForestGreen}(}\lambda x : \mathbb{N} . {\color{BrickRed}(} x {\color{ForestGreen})} 0 {\color{BrickRed})}
+\]
+
+Two possible parse trees:
+1) @@latex: $(\lambda x : \mathbb{N} . x)\ 0$@@
+2) @@latex: $\lambda x : \mathbb{N} . (x\ 0)$@@
+
+ 
+** Concrete Grammar
+One easy way to define precedence is by using nonterminal for each precedence level.
+- @@b:<2->@@ Higher level means higher precedence
+- @@b:<3->@@ Expression of lower level accessible by levels above
+- @@b:<4->@@ No expression of higher level accessible by levels below
+- @@b:<5->@@ Brackets become part of the grammar, allowing to change precedence
+
+** Concrete Grammar: Types I
+For types, only one precedence to decide:
+whether arrow type is left- or right-associative.
+
+#+begin_export latex
+\begin{onlyenv}<2->
+#+end_export
+#+BEGIN_center
+Right-associative is easier to read.
+#+END_center
+#+begin_export latex
+\end{onlyenv}
+#+end_export
+
+*** Type Level 1: Arrow Type
+:PROPERTIES:
+:BEAMER_act: <3->
+:END:
+#+BEGIN_export latex
+  \begin{bnf}
+    $typeL1$ ::= $typeL0$ \textcolor{ForestGreen}{$\to$} $typeL1$ | $typeL0$
+  \end{bnf}
+#+END_export
+  
+** Concrete Grammar: Types II
+*** Type Level 0: Terminals, Bracketed
+#+BEGIN_export latex
+  \begin{bnf}
+    $typeL0$ ::= \textcolor{ForestGreen}{$\mathbb{N}$}
+    | \textcolor{ForestGreen}{[} $typeL1$ \textcolor{ForestGreen}{]}
+  \end{bnf}
+#+END_export
+
+*** Final Type Definition
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:BEAMER_act: <2->
+:END:
+#+BEGIN_export latex
+  \begin{bnf}
+    $type$ ::= $typeL1$
+  \end{bnf}
+#+END_export
+
+** Concrete Grammar: Expressions I
+Here, more operations need to be considered. Without much detail,
+here is the concrete grammar:
+*** Expression Level 3: Lambda Abstraction
+:PROPERTIES:
+:BEAMER_act: <2->
+:END:
+#+BEGIN_export latex
+  \begin{bnf}
+    $exprL3$ ::=
+    | \textcolor{ForestGreen}{$\lambda$} $identifier$ \textcolor{ForestGreen}{$\colon$} $type$ \textcolor{ForestGreen}{$.$} $exprL3$
+    | $exprL2$
+  \end{bnf}
+#+END_export
+
+*** Expression Level 2: If-Else-Then
+:PROPERTIES:
+:BEAMER_act: <3->
+:END:
+#+BEGIN_export latex
+  \begin{bnf}
+    $exprL2$ ::=
+    | $exprL1$ \textcolor{ForestGreen}{?} $exprL3$ \textcolor{ForestGreen}{\textasciitilde}\ $exprL3$
+    | $exprL1$
+  \end{bnf}
+#+END_export
+
+** Concrete Grammar: Expressions II
+*** Expression Level 1: Function Application
+#+BEGIN_export latex
+  \begin{bnf}
+    $exprL1$ ::=
+    | $exprL1$ \textcolor{ForestGreen}{$\sqcup$}\ $exprL0$
+    | $exprL0$
+  \end{bnf}
+#+END_export
+  
+*** Expression Level 0: Terminals, Unaries, Bracketed
+:PROPERTIES:
+:BEAMER_act: <2->
+:END:
+#+BEGIN_export latex
+  \begin{bnf}
+    $exprL0$ ::=
+    | \textcolor{ForestGreen}{0}
+    | $identifier$
+    | \textcolor{ForestGreen}{$\uparrow$} $exprL0$
+    | \textcolor{ForestGreen}{$\downarrow$} $exprL0$
+    | {\color{ForestGreen}\fontspec{Symbola} ⥁} $exprL0$
+    | \textcolor{ForestGreen}{(} $exprL3$ \textcolor{ForestGreen}{)}
+  \end{bnf}
+#+END_export
+
+*** Final Expression Definition
+:PROPERTIES:
+:BEAMER_env: exampleblock
+:BEAMER_act: <3->
+:END:
+#+BEGIN_export latex
+  \begin{bnf}
+    $expr$ ::= $exprL3$
+  \end{bnf}
+#+END_export
+
+
+** Implementation I
+Defining AST is straightforward.
+
+#+BEGIN_src scala
+  enum Expr {
+    case Zero
+    case Id(name: String)
+    case Succ(num: Expr)
+    case Pred(num: Expr)
+    case Abs(arg: String, argType: Type, body: Expr)
+    case App(fun: Expr, arg: Expr)
+    case IfThenElse(cond: Expr, th: Expr, el: Expr)
+    case Fix(inner: Expr)
+  }
+#+END_src
+
+** Implementation II
+Defining concrete grammar with \texttt{fcd/DerivativeParsers}.
+#+BEGIN_src scala
+  def strictExpr: DParser[Expr] = {
+    ...
+    lazy val level3: NT[Expr] = abs | level2
+    lazy val level2: NT[Expr] = iet | level1
+    lazy val level1: NT[Expr] = app | level0
+    lazy val level0: NT[Expr] =
+      id | zero | succ | pred | fixpoint | '(' ~> level3 <~ ')'
+    level3
+  }
+#+END_src
+- @@b:<2->@@ "strict", because of minimal white space handling and no comments.
+  Simple to implement, forbids useless whitespaces.
+- @@b:<3->@@ non-strict counterpart, allows comments and has generous
+  whitespace handling. Useful for humans @@latex:\twemoji{slightly_smiling_face}@@.
+
+** Token Generation (1)
+Since LLM expensive to acquire: build fuzzer based
+on a \textbf{Weighted Context Free Grammar} of PCF.
+#+BEGIN_src scala
+  sealed trait Label {
+    def productions: ArraySeq[(Int, ArraySeq[Char | Label])]
+    final def nextProduction(rand: Random): ArraySeq[Char | Label] = {
+      rand.weightedChoice(productions)
+    }
+  }
+#+END_src
+- @@b:<2->@@ Weights (hand-)chosen carefully for each production rule.
+  Expanding label uses weighted choice for production.
+- @@b:<3->@@  Dynamic weight adjustment to hit a target length.
+  Label weights change for the desired token length.
+  
+
+** Token Generation (2)
+Example production rules:
+#+BEGIN_src scala
+  // type label level 1
+  def productions = {
+    val (x, y) = pies2(1)
+    // weight/production pairs
+    ArraySeq(
+      (up(2), ArraySeq(TypLevel0(x, r), '→', TypLabel(y, r))),
+      (up(1) + down(4), ArraySeq(TypLevel0(b, r)))
+    )
+  }
+#+END_src
+- @@b:<2->@@ \texttt{pies2} splits desired token length randomly
+  for 2 subexpressions (minus 1 terminal costs).
+  Expanding label uses weighted choice for production.
+- @@b:<3->@@ Dynamic weight functions \texttt{up}/\texttt{down}
+  for increasing/decreasing with token length respectively.
+
+** Token Generation (3)
+In more detail: Dynamic weight adjustion in specified direction
+(up \rightarrow more token vs. down \rightarrow less tokens needed).
+#+BEGIN_src scala
+    private val steps = 4  // how "aggressive" adjustment is
+    private val shift = 11 // correction, cuz expr inherently tend to grow
+    final def up(bias: Int): Int = {
+      val b = steps * budget - shift
+      (b * max(b, 0) + 1) * bias
+    }
+    final def down(bias: Int): Int = {
+      val b = steps * budget - shift
+      (b * min(b, 0) + 1) * bias
+    }
+#+END_src
+- @@b:<2->@@ \textbf{Budget}: desired token length. 
+- @@b:<3->@@ \textbf{Steps}: weight of adjustment. 
+- @@b:<4->@@ \textbf{Bias}: for relative likelihood of expression.
+- @@b:<5->@@ Experimentally verified.
+
+** Token Generation (4)
+The WCFG alone always builds correct code. Hence,
+streaming the output through a typo generation phase.
+#+BEGIN_src scala
+  // do something with head character 'h' and tail
+  // residue stream of labels, returning (Char, Node[Char])
+  if r <= typo_rate then {
+    if tail != Nil then
+      rand.nextInt(4) match {
+        case 0 => (h, child(h :: tail)) // Duplicate next
+        case 1 => (h, child('$' :: tail)) // Add bogus next
+        case 2 => ('%', child(tail)) // Replace with bogus
+        case 3 => (h, child(tail.tail)) // Forget next label
+    }
+    else
+    // handle tail == Nil (cannot access tail.tail)
+    ...
+#+END_src
+- @@b:<2->@@ Typo rate defines likelihood of making a typo each token
+- @@b:<3->@@ Various typos defined (e.g. duplicating or forgetting symbols)
+
+
+* Excursus: Migration of FCD library
+** About
+A quick summary of the migration from Scala 2 to Scala 3.
+
+|     | Scala version | Sbt version |
+|-----+---------------+-------------|
+| Old |        2.11.7 |      0.13.8 |
+| New |         3.7.4 |     1.12.10 |
+
+
+** Syntactic Preferences
+Adhere to Scala 3 code guidelines and style.
+1) @@b:<2->@@ Avoid using the \texttt{new} keyword.
+2) @@b:<3->@@ Avoid using type annotations. Scala 3 has more capable
+   type inference, so we should use it.
+3) @@b:<4->@@ Declare functions \texttt{infix} or use backticks for infix operators.
+4) @@b:<5->@@ Use \texttt{scalafmt} tool for uniform formatting.
+
+** General Code Cleanup
+Some cheap code quality improvements.
+1) @@b:<2->@@ Remove duplicate code
+2) @@b:<3->@@ Remove redundant overrides
+3) @@b:<4->@@ Simplify lambda expressions and function definitions
+4) @@b:<5->@@ Stricter encapsulation (i.e. \texttt{protected} \to \texttt{private})
+5) @@b:<6->@@ Rewrite lambda definitions to function definitions
+
+** Necessary Rewrites
+These changes were necessary because of deprecation.
+1) @@b:<2->@@ Remove view bounds
+2) @@b:<3->@@ \texttt{do-while} becomes \texttt{while}
+3) @@b:<4->@@ \texttt{implicit class} becomes class \texttt{extension}
+4) @@b:<5->@@ \texttt{implicit def} becomes \texttt{given}
+   \textcolor{gray!80}{(not truly necessary)}
+5) @@b:<6->@@ \texttt{private[this]} becomes \texttt{private}
+   \textcolor{gray!80}{(not truly necessary)}
+6) @@b:<7->@@ Avoid using \textbf{Symbol} class and their special syntax
+   (were needed in PythonTests)
+7) @@b:<8->@@ Replace lazy path imports with trait parameters
+   (tests require specific parser combinator implementation)
+
+** Problems
+After migrating the library and writing benchmarking code,
+I've noticed these things:
+1) @@b:<2->@@ \texttt{fcd} tests pass, but /very/ slowly
+2) @@b:<3->@@ validating tokens with \texttt{fcd} parsers took very long
+
+#+begin_export latex
+\begin{onlyenv}<4>
+#+end_export
+#+BEGIN_center
+First thought: own code was faulty,
+but there was deeper underlying problem...
+#+END_center
+#+begin_export latex
+\end{onlyenv}
+#+end_export
+
+** Crucial Optimizations (1)
+Inspecting flame graphs revealed: Building results took huge amount of time.
+For this project, have to get the best out of \textbf{DerivativeParsers}!
+#+BEGIN_export latex
+\bigskip
+#+END_export
+Tried attempts:
+1) @@b:<2->@@ Simply \textbf{avoiding} building results (not really a solution)
+2) @@b:<3->@@ Using \textbf{iterators} for parser result mappings. Avoids creating
+   intermediate collections. Very effective.
+3) @@b:<4->@@ Rewrite \texttt{consume} function for parsers:
+   before lambda, now \textbf{proper function}. Avoids object instantiation.
+   Very effective.
+4) @@b:<5->@@ Use strict map results (before cbn parameter).
+   Problem: \textbf{fcd} tests do not pass anymore (required laziness).
+5) @@b:<6->@@ Keep \texttt{Results} type as List,
+   but actually use \textbf{Set} for parser classes. Speed things up a lot,
+   because distinction checks were needed all the time.
+
+** Crucial Optimizations (2)
+Where using sets mattered a lot: Nonterminal result calculation.
+#+BEGIN_src scala
+  private object resultsFix extends Attributed {
+    object results
+        extends Attribute[List[R]](
+          Nil,
+          (nw, ol) => (nw ++ ol).distinct, // hidden set use
+          (nw, ol) => nw.toSet.subsetOf(ol.toSet) // convert to sets!
+    )
+  results := p.results
+  override protected def updateAttributes() = results.update()
+  }
+#+END_src
+
+The old definition returns list, set conversion was used all the time!
+
+** Crucial Optimizations (3)
+Limitations: Still, desired performance not achieved.
+So try bigger: Major rewrite as GADT.
+#+BEGIN_src scala
+  enum Parser[+R] extends Printable {
+    case Fail() extends Parser[Nothing], NullaryPrintable("∅")
+    case Accept(elem: Elem) extends Parser[Elem], NullaryPrintable("accept")
+    case Not(p: Parser[R]) extends Parser[Unit], UnaryPrintable("not", p)
+    case Alt(p: Parser[R], q: Parser[R])
+        extends Parser[R],
+        BinaryPrintable("|", p, q)
+    ...
+#+END_src
+   
+** Crucial Optimizations (4)
+Previous functions implemented with matching on parser.
+#+BEGIN_src scala
+  def consume(x: Elem): Parser[R] = this match {
+    case Fail() | Always()                              => this
+    case Accept(elem) if x == elem                      => Succeed(x)
+    ...
+#+END_src
+
+#+BEGIN_src scala
+  def results: Iterable[R] = this match {
+    case Fail() | Accept(_) | AcceptIf(_) => Set()
+    case Always()                         => Set(())
+    case Not(_) | MapToUnit(_) => if accepts then Set(()) else Set()
+    ...
+#+END_src
+
+** Crucial Optimizations (5)
+Some of previous optimizations applied again, and more!
+1) @@b:<2->@@ Use sets for results
+2) @@b:<3->@@ Omit result distinct check if possible, i.e. 
+  #+BEGIN_src scala
+    case And(p, q) => for x <- p.results; y <- q.results yield (x, y)
+  #+END_src
+3) @@b:<4->@@ Split NT fix-points from two to three.
+   Before: \texttt{accepts} and \texttt{faile} together,
+   but finding \texttt{failure} \textbf{much} more difficult.
+  #+BEGIN_src scala
+    def accepts = nullableFix.nullable.value
+    def failed = emptyFix.empty.value
+    def results: Set[R] = resultsFix.results.value
+  #+END_src
+
+** Crucial Optimizations (6)
+1) @@b:<1->@@ Replace MapResults with specialized
+   \textbf{MapToUnit, MapRes, FMapRes} ($\neq$ FlatMap) parsers.
+2) @@b:<2->@@ Optimize \textbf{FlatMap} \texttt{accepts}
+   #+BEGIN_src scala
+     case FlatMap(p, f)  => p.results.exists(f(_).accepts)
+   #+END_src
+3) @@b:<3->@@ Optimize flat-mapping other map parsers
+   #+BEGIN_src scala
+     def flatMap[U](f: R => Parser[U]): Parser[U] = this match {
+       case MapRes(p, g) => p.flatMap(x => f(g(x)))
+         ...
+     }
+   #+END_src
+4) @@b:<4->@@ Apply previous canonicalization/optimization rules
+  on \textbf{both sides} of binary combinators, i.e.
+  #+BEGIN_src scala
+    def seq[U](q: Parser[U]): Parser[(R, U)] = (this, q) match {
+      case (x @ Fail(), _)  => x
+      case (_, y @ Fail())  => y
+  #+END_src
+
+** Crucial Optimizations (7)
+Now the moment of truth: Parser tests time reduced from about 12 hours
+to less than than 1 second!
+
+#+BEGIN_export latex
+\bigskip
+\color{gray!80}(on my machine\footnote{
+ CPU: AMD Ryzen 6800HS, 3.2GHz (Base), 4.7GHz (Turbo);
+ MEM: 16GiB of 6400MHz DDR5
+})
+#+END_export
+
+
+* Benchmarks
+* Conclusion
+** Thanks!
+Questions? @@latex:\twemoji{slightly_smiling_face}@@
+
+* References
+** 
+:PROPERTIES:
+:BEAMER_opt: allowframebreaks
+:END:
+#+begin_export latex
+\begin{thebibliography}{10}
+  \footnotesize
+  \beamertemplatearticlebibitems
+  \bibitem{jetbrains:survey2025}
+    JetBrains
+    \newblock Developer Ecosystem 2025.
+    \newblock \url{https://devecosystem-2025.jetbrains.com/artificial-intelligence}
+
+  \bibitem{copilot:users}
+    M.~Zeff.
+    \newblock Yahoo!Finance.
+    \newblock \url{https://finance.yahoo.com/news/github-copilot-crosses-20-million-011655024.html}
+
+  \bibitem{insider:ai-usage}
+    E.~Webb.
+    \newblock Business Insider.
+    \newblock \url{https://www.businessinsider.com/ai-code-meta-microsoft-google-llamacon-engineers-2025-4}
+
+  \bibitem{ibm:vibe-coding}
+    S.~Harkar.
+    \newblock What is Vibe Coding?
+    \newblock IBM Think.
+    \newblock \url{https://www.ibm.com/think/topics/vibe-coding}
+
+  \bibitem{ibm:agentic-ai}
+    C.~Stryker.
+    \newblock What is agentic AI?
+    \newblock IBM Think.
+    \newblock \url{https://www.ibm.com/think/topics/agentic-ai}
+
+  \bibitem{ibm:llms}
+    C.~Stryker.
+    \newblock What are large language models (LLMs)?
+    \newblock IBM Think.
+    \newblock \url{https://www.ibm.com/think/topics/large-language-models}
+
+  \bibitem{heise:vibe-coding}
+    T.~Schürmann.
+    \newblock Vibe-Coding-Dienste im Vergleich: Apps entwickeln ohne Programmierkenntnisse
+    \newblock heise.
+    \newblock \url{https://www.heise.de/download/specials/Vibe-Coding-Dienste-im-Vergleich-Apps-entwickeln-ohne-Programmierkenntnisse-10467260}
+
+  \bibitem{openai:prompt-engineering}
+    Open-AI.
+    \newblock \url{https://developers.openai.com/api/docs/guides/prompt-engineering}
+
+  \bibitem{meta:llama4}
+    Meta.
+    \newblock \url{https://ai.meta.com/blog/llama-4-multimodal-intelligence}
+
+  \bibitem{stepfun:step3.5}
+    StepFun.
+    \newblock \url{https://static.stepfun.com/blog/step-3.5-flash}
+
+  \bibitem{spl:claude-opus-4.6}
+    Á~Johnson.
+    \newblock \url{https://github.com/asgeirtj/system_prompts_leaks}
+
+  \bibitem {swebench}
+    SWE-Bench.
+    \newblock \url{https://www.swebench.com}
+
+  \bibitem {humaneval}
+    M.~Chen et al.
+    \newblock Evaluating Large Language Models Trained on Code.
+    \newblock arXiv, 2021.
+    \newblock \url{https://arxiv.org/abs/2107.03374}
+
+  \bibitem {llmstats}
+    LLM Stats.
+    \newblock \url{https://llm-stats.com}
+
+  \bibitem {veracode:llmsec}
+    F.~Brombacher.
+    \newblock Veracode.
+    \newblock \url{https://www.veracode.com/blog/spring-2026-genai-code-security}
+
+  \bibitem {chen:preventsecdeg}
+    Y.~Chen et al.
+    \newblock SCAFFOLD-CEGIS: Preventing Latent Security Degradation in LLM-Driven Iterative Code Refinement
+    \newblock arXiv, 2026.
+    \newblock \url{https://arxiv.org/html/2603.08520}
+  
+  \bibitem {wang:understanding-errors}
+    Z.~Wang et al.
+    \newblock Towards Understanding the Characteristics of Code Generation Errors Made by Large Language Models
+    \newblock arXiv, 2024.
+    \newblock \url{https://arxiv.org/abs/2406.08731}
+
+  \bibitem {rahman:beyond-synthetic}
+    M.~Rahman et al.
+    \newblock Beyond Synthetic Benchmarks: Evaluating LLM Performance on Real-World Class-Level Code Generation
+    \newblock arXiv, 2025.
+    \newblock \url{https://arxiv.org/html/2510.26130}
+
+  \bibitem {aiwiki:cot}
+    AI Wiki.
+    \newblock Chain-of-Thought Prompting.
+    \newblock \url{https://aiwiki.ai/wiki/chain_of_thought}
+    
+  \bibitem {wei:cot}
+    J.~Wei et al.
+    \newblock Chain-of-Thought Prompting Elicits Reasoning in Large Language Models
+    \newblock arXiv, 2022.
+    \newblock \url{https://arxiv.org/abs/2201.11903}
+
+  \bibitem {li:scot}
+    J.~Li, G.~Li, Y.~Li and Z.~Jin.
+    \newblock Structured Chain-of-Thought Prompting for Code Generation
+    \newblock arXiv, 2023.
+    \newblock \url{https://arxiv.org/abs/2305.06599}
+
+  \bibitem {jiang:moe}
+    A.~Jiang et al.
+    \newblock Mixtral of Experts
+    \newblock arXiv, 2024.
+    \newblock \url{https://arxiv.org/abs/2401.04088}
+
+  \bibitem {zandieh:turboquant}
+    A.~Zandieh et al.
+    \newblock TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate
+    \newblock arXiv, 2025.
+    \newblock \url{https://arxiv.org/abs/2504.19874}
+
+  \bibitem {brz:derivative}
+    J.~Brzozowski.
+    \newblock Derivatives of Regular Expressions
+    \newblock JACM Volume 11, Issue 4
+    \newblock Association for Computing Machinery, 01 October 1964
+    \newblock \url{https://dl.acm.org/doi/10.1145/321239.321249}
+    
+  \bibitem {moss:peg-derivative}
+    A.~Mossj.
+    \newblock Derivatives of Parsing Expression Grammars
+    \newblock arXiv, 2014
+    \newblock \url{https://arxiv.org/abs/1405.4841}
+
+  \bibitem {hutton:monadic-parsing}
+    G.~Hutton and E.~Meyer.
+    \newblock Monadic parsing in Haskell
+    \newblock Cambridge University Press, July 1998
+    \newblock \url{https://www.cs.tufts.edu/comp/150FP/archive/graham-hutton/monadic-parsing-jfp.pdf}
+
+  \bibitem {hutton:parser-combinators}
+    G.~Hutton.
+    \newblock Higher-order functions for parsing
+    \newblock Cambridge University Press, July 1992
+    \newblock \url{https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0490F2C8511F7625F9FC15BFFEDBB0AA/S0956796800000411a.pdf/higherorder_functions_for_parsing.pdf}
+
+  \bibitem {might:pwd}
+    M.~Might et al.
+    \newblock Parsing with Derivatives
+    \newblock 2011 
+    \newblock \url{https://matt.might.net/papers/might2011derivatives.pdf}
+
+  \bibitem {bracht:fcd}
+    J.~Brachthäuser, T.~Rendel and K.~Ostermann.
+    \newblock Parsing with First-Class Derivatives
+    \newblock University of Tübingen, 2016
+    \newblock \url{https://raw.githubusercontent.com/b-studios/fcd/master/paper.pdf}
+
+  \bibitem {amadio:pcf}
+    R.~Amadio and P.~Curien.
+    \newblock The Language PCF
+    \newblock Domains and Lambda-Calculi, Chapter 6
+    \newblock Cambridge University Press, November 2011
+    \newblock \url{https://www.cambridge.org/core/books/domains-and-lambdacalculi/language-pcf/4288CC6EB21028118FB230E975F9684C}
+\end{thebibliography}
+#+end_export
