@@ -41,6 +41,15 @@ class Bench {
     seedWCFG(token_length, typoRateFromFpRate(fp_rate, token_length), 4, rand)
 
   @Benchmark
+  def dfsEvalBF2NoParserStack() = {
+    val tg = new DFS_TG(seed2, token_length * 5)
+    ScrapAllEvaluator.eval(parser, tg) match {
+      case Success(_) => success_count.incrementAndGet()
+      case _          => failure_count.incrementAndGet()
+    }
+  }
+
+  @Benchmark
   def dfsEvalBF2() = {
     val tg = new DFS_TG(seed2, token_length * 5)
     StackEvaluator.eval(parser, tg) match {
