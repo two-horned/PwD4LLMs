@@ -330,8 +330,33 @@ final class WCFG_Node(
     go(context)
   }
 
+  private def simpleChild(ctx: List[Char | Label]): Node[Char] =
+    WCFG_Node(ctx, typo_rate, branch_factor, rand).simpleNode()
+
   private def child(ctx: List[Char | Label]): Node[Char] =
     WCFG_Node(ctx, typo_rate, branch_factor, rand).node()
+
+  private def simpleNeighbors: Iterator[(Char, Node[Char])] = {
+    Iterator
+      .continually(
+        head match
+          case Some(h) => {
+            val r = rand.nextDouble()
+            // Typo mode
+            if r <= typo_rate then
+              ('%', simpleChild(tail)) // Replace with bogus
+            else (h, simpleChild(tail))
+          }
+          case None => {
+            val r = rand.nextDouble()
+            // Typo mode
+            if r <= typo_rate then ('#', simpleChild(Nil)) // Not ending right
+            else ('↩', simpleChild(Nil)) // End-of-stream
+          }
+      )
+      .take(branch_factor) // branches or options per node
+    // non-zero probabilty, all options are typos
+  }
 
   private def neighbors: Iterator[(Char, Node[Char])] = {
     Iterator
@@ -367,12 +392,23 @@ final class WCFG_Node(
     // non-zero probabilty, all options are typos
   }
 
+  def simpleNode(): Node[Char] = Node(simpleNeighbors)
   def node(): Node[Char] = Node(neighbors)
 
 }
 
+def seedWCFG_Simple(
+    initial_budget: Long,
+    typo_rate: Double,
+    branch_factor: Int = 2,
+    rand: Random = Random()
+) = {
+  WCFG_Node(List(WCFG.ExprLabel(initial_budget, rand)), typo_rate,
+    branch_factor, rand).simpleNode()
+}
+
 def seedWCFG(
-    initial_budget: Int,
+    initial_budget: Long,
     typo_rate: Double,
     branch_factor: Int = 2,
     rand: Random = Random()
@@ -387,56 +423,56 @@ object WCFG {
   private val shift = 11
 
   sealed trait Label {
-    def productions: ArraySeq[(Int, ArraySeq[Char | Label])]
+    def productions: ArraySeq[(Long, ArraySeq[Char | Label])]
     final def nextProduction(rand: Random): ArraySeq[Char | Label] = {
       rand.weightedChoice(productions)
     }
   }
 
-  abstract class BudgetLabel(budget: Int, rand: Random) extends Label {
+  abstract class BudgetLabel(budget: Long, rand: Random) extends Label {
     import scala.math.{max, min}
 
-    final def pies2[C](bc: Int): (Int, Int) = {
+    final def pies2[C](bc: Long): (Long, Long) = {
       val bg = budget - bc
       if bg <= 0 then return (bg, bg)
-      val x = rand.nextInt(bg + 1)
+      val x = rand.nextLong(bg + 1)
       (x, bg - x)
     }
 
-    final def pies3[C](bc: Int): (Int, Int, Int) = {
+    final def pies3[C](bc: Long): (Long, Long, Long) = {
       val bg = budget - bc
       if bg <= 0 then return (bg, bg, bg)
-      val x = rand.nextInt(bg + 1)
-      val y = rand.nextInt(bg + 1)
+      val x = rand.nextLong(bg + 1)
+      val y = rand.nextLong(bg + 1)
       if x <= y then (x, y - x, bg - y)
       else (y, x - y, bg - x)
     }
 
-    final def piesSkewed2(it: Int, bc: Int): (Int, Int) = {
+    final def piesSkewed2(it: Long, bc: Long): (Long, Long) = {
       val bg = budget - bc
       if bg <= 0 then return (bg, bg)
       var min_x = bg
-      for _ <- 0 to it do {
-        val x = rand.nextInt(bg + 1)
+      for _ <- 0L to it do {
+        val x = rand.nextLong(bg + 1)
         min_x = min(min_x, x)
       }
       val y = bg - min_x
       (min_x, y)
     }
 
-    final def up(bias: Int): Int = {
+    final def up(bias: Long): Long = {
       val b = steps * budget - shift
       (b * max(b, 0) + 1) * bias
     }
 
-    final def down(bias: Int): Int = {
+    final def down(bias: Long): Long = {
       val b = steps * budget - shift
       (b * min(b, 0) + 1) * bias
     }
 
   }
 
-  final class TypLabel(b: Int, r: Random) extends BudgetLabel(b, r) {
+  final class TypLabel(b: Long, r: Random) extends BudgetLabel(b, r) {
     def productions = {
       val (x, y) = pies2(1)
       ArraySeq(
@@ -446,14 +482,14 @@ object WCFG {
     }
   }
 
-  final class TypLevel0(b: Int, r: Random) extends BudgetLabel(b, r) {
+  final class TypLevel0(b: Long, r: Random) extends BudgetLabel(b, r) {
     def productions = ArraySeq(
       (up(1), ArraySeq('[', TypLabel(b - 2, r), ']')),
       (down(4), ArraySeq('ℕ'))
     )
   }
 
-  final class ExprLabel(b: Int, r: Random) extends BudgetLabel(b, r) {
+  final class ExprLabel(b: Long, r: Random) extends BudgetLabel(b, r) {
     def productions = {
       val (x, y) = piesSkewed2(16, 4)
       ArraySeq(
@@ -464,7 +500,7 @@ object WCFG {
     }
   }
 
-  final class Level2(b: Int, r: Random) extends BudgetLabel(b, r) {
+  final class Level2(b: Long, r: Random) extends BudgetLabel(b, r) {
     def productions = {
       val (x, y, z) = pies3(2)
       ArraySeq(
@@ -475,7 +511,7 @@ object WCFG {
     }
   }
 
-  final class Level1(b: Int, r: Random) extends BudgetLabel(b, r) {
+  final class Level1(b: Long, r: Random) extends BudgetLabel(b, r) {
     def productions = {
       val (x, y) = pies2(1)
       ArraySeq(
@@ -485,7 +521,7 @@ object WCFG {
     }
   }
 
-  final class Level0(b: Int, r: Random) extends BudgetLabel(b, r) {
+  final class Level0(b: Long, r: Random) extends BudgetLabel(b, r) {
     def productions = ArraySeq(
       (down(25), ArraySeq(IdLabel)),
       (down(18), ArraySeq('0')),

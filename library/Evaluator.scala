@@ -65,7 +65,7 @@ object StackEvaluator extends Evaluator {
 
     def feed(p: Parser[T, R], t: T) = {
       history.push(p)
-      p.feed(t)
+      p.consume(t)
     }
 
     def feedAll(p: Parser[T, R], ts: Iterator[T]) =
@@ -135,14 +135,14 @@ object ScrapAllEvaluator extends Evaluator {
 
     def feed(p: Parser[T, R], t: T) = {
       history.push(t)
-      p.feed(t)
+      p.consume(t)
     }
 
     def feedAll(p: Parser[T, R], ts: Iterator[T]) =
       ts.foldLeft(p)((p, t) => feed(p, t))
 
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
-      ts.foldLeft(p)((p, t) => p.feed(t)) // does not modify stack
+      ts.foldLeft(p)((p, t) => p.consume(t)) // does not modify stack
 
     @tailrec
     def go(p: Parser[T, R]): EvalResult[R] = {
@@ -203,18 +203,18 @@ object RememberActionEvaluator extends Evaluator {
 
     def feed(p: Parser[T, R], t: T) = {
       parser_history.push((1, p))
-      p.feed(t)
+      p.consume(t)
     }
 
     def feedAll(p: Parser[T, R], ts: Iterator[T]): Parser[T, R] = {
       var (cur, lst, len) = ts.nextOption() match {
-        case Some(x) => (p.feed(x), x, 1)
+        case Some(x) => (p.consume(x), x, 1)
         case _       => return p
       }
 
       for t <- ts do {
         token_history.push(lst)
-        cur = cur.feed(t)
+        cur = cur.consume(t)
         len += 1
         lst = t
       }
@@ -225,7 +225,7 @@ object RememberActionEvaluator extends Evaluator {
     }
 
     def pureFeedAll(p: Parser[T, R], ts: Iterator[T]) =
-      ts.foldLeft(p)((p, t) => p.feed(t))
+      ts.foldLeft(p)((p, t) => p.consume(t))
 
     // Build the parser state correlating to deleting one token
     def pop(): Parser[T, R] = {

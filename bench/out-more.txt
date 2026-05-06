@@ -1,1620 +1,380 @@
- [info] ------------------------------
-[info] Success rate: 0.9961655427740315
-[info] Success count: 22602
-[info] Failure count: 87
-[info] Total count: 22689
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9960825833774484
-[info] Success count: 9408
-[info] Failure count: 37
-[info] Total count: 9445
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.994489698131289
-[info] Success count: 4151
-[info] Failure count: 23
-[info] Total count: 4174
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9921628000178118
-[info] Success count: 22281
-[info] Failure count: 176
-[info] Total count: 22457
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9903578315834584
-[info] Success count: 9244
-[info] Failure count: 90
-[info] Total count: 9334
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9924131179637787
-[info] Success count: 4055
-[info] Failure count: 31
-[info] Total count: 4086
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9841763829227668
-[info] Success count: 22453
-[info] Failure count: 361
-[info] Total count: 22814
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9835505896958411
-[info] Success count: 9507
-[info] Failure count: 159
-[info] Total count: 9666
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9836390679226574
-[info] Success count: 3968
-[info] Failure count: 66
-[info] Total count: 4034
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9694269820451359
-[info] Success count: 21435
-[info] Failure count: 676
-[info] Total count: 22111
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9617821165230034
-[info] Success count: 9261
-[info] Failure count: 368
-[info] Total count: 9629
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9620343839541547
-[info] Success count: 4029
-[info] Failure count: 159
-[info] Total count: 4188
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9956479261035616
-[info] Success count: 22420
-[info] Failure count: 98
-[info] Total count: 22518
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9955156950672646
-[info] Success count: 9768
-[info] Failure count: 44
-[info] Total count: 9812
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9963803088803089
-[info] Success count: 4129
-[info] Failure count: 15
-[info] Total count: 4144
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9926933846692335
-[info] Success count: 22689
-[info] Failure count: 167
-[info] Total count: 22856
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9916313772938092
-[info] Success count: 9835
-[info] Failure count: 83
-[info] Total count: 9918
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9921549399362589
-[info] Success count: 4047
-[info] Failure count: 32
-[info] Total count: 4079
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9818037626117989
-[info] Success count: 22284
-[info] Failure count: 413
-[info] Total count: 22697
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9827003787491043
-[info] Success count: 9600
-[info] Failure count: 169
-[info] Total count: 9769
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9768137621540763
-[info] Success count: 3918
-[info] Failure count: 93
-[info] Total count: 4011
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9662480018269011
-[info] Success count: 21156
-[info] Failure count: 739
-[info] Total count: 21895
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9605809128630706
-[info] Success count: 9723
-[info] Failure count: 399
-[info] Total count: 10122
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9585896829152863
-[info] Success count: 4051
-[info] Failure count: 175
-[info] Total count: 4226
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9951949478308622
-[info] Success count: 21747
-[info] Failure count: 105
-[info] Total count: 21852
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9958981909970551
-[info] Success count: 9469
-[info] Failure count: 39
-[info] Total count: 9508
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9964488636363636
-[info] Success count: 4209
-[info] Failure count: 15
-[info] Total count: 4224
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.992529835109775
-[info] Success count: 21790
-[info] Failure count: 164
-[info] Total count: 21954
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9926100790310992
-[info] Success count: 9671
-[info] Failure count: 72
-[info] Total count: 9743
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.989339986391472
-[info] Success count: 4362
-[info] Failure count: 47
-[info] Total count: 4409
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9822677872134465
-[info] Success count: 22324
-[info] Failure count: 403
-[info] Total count: 22727
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9810146280734516
-[info] Success count: 9456
-[info] Failure count: 183
-[info] Total count: 9639
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9804560260586319
-[info] Success count: 4214
-[info] Failure count: 84
-[info] Total count: 4298
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9610811285156421
-[info] Success count: 21904
-[info] Failure count: 887
-[info] Total count: 22791
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9585761203517322
-[info] Success count: 9048
-[info] Failure count: 391
-[info] Total count: 9439
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9600892414476946
-[info] Success count: 3873
-[info] Failure count: 161
-[info] Total count: 4034
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.94996959958308
-[info] Success count: 21874
-[info] Failure count: 1152
-[info] Total count: 23026
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9516676652686239
-[info] Success count: 9530
-[info] Failure count: 484
-[info] Total count: 10014
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.953631795340338
-[info] Success count: 4175
-[info] Failure count: 203
-[info] Total count: 4378
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9026175412479841
-[info] Success count: 21828
-[info] Failure count: 2355
-[info] Total count: 24183
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9044261652957305
-[info] Success count: 9236
-[info] Failure count: 976
-[info] Total count: 10212
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9014743739761292
-[info] Success count: 3852
-[info] Failure count: 421
-[info] Total count: 4273
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8066731328806983
-[info] Success count: 20792
-[info] Failure count: 4983
-[info] Total count: 25775
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8114831630722663
-[info] Success count: 8579
-[info] Failure count: 1993
-[info] Total count: 10572
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8116294494804334
-[info] Success count: 3671
-[info] Failure count: 852
-[info] Total count: 4523
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6135695357026173
-[info] Success count: 16902
-[info] Failure count: 10645
-[info] Total count: 27547
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6156550858099623
-[info] Success count: 7354
-[info] Failure count: 4591
-[info] Total count: 11945
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6104162777674071
-[info] Success count: 3270
-[info] Failure count: 2087
-[info] Total count: 5357
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 22107
-[info] Failure count: 0
-[info] Total count: 22107
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 9221
-[info] Failure count: 0
-[info] Total count: 9221
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 4020
-[info] Failure count: 0
-[info] Total count: 4020
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 22073
-[info] Failure count: 0
-[info] Total count: 22073
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 9101
-[info] Failure count: 0
-[info] Total count: 9101
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 4065
-[info] Failure count: 0
-[info] Total count: 4065
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 20489
-[info] Failure count: 0
-[info] Total count: 20489
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 8554
-[info] Failure count: 0
-[info] Total count: 8554
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 3777
-[info] Failure count: 0
-[info] Total count: 3777
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 18272
-[info] Failure count: 0
-[info] Total count: 18272
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 7797
-[info] Failure count: 0
-[info] Total count: 7797
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 3272
-[info] Failure count: 0
-[info] Total count: 3272
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9957349375954027
-[info] Success count: 22179
-[info] Failure count: 95
-[info] Total count: 22274
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9957256046705588
-[info] Success count: 9551
-[info] Failure count: 41
-[info] Total count: 9592
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9976162097735399
-[info] Success count: 4185
-[info] Failure count: 10
-[info] Total count: 4195
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.992459573726191
-[info] Success count: 22770
-[info] Failure count: 173
-[info] Total count: 22943
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9919814306815784
-[info] Success count: 9402
-[info] Failure count: 76
-[info] Total count: 9478
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9875373878364905
-[info] Success count: 3962
-[info] Failure count: 50
-[info] Total count: 4012
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9858066683463509
-[info] Success count: 23476
-[info] Failure count: 338
-[info] Total count: 23814
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.984184654840778
-[info] Success count: 9210
-[info] Failure count: 148
-[info] Total count: 9358
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9805226824457594
-[info] Success count: 3977
-[info] Failure count: 79
-[info] Total count: 4056
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9684113946172667
-[info] Success count: 22165
-[info] Failure count: 723
-[info] Total count: 22888
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9666274467857525
-[info] Success count: 9037
-[info] Failure count: 312
-[info] Total count: 9349
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9587857847976308
-[info] Success count: 3885
-[info] Failure count: 167
-[info] Total count: 4052
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9958011049723757
-[info] Success count: 22530
-[info] Failure count: 95
-[info] Total count: 22625
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9963764364841081
-[info] Success count: 9624
-[info] Failure count: 35
-[info] Total count: 9659
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9941190884587111
-[info] Success count: 4057
-[info] Failure count: 24
-[info] Total count: 4081
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9911333508910544
-[info] Success count: 22580
-[info] Failure count: 202
-[info] Total count: 22782
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9920585808580858
-[info] Success count: 9619
-[info] Failure count: 77
-[info] Total count: 9696
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9910271546635183
-[info] Success count: 4197
-[info] Failure count: 38
-[info] Total count: 4235
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.983494593056346
-[info] Success count: 22464
-[info] Failure count: 377
-[info] Total count: 22841
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9807210543513778
-[info] Success count: 9004
-[info] Failure count: 177
-[info] Total count: 9181
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9840793724042455
-[info] Success count: 4265
-[info] Failure count: 69
-[info] Total count: 4334
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9638075687254551
-[info] Success count: 21597
-[info] Failure count: 811
-[info] Total count: 22408
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9599160545645331
-[info] Success count: 9148
-[info] Failure count: 382
-[info] Total count: 9530
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9538307961068131
-[info] Success count: 3822
-[info] Failure count: 185
-[info] Total count: 4007
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9962840079628401
-[info] Success count: 22521
-[info] Failure count: 84
-[info] Total count: 22605
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.995230363304242
-[info] Success count: 9807
-[info] Failure count: 47
-[info] Total count: 9854
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9947381009327912
-[info] Success count: 4159
-[info] Failure count: 22
-[info] Total count: 4181
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9910091662646375
-[info] Success count: 22596
-[info] Failure count: 205
-[info] Total count: 22801
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9910512240279777
-[info] Success count: 9635
-[info] Failure count: 87
-[info] Total count: 9722
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9900726392251816
-[info] Success count: 4089
-[info] Failure count: 41
-[info] Total count: 4130
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9820468422491571
-[info] Success count: 21552
-[info] Failure count: 394
-[info] Total count: 21946
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9843319923777261
-[info] Success count: 9298
-[info] Failure count: 148
-[info] Total count: 9446
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9804830446450353
-[info] Success count: 4019
-[info] Failure count: 80
-[info] Total count: 4099
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.960582464475826
-[info] Success count: 21835
-[info] Failure count: 896
-[info] Total count: 22731
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9578713968957872
-[info] Success count: 9072
-[info] Failure count: 399
-[info] Total count: 9471
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9624132152262389
-[info] Success count: 4020
-[info] Failure count: 157
-[info] Total count: 4177
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9529752523746645
-[info] Success count: 22373
-[info] Failure count: 1104
-[info] Total count: 23477
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9504695077907337
-[info] Success count: 9211
-[info] Failure count: 480
-[info] Total count: 9691
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9508939213349226
-[info] Success count: 3989
-[info] Failure count: 206
-[info] Total count: 4195
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9052907148587594
-[info] Success count: 21440
-[info] Failure count: 2243
-[info] Total count: 23683
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.909500931463869
-[info] Success count: 9276
-[info] Failure count: 923
-[info] Total count: 10199
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9099285878829763
-[info] Success count: 3950
-[info] Failure count: 391
-[info] Total count: 4341
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8067924822584419
-[info] Success count: 20691
-[info] Failure count: 4955
-[info] Total count: 25646
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.812078597572722
-[info] Success count: 8431
-[info] Failure count: 1951
-[info] Total count: 10382
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8033185840707965
-[info] Success count: 3631
-[info] Failure count: 889
-[info] Total count: 4520
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6133842007630115
-[info] Success count: 17525
-[info] Failure count: 11046
-[info] Total count: 28571
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6192224261638578
-[info] Success count: 7422
-[info] Failure count: 4564
-[info] Total count: 11986
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.622018698721618
-[info] Success count: 3260
-[info] Failure count: 1981
-[info] Total count: 5241
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 21602
-[info] Failure count: 0
-[info] Total count: 21602
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 9297
-[info] Failure count: 0
-[info] Total count: 9297
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 3984
-[info] Failure count: 0
-[info] Total count: 3984
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 21898
-[info] Failure count: 0
-[info] Total count: 21898
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 9055
-[info] Failure count: 0
-[info] Total count: 9055
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 3858
-[info] Failure count: 0
-[info] Total count: 3858
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 20873
-[info] Failure count: 0
-[info] Total count: 20873
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 8888
-[info] Failure count: 0
-[info] Total count: 8888
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 3820
-[info] Failure count: 0
-[info] Total count: 3820
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 17961
-[info] Failure count: 0
-[info] Total count: 17961
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 7610
-[info] Failure count: 0
-[info] Total count: 7610
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 3103
-[info] Failure count: 0
-[info] Total count: 3103
-[info] ------------------------------
 [info] welcome to sbt 1.12.6 (Arch Linux Java 26.0.1)
 [info] loading settings for project pwd4llm-build-build-build from metals.sbt...
 [info] loading project definition from /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/project/project/project
 [info] loading settings for project pwd4llm-build-build from metals.sbt...
 [info] loading project definition from /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/project/project
 [success] Generated .bloop/pwd4llm-build-build.json
-[success] Total time: 2 s, completed May 4, 2026, 6:40:23 AM
+[success] Total time: 1 s, completed May 18, 2026, 6:51:40 PM
 [info] loading settings for project pwd4llm-build from metals.sbt, plugins.sbt...
 [info] loading project definition from /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/project
 [success] Generated .bloop/pwd4llm-build.json
-[success] Total time: 1 s, completed May 4, 2026, 6:40:24 AM
+[success] Total time: 0 s, completed May 18, 2026, 6:51:41 PM
 [info] loading settings for project pwd4llm from build.sbt...
 [info] set current project to pwd4llm (in build file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/)
-[info] compiling 2 Scala sources to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/library/target/scala-3.7.4/classes ...
-[info] done compiling
-[info] compiling 3 Scala sources to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/example/target/scala-3.7.4/classes ...
-[info] done compiling
-[info] compiling 1 Scala source to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/classes ...
-[info] done compiling
-[info] compiling 1 Scala source to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/test-classes ...
-[info] done compiling
-[info] running (fork) org.openjdk.jmh.generators.bytecode.JmhBytecodeGenerator /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/classes /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/src_managed/jmh /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/resource_managed/jmh default
-[error] Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
-[info] Processing 12 classes from /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/classes with "reflection" generator
-[info] Writing out Java source to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/src_managed/jmh and resources to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/resource_managed/jmh
-[info] compiling 1 Scala source and 1 Java source to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/classes ...
-[info] done compiling
-[info] compiling 1 Scala source and 10 Java sources to /home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/bench/target/scala-3.7.4/classes ...
-[info] done compiling
-[info] running (fork) org.openjdk.jmh.Main -f 1 -t 1 -wi 1 -w 5 -i 1 -r 10 -o out.txt
+[info] running (fork) org.openjdk.jmh.Main -o out.txt
 [error] Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
 [error] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_a9d0d73/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_68dcfd84/target/27c14902/1296d6b9/jmh-core-1.37.jar)
 [error] WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 [error] WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
-[info] ------------------------------
-[info] Success rate: 0.9968288288288288
-[info] Success count: 13831
-[info] Failure count: 44
-[info] Total count: 13875
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9959058341862845
-[info] Success count: 5838
-[info] Failure count: 24
-[info] Total count: 5862
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9959229058561898
-[info] Success count: 2687
-[info] Failure count: 11
-[info] Total count: 2698
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9926755113322278
-[info] Success count: 14366
-[info] Failure count: 106
-[info] Total count: 14472
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9929750040843
-[info] Success count: 6078
-[info] Failure count: 43
-[info] Total count: 6121
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9941068139963167
-[info] Success count: 2699
-[info] Failure count: 16
-[info] Total count: 2715
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9842558599265744
-[info] Success count: 13941
-[info] Failure count: 223
-[info] Total count: 14164
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.983993783993784
-[info] Success count: 6332
-[info] Failure count: 103
-[info] Total count: 6435
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9823529411764705
-[info] Success count: 2672
-[info] Failure count: 48
-[info] Total count: 2720
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9669053744003338
-[info] Success count: 13907
-[info] Failure count: 476
-[info] Total count: 14383
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9662419328148271
-[info] Success count: 5839
-[info] Failure count: 204
-[info] Total count: 6043
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9625048318515655
-[info] Success count: 2490
-[info] Failure count: 97
-[info] Total count: 2587
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9972022102538994
-[info] Success count: 14257
-[info] Failure count: 40
-[info] Total count: 14297
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9973430753902358
-[info] Success count: 6006
-[info] Failure count: 16
-[info] Total count: 6022
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9973045822102425
-[info] Success count: 2590
-[info] Failure count: 7
-[info] Total count: 2597
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9922514302266637
-[info] Success count: 13702
-[info] Failure count: 107
-[info] Total count: 13809
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9914602903501281
-[info] Success count: 5805
-[info] Failure count: 50
-[info] Total count: 5855
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9923939151321057
-[info] Success count: 2479
-[info] Failure count: 19
-[info] Total count: 2498
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9864613553522279
-[info] Success count: 13261
-[info] Failure count: 182
-[info] Total count: 13443
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9849792817679558
-[info] Success count: 5705
-[info] Failure count: 87
-[info] Total count: 5792
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9855491329479769
-[info] Success count: 2387
-[info] Failure count: 35
-[info] Total count: 2422
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9664225615456529
-[info] Success count: 12405
-[info] Failure count: 431
-[info] Total count: 12836
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9671979243884359
-[info] Success count: 5219
-[info] Failure count: 177
-[info] Total count: 5396
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.961789375582479
-[info] Success count: 2064
-[info] Failure count: 82
-[info] Total count: 2146
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9960985477927895
-[info] Success count: 13787
-[info] Failure count: 54
-[info] Total count: 13841
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9944646528546576
-[info] Success count: 6288
-[info] Failure count: 35
-[info] Total count: 6323
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9962783773725344
-[info] Success count: 2677
-[info] Failure count: 10
-[info] Total count: 2687
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9921210864607091
-[info] Success count: 14355
-[info] Failure count: 114
-[info] Total count: 14469
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9913530824659728
-[info] Success count: 6191
-[info] Failure count: 54
-[info] Total count: 6245
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9927007299270073
-[info] Success count: 2720
-[info] Failure count: 20
-[info] Total count: 2740
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9817133912053508
-[info] Success count: 13797
-[info] Failure count: 257
-[info] Total count: 14054
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9834935897435897
-[info] Success count: 6137
-[info] Failure count: 103
-[info] Total count: 6240
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9790497568275346
-[info] Success count: 2617
-[info] Failure count: 56
-[info] Total count: 2673
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9590436590436591
-[info] Success count: 13839
-[info] Failure count: 591
-[info] Total count: 14430
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9647788983708301
-[info] Success count: 6218
-[info] Failure count: 227
-[info] Total count: 6445
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9645438898450946
-[info] Success count: 2802
-[info] Failure count: 103
-[info] Total count: 2905
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.995085324232082
-[info] Success count: 14578
-[info] Failure count: 72
-[info] Total count: 14650
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9963158737786321
-[info] Success count: 6220
-[info] Failure count: 23
-[info] Total count: 6243
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9963476990504018
-[info] Success count: 2728
-[info] Failure count: 10
-[info] Total count: 2738
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9910679101536845
-[info] Success count: 15090
-[info] Failure count: 136
-[info] Total count: 15226
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9928929090615409
-[info] Success count: 6147
-[info] Failure count: 44
-[info] Total count: 6191
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9928392409595417
-[info] Success count: 2773
-[info] Failure count: 20
-[info] Total count: 2793
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9815815815815816
-[info] Success count: 14709
-[info] Failure count: 276
-[info] Total count: 14985
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9814068794546018
-[info] Success count: 6334
-[info] Failure count: 120
-[info] Total count: 6454
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9770197486535009
-[info] Success count: 2721
-[info] Failure count: 64
-[info] Total count: 2785
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9570717265509353
-[info] Success count: 14224
-[info] Failure count: 638
-[info] Total count: 14862
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9577044025157233
-[info] Success count: 6091
-[info] Failure count: 269
-[info] Total count: 6360
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9632638643588838
-[info] Success count: 2727
-[info] Failure count: 104
-[info] Total count: 2831
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9520221535291087
-[info] Success count: 14783
-[info] Failure count: 745
-[info] Total count: 15528
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9516505988898627
-[info] Success count: 6515
-[info] Failure count: 331
-[info] Total count: 6846
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9465408805031447
-[info] Success count: 2709
-[info] Failure count: 153
-[info] Total count: 2862
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9050652873273197
-[info] Success count: 14348
-[info] Failure count: 1505
-[info] Total count: 15853
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.901194659170766
-[info] Success count: 6412
-[info] Failure count: 703
-[info] Total count: 7115
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9005340453938585
-[info] Success count: 2698
-[info] Failure count: 298
-[info] Total count: 2996
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8072692491630798
-[info] Success count: 13504
-[info] Failure count: 3224
-[info] Total count: 16728
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8049930651872399
-[info] Success count: 5804
-[info] Failure count: 1406
-[info] Total count: 7210
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.7940086473131562
-[info] Success count: 2571
-[info] Failure count: 667
-[info] Total count: 3238
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6117230098146129
-[info] Success count: 11219
-[info] Failure count: 7121
-[info] Total count: 18340
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6100582187538709
-[info] Success count: 4925
-[info] Failure count: 3148
-[info] Total count: 8073
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6132102682434382
-[info] Success count: 2126
-[info] Failure count: 1341
-[info] Total count: 3467
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 14303
-[info] Failure count: 0
-[info] Total count: 14303
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 5973
-[info] Failure count: 0
-[info] Total count: 5973
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2803
-[info] Failure count: 0
-[info] Total count: 2803
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 15157
-[info] Failure count: 0
-[info] Total count: 15157
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 6363
-[info] Failure count: 0
-[info] Total count: 6363
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2579
-[info] Failure count: 0
-[info] Total count: 2579
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 14189
-[info] Failure count: 0
-[info] Total count: 14189
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 5816
-[info] Failure count: 0
-[info] Total count: 5816
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2541
-[info] Failure count: 0
-[info] Total count: 2541
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 11879
-[info] Failure count: 0
-[info] Total count: 11879
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 5086
-[info] Failure count: 0
-[info] Total count: 5086
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2183
-[info] Failure count: 0
-[info] Total count: 2183
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9965165785059992
-[info] Success count: 15448
-[info] Failure count: 54
-[info] Total count: 15502
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9973680136244001
-[info] Success count: 6442
-[info] Failure count: 17
-[info] Total count: 6459
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9954337899543378
-[info] Success count: 2834
-[info] Failure count: 13
-[info] Total count: 2847
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9920676543857349
-[info] Success count: 15133
-[info] Failure count: 121
-[info] Total count: 15254
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9921556795896816
-[info] Success count: 6577
-[info] Failure count: 52
-[info] Total count: 6629
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.992462311557789
-[info] Success count: 2765
-[info] Failure count: 21
-[info] Total count: 2786
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9843832715722605
-[info] Success count: 14876
-[info] Failure count: 236
-[info] Total count: 15112
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9822926374650512
-[info] Success count: 6324
-[info] Failure count: 114
-[info] Total count: 6438
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9844559585492227
-[info] Success count: 2850
-[info] Failure count: 45
-[info] Total count: 2895
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9666237898585065
-[info] Success count: 14278
-[info] Failure count: 493
-[info] Total count: 14771
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9609558019678276
-[info] Success count: 6153
-[info] Failure count: 250
-[info] Total count: 6403
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9619935460738616
-[info] Success count: 2683
-[info] Failure count: 106
-[info] Total count: 2789
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9954784227674712
-[info] Success count: 14971
-[info] Failure count: 68
-[info] Total count: 15039
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9959595959595959
-[info] Success count: 6409
-[info] Failure count: 26
-[info] Total count: 6435
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9958553127354935
-[info] Success count: 2643
-[info] Failure count: 11
-[info] Total count: 2654
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9921658986175115
-[info] Success count: 15071
-[info] Failure count: 119
-[info] Total count: 15190
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9907697121401752
-[info] Success count: 6333
-[info] Failure count: 59
-[info] Total count: 6392
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9896353166986565
-[info] Success count: 2578
-[info] Failure count: 27
-[info] Total count: 2605
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9849996559554118
-[info] Success count: 14315
-[info] Failure count: 218
-[info] Total count: 14533
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9845818669348081
-[info] Success count: 5875
-[info] Failure count: 92
-[info] Total count: 5967
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9842678499394917
-[info] Success count: 2440
-[info] Failure count: 39
-[info] Total count: 2479
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9668704677946822
-[info] Success count: 13600
-[info] Failure count: 466
-[info] Total count: 14066
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9653199856989632
-[info] Success count: 5400
-[info] Failure count: 194
-[info] Total count: 5594
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9601386481802426
-[info] Success count: 2216
-[info] Failure count: 92
-[info] Total count: 2308
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9964068726726334
-[info] Success count: 15252
-[info] Failure count: 55
-[info] Total count: 15307
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9969040247678018
-[info] Success count: 6440
-[info] Failure count: 20
-[info] Total count: 6460
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9965576592082617
-[info] Success count: 2895
-[info] Failure count: 10
-[info] Total count: 2905
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9913049206244648
-[info] Success count: 15049
-[info] Failure count: 132
-[info] Total count: 15181
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9921850578305721
-[info] Success count: 6348
-[info] Failure count: 50
-[info] Total count: 6398
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9885416666666667
-[info] Success count: 2847
-[info] Failure count: 33
-[info] Total count: 2880
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9822087506589352
-[info] Success count: 14906
-[info] Failure count: 270
-[info] Total count: 15176
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9835591414218298
-[info] Success count: 6461
-[info] Failure count: 108
-[info] Total count: 6569
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9797875984926344
-[info] Success count: 2860
-[info] Failure count: 59
-[info] Total count: 2919
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9647279298574393
-[info] Success count: 14414
-[info] Failure count: 527
-[info] Total count: 14941
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9620174346201743
-[info] Success count: 6180
-[info] Failure count: 244
-[info] Total count: 6424
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9628804751299184
-[info] Success count: 2594
-[info] Failure count: 100
-[info] Total count: 2694
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9951783355350066
-[info] Success count: 15067
-[info] Failure count: 73
-[info] Total count: 15140
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9956896551724138
-[info] Success count: 6468
-[info] Failure count: 28
-[info] Total count: 6496
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9978843441466855
-[info] Success count: 2830
-[info] Failure count: 6
-[info] Total count: 2836
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9898697539797395
-[info] Success count: 15048
-[info] Failure count: 154
-[info] Total count: 15202
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9899772209567198
-[info] Success count: 6519
-[info] Failure count: 66
-[info] Total count: 6585
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9893314366998578
-[info] Success count: 2782
-[info] Failure count: 30
-[info] Total count: 2812
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9829428552465653
-[info] Success count: 14810
-[info] Failure count: 257
-[info] Total count: 15067
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9836014368264876
-[info] Success count: 6298
-[info] Failure count: 105
-[info] Total count: 6403
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.981274756931941
-[info] Success count: 2725
-[info] Failure count: 52
-[info] Total count: 2777
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9578549329666552
-[info] Success count: 13932
-[info] Failure count: 613
-[info] Total count: 14545
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9541298620796529
-[info] Success count: 6157
-[info] Failure count: 296
-[info] Total count: 6453
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9581844174410293
-[info] Success count: 2681
-[info] Failure count: 117
-[info] Total count: 2798
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9519659112918846
-[info] Success count: 14745
-[info] Failure count: 744
-[info] Total count: 15489
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9437519002736394
-[info] Success count: 6208
-[info] Failure count: 370
-[info] Total count: 6578
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9620836286321758
-[info] Success count: 2715
-[info] Failure count: 107
-[info] Total count: 2822
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9005712133576047
-[info] Success count: 14347
-[info] Failure count: 1584
-[info] Total count: 15931
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.900821417706115
-[info] Success count: 5922
-[info] Failure count: 652
-[info] Total count: 6574
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.9172800560813179
-[info] Success count: 2617
-[info] Failure count: 236
-[info] Total count: 2853
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8066224359364539
-[info] Success count: 13252
-[info] Failure count: 3177
-[info] Total count: 16429
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8139858195467816
-[info] Success count: 5855
-[info] Failure count: 1338
-[info] Total count: 7193
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.8070866141732284
-[info] Success count: 2460
-[info] Failure count: 588
-[info] Total count: 3048
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6132120378695721
-[info] Success count: 11594
-[info] Failure count: 7313
-[info] Total count: 18907
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6138874937217479
-[info] Success count: 4889
-[info] Failure count: 3075
-[info] Total count: 7964
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 0.6199220923761826
-[info] Success count: 2228
-[info] Failure count: 1366
-[info] Total count: 3594
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 14677
-[info] Failure count: 0
-[info] Total count: 14677
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 6299
-[info] Failure count: 0
-[info] Total count: 6299
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2783
-[info] Failure count: 0
-[info] Total count: 2783
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 14109
-[info] Failure count: 0
-[info] Total count: 14109
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 6147
-[info] Failure count: 0
-[info] Total count: 6147
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2635
-[info] Failure count: 0
-[info] Total count: 2635
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 13895
-[info] Failure count: 0
-[info] Total count: 13895
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 5799
-[info] Failure count: 0
-[info] Total count: 5799
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2587
-[info] Failure count: 0
-[info] Total count: 2587
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 11748
-[info] Failure count: 0
-[info] Total count: 11748
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 5405
-[info] Failure count: 0
-[info] Total count: 5405
-[info] ------------------------------
-[info] ------------------------------
-[info] Success rate: 1.0
-[info] Success count: 2148
-[info] Failure count: 0
-[info] Total count: 2148
-[info] ------------------------------
-[success] Total time: 2218 s (0:36:58.0), completed May 4, 2026, 7:17:23 AM
+[info] bench.Bench.dfsEvalBF2  0.9950298210735586  4004  20  4024
+[info] bench.Bench.dfsEvalBF2  0.9933920704845814  1804  12  1816
+[info] bench.Bench.dfsEvalBF2  0.9951219512195122  816  4  820
+[info] bench.Bench.dfsEvalBF2  0.994475138121547  360  2  362
+[info] bench.Bench.dfsEvalBF2  0.9878787878787879  163  2  165
+[info] bench.Bench.dfsEvalBF2  0.9710144927536232  67  2  69
+[info] bench.Bench.dfsEvalBF2  0.993088126388546  4023  28  4051
+[info] bench.Bench.dfsEvalBF2  0.9901261656609983  1805  18  1823
+[info] bench.Bench.dfsEvalBF2  0.9950678175092479  807  4  811
+[info] bench.Bench.dfsEvalBF2  0.9888579387186629  355  4  359
+[info] bench.Bench.dfsEvalBF2  0.9691358024691358  157  5  162
+[info] bench.Bench.dfsEvalBF2  0.9866666666666667  74  1  75
+[info] bench.Bench.dfsEvalBF2  0.9823865045894319  3960  71  4031
+[info] bench.Bench.dfsEvalBF2  0.9815436241610739  1755  33  1788
+[info] bench.Bench.dfsEvalBF2  0.9827160493827161  796  14  810
+[info] bench.Bench.dfsEvalBF2  0.9805555555555555  353  7  360
+[info] bench.Bench.dfsEvalBF2  0.9761904761904762  164  4  168
+[info] bench.Bench.dfsEvalBF2  0.96  72  3  75
+[info] bench.Bench.dfsEvalBF2  0.9658986175115207  4192  148  4340
+[info] bench.Bench.dfsEvalBF2  0.9617871840094062  1636  65  1701
+[info] bench.Bench.dfsEvalBF2  0.9795427196149218  814  17  831
+[info] bench.Bench.dfsEvalBF2  0.9644808743169399  353  13  366
+[info] bench.Bench.dfsEvalBF2  0.9285714285714286  156  12  168
+[info] bench.Bench.dfsEvalBF2  0.9583333333333334  69  3  72
+[info] bench.Bench.dfsEvalBF2  0.9131572063824221  3491  332  3823
+[info] bench.Bench.dfsEvalBF2  0.9072810011376564  1595  163  1758
+[info] bench.Bench.dfsEvalBF2  0.9105793450881612  723  71  794
+[info] bench.Bench.dfsEvalBF2  0.9095890410958904  332  33  365
+[info] bench.Bench.dfsEvalBF2  0.8596491228070176  147  24  171
+[info] bench.Bench.dfsEvalBF2  0.9130434782608695  63  6  69
+[info] bench.Bench.dfsEvalBF2  0.8714765968450996  3370  497  3867
+[info] bench.Bench.dfsEvalBF2  0.878393665158371  1553  215  1768
+[info] bench.Bench.dfsEvalBF2  0.8708860759493671  688  102  790
+[info] bench.Bench.dfsEvalBF2  0.9168831168831169  353  32  385
+[info] bench.Bench.dfsEvalBF2  0.9171597633136095  155  14  169
+[info] bench.Bench.dfsEvalBF2  0.8115942028985508  56  13  69
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9946862348178138  3931  21  3952
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9946808510638298  1683  9  1692
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9947848761408083  763  4  767
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9940652818991098  335  2  337
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9939024390243902  163  1  164
+[info] bench.Bench.dfsEvalBF2NoParserStack  1.0  71  0  71
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9924204143506822  3928  30  3958
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9901112484548825  1602  16  1618
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9913544668587896  688  6  694
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.997134670487106  348  1  349
+[info] bench.Bench.dfsEvalBF2NoParserStack  1.0  159  0  159
+[info] bench.Bench.dfsEvalBF2NoParserStack  1.0  70  0  70
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9821571238348868  3688  67  3755
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9844699527346388  1458  23  1481
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9794628751974723  620  13  633
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9795918367346939  288  6  294
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9872611464968153  155  2  157
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9705882352941176  66  2  68
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9639611407082419  3076  115  3191
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9500462534690102  1027  54  1081
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9451476793248945  448  26  474
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9533898305084746  225  11  236
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9862068965517241  143  2  145
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9863013698630136  72  1  73
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9130608974358975  2279  217  2496
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9088699878493317  748  75  823
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.8917910447761194  239  29  268
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9126984126984127  115  11  126
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.925531914893617  87  7  94
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9672131147540983  59  2  61
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.8754113775270334  1862  265  2127
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.8780141843971632  619  86  705
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.890625  228  28  256
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.9081632653061225  89  9  98
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.8148148148148148  22  5  27
+[info] bench.Bench.dfsEvalBF2NoParserStack  0.8205128205128205  32  7  39
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  3844  0  3844
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  1744  0  1744
+[info] bench.Bench.dfsEvalBF2_Fix  0.9986504723346828  740  1  741
+[info] bench.Bench.dfsEvalBF2_Fix  0.9971751412429378  353  1  354
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  160  0  160
+[info] bench.Bench.dfsEvalBF2_Fix  0.9863013698630136  72  1  73
+[info] bench.Bench.dfsEvalBF2_Fix  0.9997206703910615  3579  1  3580
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  1720  0  1720
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  761  0  761
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  368  0  368
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  166  0  166
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  70  0  70
+[info] bench.Bench.dfsEvalBF2_Fix  0.9997098084735926  3445  1  3446
+[info] bench.Bench.dfsEvalBF2_Fix  0.9994008388256441  1668  1  1669
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  777  0  777
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  370  0  370
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  164  0  164
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  77  0  77
+[info] bench.Bench.dfsEvalBF2_Fix  0.9991503823279524  3528  3  3531
+[info] bench.Bench.dfsEvalBF2_Fix  0.9993279569892473  1487  1  1488
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  752  0  752
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  358  0  358
+[info] bench.Bench.dfsEvalBF2_Fix  0.9938271604938271  161  1  162
+[info] bench.Bench.dfsEvalBF2_Fix  0.9855072463768116  68  1  69
+[info] bench.Bench.dfsEvalBF2_Fix  0.9982200071199715  2804  5  2809
+[info] bench.Bench.dfsEvalBF2_Fix  0.9956427015250545  1371  6  1377
+[info] bench.Bench.dfsEvalBF2_Fix  0.9941002949852508  674  4  678
+[info] bench.Bench.dfsEvalBF2_Fix  0.9970588235294118  339  1  340
+[info] bench.Bench.dfsEvalBF2_Fix  0.9935064935064936  153  1  154
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  73  0  73
+[info] bench.Bench.dfsEvalBF2_Fix  0.9970282317979198  2684  8  2692
+[info] bench.Bench.dfsEvalBF2_Fix  0.9958563535911602  1442  6  1448
+[info] bench.Bench.dfsEvalBF2_Fix  0.9940564635958395  669  4  673
+[info] bench.Bench.dfsEvalBF2_Fix  0.9908256880733946  324  3  327
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  157  0  157
+[info] bench.Bench.dfsEvalBF2_Fix  1.0  69  0  69
+[info] bench.Bench.dfsEvalBF2_Quad  0.9967270896273918  3959  13  3972
+[info] bench.Bench.dfsEvalBF2_Quad  0.996547756041427  1732  6  1738
+[info] bench.Bench.dfsEvalBF2_Quad  0.9986945169712794  765  1  766
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  359  0  359
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  166  0  166
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  74  0  74
+[info] bench.Bench.dfsEvalBF2_Quad  0.9935595739410453  4011  26  4037
+[info] bench.Bench.dfsEvalBF2_Quad  0.998304126625212  1766  3  1769
+[info] bench.Bench.dfsEvalBF2_Quad  0.9961928934010152  785  3  788
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  363  0  363
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  154  0  154
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  72  0  72
+[info] bench.Bench.dfsEvalBF2_Quad  0.9924906132665833  3965  30  3995
+[info] bench.Bench.dfsEvalBF2_Quad  0.9948600799543118  1742  9  1751
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  763  0  763
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  338  0  338
+[info] bench.Bench.dfsEvalBF2_Quad  0.9935897435897436  155  1  156
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  69  0  69
+[info] bench.Bench.dfsEvalBF2_Quad  0.9894302655323537  3838  41  3879
+[info] bench.Bench.dfsEvalBF2_Quad  0.9970202622169249  1673  5  1678
+[info] bench.Bench.dfsEvalBF2_Quad  0.9986702127659575  751  1  752
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  340  0  340
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  156  0  156
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  65  0  65
+[info] bench.Bench.dfsEvalBF2_Quad  0.9891037864342141  3631  40  3671
+[info] bench.Bench.dfsEvalBF2_Quad  0.9948216340621404  1729  9  1738
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  757  0  757
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  341  0  341
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  166  0  166
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  70  0  70
+[info] bench.Bench.dfsEvalBF2_Quad  0.9851648351648352  3586  54  3640
+[info] bench.Bench.dfsEvalBF2_Quad  0.9937849596022374  1599  10  1609
+[info] bench.Bench.dfsEvalBF2_Quad  0.9959404600811907  736  3  739
+[info] bench.Bench.dfsEvalBF2_Quad  0.9968553459119497  317  1  318
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  153  0  153
+[info] bench.Bench.dfsEvalBF2_Quad  1.0  67  0  67
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  4116  0  4116
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  1768  0  1768
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  785  0  785
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  374  0  374
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  166  0  166
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  79  0  79
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  4003  0  4003
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  1831  0  1831
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  803  0  803
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  342  0  342
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  165  0  165
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  67  0  67
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  4023  0  4023
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  1772  0  1772
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  788  0  788
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  368  0  368
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  162  0  162
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  73  0  73
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  4141  0  4141
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  1806  0  1806
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  740  0  740
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  350  0  350
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  173  0  173
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  72  0  72
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  4022  0  4022
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  1766  0  1766
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  782  0  782
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  362  0  362
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  164  0  164
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  73  0  73
+[info] bench.Bench.dfsEvalBF2_Simple  0.9997521685254027  4034  1  4035
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  1779  0  1779
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  771  0  771
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  343  0  343
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  161  0  161
+[info] bench.Bench.dfsEvalBF2_Simple  1.0  76  0  76
+[info] bench.Bench.dfsEvalBF4  0.9966603053435115  4178  14  4192
+[info] bench.Bench.dfsEvalBF4  0.9954102122776821  1735  8  1743
+[info] bench.Bench.dfsEvalBF4  0.9962311557788944  793  3  796
+[info] bench.Bench.dfsEvalBF4  0.9943342776203966  351  2  353
+[info] bench.Bench.dfsEvalBF4  1.0  159  0  159
+[info] bench.Bench.dfsEvalBF4  1.0  73  0  73
+[info] bench.Bench.dfsEvalBF4  0.9895621181262729  3887  41  3928
+[info] bench.Bench.dfsEvalBF4  0.9916666666666667  1785  15  1800
+[info] bench.Bench.dfsEvalBF4  0.9917550058892816  842  7  849
+[info] bench.Bench.dfsEvalBF4  0.9860335195530726  353  5  358
+[info] bench.Bench.dfsEvalBF4  1.0  162  0  162
+[info] bench.Bench.dfsEvalBF4  1.0  66  0  66
+[info] bench.Bench.dfsEvalBF4  0.981476846057572  3921  74  3995
+[info] bench.Bench.dfsEvalBF4  0.982122905027933  1758  32  1790
+[info] bench.Bench.dfsEvalBF4  0.9772151898734177  772  18  790
+[info] bench.Bench.dfsEvalBF4  0.9724517906336089  353  10  363
+[info] bench.Bench.dfsEvalBF4  0.9578313253012049  159  7  166
+[info] bench.Bench.dfsEvalBF4  0.9444444444444444  68  4  72
+[info] bench.Bench.dfsEvalBF4  0.9558162755866201  3829  177  4006
+[info] bench.Bench.dfsEvalBF4  0.9478827361563518  1746  96  1842
+[info] bench.Bench.dfsEvalBF4  0.9539800995024875  767  37  804
+[info] bench.Bench.dfsEvalBF4  0.9651474530831099  360  13  373
+[info] bench.Bench.dfsEvalBF4  0.9181286549707602  157  14  171
+[info] bench.Bench.dfsEvalBF4  0.9436619718309859  67  4  71
+[info] bench.Bench.dfsEvalBF4  0.8793811941020063  3638  499  4137
+[info] bench.Bench.dfsEvalBF4  0.872  1526  224  1750
+[info] bench.Bench.dfsEvalBF4  0.8795483061480552  701  96  797
+[info] bench.Bench.dfsEvalBF4  0.9164345403899722  329  30  359
+[info] bench.Bench.dfsEvalBF4  0.8875739644970414  150  19  169
+[info] bench.Bench.dfsEvalBF4  0.868421052631579  66  10  76
+[info] bench.Bench.dfsEvalBF4  0.8396249691586479  3403  650  4053
+[info] bench.Bench.dfsEvalBF4  0.8249307479224377  1489  316  1805
+[info] bench.Bench.dfsEvalBF4  0.7905236907730673  634  168  802
+[info] bench.Bench.dfsEvalBF4  0.7845303867403315  284  78  362
+[info] bench.Bench.dfsEvalBF4  0.8186813186813187  149  33  182
+[info] bench.Bench.dfsEvalBF4  0.8266666666666667  62  13  75
+[info] bench.Bench.giveUpEval  0.9565644171779141  3898  177  4075
+[info] bench.Bench.giveUpEval  0.956081081081081  1698  78  1776
+[info] bench.Bench.giveUpEval  0.9513715710723192  763  39  802
+[info] bench.Bench.giveUpEval  0.9382022471910112  334  22  356
+[info] bench.Bench.giveUpEval  0.9764705882352941  166  4  170
+[info] bench.Bench.giveUpEval  0.9846153846153847  64  1  65
+[info] bench.Bench.giveUpEval  0.9005973715651135  3769  416  4185
+[info] bench.Bench.giveUpEval  0.905876235049402  1742  181  1923
+[info] bench.Bench.giveUpEval  0.900117508813161  766  85  851
+[info] bench.Bench.giveUpEval  0.918918918918919  340  30  370
+[info] bench.Bench.giveUpEval  0.8722222222222222  157  23  180
+[info] bench.Bench.giveUpEval  0.9066666666666666  68  7  75
+[info] bench.Bench.giveUpEval  0.8065424610051993  3723  893  4616
+[info] bench.Bench.giveUpEval  0.8252688172043011  1535  325  1860
+[info] bench.Bench.giveUpEval  0.8135391923990499  685  157  842
+[info] bench.Bench.giveUpEval  0.7974358974358975  311  79  390
+[info] bench.Bench.giveUpEval  0.772020725388601  149  44  193
+[info] bench.Bench.giveUpEval  0.821917808219178  60  13  73
+[info] bench.Bench.giveUpEval  0.6280653950953679  3227  1911  5138
+[info] bench.Bench.giveUpEval  0.6261766024204393  1397  834  2231
+[info] bench.Bench.giveUpEval  0.612410986775178  602  381  983
+[info] bench.Bench.giveUpEval  0.6075388026607539  274  177  451
+[info] bench.Bench.giveUpEval  0.6390243902439025  131  74  205
+[info] bench.Bench.giveUpEval  0.6373626373626373  58  33  91
+[info] bench.Bench.giveUpEval  0.21391392662181033  1685  6192  7877
+[info] bench.Bench.giveUpEval  0.21544356027114647  731  2662  3393
+[info] bench.Bench.giveUpEval  0.19759679572763686  296  1202  1498
+[info] bench.Bench.giveUpEval  0.2138728323699422  148  544  692
+[info] bench.Bench.giveUpEval  0.19817073170731708  65  263  328
+[info] bench.Bench.giveUpEval  0.18404907975460122  30  133  163
+[info] bench.Bench.giveUpEval  0.060649636271358484  717  11105  11822
+[info] bench.Bench.giveUpEval  0.05405904059040591  293  5127  5420
+[info] bench.Bench.giveUpEval  0.06459627329192547  156  2259  2415
+[info] bench.Bench.giveUpEval  0.0549738219895288  63  1083  1146
+[info] bench.Bench.giveUpEval  0.03773584905660377  20  510  530
+[info] bench.Bench.giveUpEval  0.05042016806722689  12  226  238
+[info] bench.Bench.giveUpEval_Simple  0.9495260663507109  4007  213  4220
+[info] bench.Bench.giveUpEval_Simple  0.9485481406011207  1862  101  1963
+[info] bench.Bench.giveUpEval_Simple  0.9577294685990339  793  35  828
+[info] bench.Bench.giveUpEval_Simple  0.9568733153638814  355  16  371
+[info] bench.Bench.giveUpEval_Simple  0.9767441860465116  168  4  172
+[info] bench.Bench.giveUpEval_Simple  0.975  78  2  80
+[info] bench.Bench.giveUpEval_Simple  0.9004130335016063  3924  434  4358
+[info] bench.Bench.giveUpEval_Simple  0.9078663793103449  1685  171  1856
+[info] bench.Bench.giveUpEval_Simple  0.9025821596244131  769  83  852
+[info] bench.Bench.giveUpEval_Simple  0.8736842105263158  332  48  380
+[info] bench.Bench.giveUpEval_Simple  0.9005524861878453  163  18  181
+[info] bench.Bench.giveUpEval_Simple  0.9041095890410958  66  7  73
+[info] bench.Bench.giveUpEval_Simple  0.8084224307222343  3705  878  4583
+[info] bench.Bench.giveUpEval_Simple  0.818753020782987  1694  375  2069
+[info] bench.Bench.giveUpEval_Simple  0.787027027027027  728  197  925
+[info] bench.Bench.giveUpEval_Simple  0.7919799498746867  316  83  399
+[info] bench.Bench.giveUpEval_Simple  0.8  148  37  185
+[info] bench.Bench.giveUpEval_Simple  0.8243243243243243  61  13  74
+[info] bench.Bench.giveUpEval_Simple  0.6011246848943184  3100  2057  5157
+[info] bench.Bench.giveUpEval_Simple  0.6164859002169197  1421  884  2305
+[info] bench.Bench.giveUpEval_Simple  0.5817120622568094  598  430  1028
+[info] bench.Bench.giveUpEval_Simple  0.5894736842105263  280  195  475
+[info] bench.Bench.giveUpEval_Simple  0.5607476635514018  120  94  214
+[info] bench.Bench.giveUpEval_Simple  0.5876288659793815  57  40  97
+[info] bench.Bench.giveUpEval_Simple  0.1921326018442862  1646  6921  8567
+[info] bench.Bench.giveUpEval_Simple  0.1914951989026063  698  2947  3645
+[info] bench.Bench.giveUpEval_Simple  0.21055900621118012  339  1271  1610
+[info] bench.Bench.giveUpEval_Simple  0.2273342354533153  168  571  739
+[info] bench.Bench.giveUpEval_Simple  0.17732558139534885  61  283  344
+[info] bench.Bench.giveUpEval_Simple  0.20261437908496732  31  122  153
+[info] bench.Bench.giveUpEval_Simple  0.04683977016510291  644  13105  13749
+[info] bench.Bench.giveUpEval_Simple  0.04836535220761712  287  5647  5934
+[info] bench.Bench.giveUpEval_Simple  0.05677997758685095  152  2525  2677
+[info] bench.Bench.giveUpEval_Simple  0.0462046204620462  56  1156  1212
+[info] bench.Bench.giveUpEval_Simple  0.061567164179104475  33  503  536
+[info] bench.Bench.giveUpEval_Simple  0.05533596837944664  14  239  253
+[info] bench.Bench.retryAllEval  1.0  3956  0  3956
+[info] bench.Bench.retryAllEval  1.0  1759  0  1759
+[info] bench.Bench.retryAllEval  1.0  779  0  779
+[info] bench.Bench.retryAllEval  1.0  341  0  341
+[info] bench.Bench.retryAllEval  1.0  155  0  155
+[info] bench.Bench.retryAllEval  1.0  68  0  68
+[info] bench.Bench.retryAllEval  1.0  3903  0  3903
+[info] bench.Bench.retryAllEval  1.0  1711  0  1711
+[info] bench.Bench.retryAllEval  1.0  762  0  762
+[info] bench.Bench.retryAllEval  1.0  339  0  339
+[info] bench.Bench.retryAllEval  1.0  156  0  156
+[info] bench.Bench.retryAllEval  1.0  63  0  63
+[info] bench.Bench.retryAllEval  1.0  3568  0  3568
+[info] bench.Bench.retryAllEval  1.0  1593  0  1593
+[info] bench.Bench.retryAllEval  1.0  698  0  698
+[info] bench.Bench.retryAllEval  1.0  314  0  314
+[info] bench.Bench.retryAllEval  1.0  150  0  150
+[info] bench.Bench.retryAllEval  1.0  65  0  65
+[info] bench.Bench.retryAllEval  1.0  3248  0  3248
+[info] bench.Bench.retryAllEval  1.0  1452  0  1452
+[info] bench.Bench.retryAllEval  1.0  630  0  630
+[info] bench.Bench.retryAllEval  1.0  275  0  275
+[info] bench.Bench.retryAllEval  1.0  115  0  115
+[info] bench.Bench.retryAllEval  1.0  54  0  54
+[info] bench.Bench.retryAllEval  1.0  1810  0  1810
+[info] bench.Bench.retryAllEval  1.0  797  0  797
+[info] bench.Bench.retryAllEval  1.0  351  0  351
+[info] bench.Bench.retryAllEval  1.0  162  0  162
+[info] bench.Bench.retryAllEval  1.0  63  0  63
+[info] bench.Bench.retryAllEval  1.0  35  0  35
+[info] bench.Bench.retryAllEval  1.0  754  0  754
+[info] bench.Bench.retryAllEval  1.0  335  0  335
+[info] bench.Bench.retryAllEval  1.0  164  0  164
+[info] bench.Bench.retryAllEval  1.0  64  0  64
+[info] bench.Bench.retryAllEval  1.0  40  0  40
+[info] bench.Bench.retryAllEval  1.0  21  0  21
+[info] bench.Bench.retryAllEval_Simple  1.0  3898  0  3898
+[info] bench.Bench.retryAllEval_Simple  1.0  1677  0  1677
+[info] bench.Bench.retryAllEval_Simple  1.0  755  0  755
+[info] bench.Bench.retryAllEval_Simple  1.0  351  0  351
+[info] bench.Bench.retryAllEval_Simple  1.0  164  0  164
+[info] bench.Bench.retryAllEval_Simple  1.0  60  0  60
+[info] bench.Bench.retryAllEval_Simple  1.0  3810  0  3810
+[info] bench.Bench.retryAllEval_Simple  1.0  1676  0  1676
+[info] bench.Bench.retryAllEval_Simple  1.0  753  0  753
+[info] bench.Bench.retryAllEval_Simple  1.0  337  0  337
+[info] bench.Bench.retryAllEval_Simple  1.0  154  0  154
+[info] bench.Bench.retryAllEval_Simple  1.0  64  0  64
+[info] bench.Bench.retryAllEval_Simple  1.0  3625  0  3625
+[info] bench.Bench.retryAllEval_Simple  1.0  1631  0  1631
+[info] bench.Bench.retryAllEval_Simple  1.0  705  0  705
+[info] bench.Bench.retryAllEval_Simple  1.0  324  0  324
+[info] bench.Bench.retryAllEval_Simple  1.0  145  0  145
+[info] bench.Bench.retryAllEval_Simple  1.0  60  0  60
+[info] bench.Bench.retryAllEval_Simple  1.0  3204  0  3204
+[info] bench.Bench.retryAllEval_Simple  1.0  1442  0  1442
+[info] bench.Bench.retryAllEval_Simple  1.0  610  0  610
+[info] bench.Bench.retryAllEval_Simple  1.0  276  0  276
+[info] bench.Bench.retryAllEval_Simple  1.0  140  0  140
+[info] bench.Bench.retryAllEval_Simple  1.0  55  0  55
+[info] bench.Bench.retryAllEval_Simple  1.0  1801  0  1801
+[info] bench.Bench.retryAllEval_Simple  1.0  760  0  760
+[info] bench.Bench.retryAllEval_Simple  1.0  319  0  319
+[info] bench.Bench.retryAllEval_Simple  1.0  151  0  151
+[info] bench.Bench.retryAllEval_Simple  1.0  65  0  65
+[info] bench.Bench.retryAllEval_Simple  1.0  30  0  30
+[info] bench.Bench.retryAllEval_Simple  1.0  734  0  734
+[info] bench.Bench.retryAllEval_Simple  1.0  347  0  347
+[info] bench.Bench.retryAllEval_Simple  1.0  154  0  154
+[info] bench.Bench.retryAllEval_Simple  1.0  55  0  55
+[info] bench.Bench.retryAllEval_Simple  1.0  31  0  31
+[info] bench.Bench.retryAllEval_Simple  1.0  24  0  24
+[success] Total time: 6231 s (01:43:51.0), completed May 18, 2026, 8:35:34 PM

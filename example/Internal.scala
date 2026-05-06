@@ -2,6 +2,7 @@ package pwd4llm.internal
 
 import pwd4llm.*
 import scala.collection.IndexedSeqOps
+import scala.annotation.targetName
 
 import scala.collection.mutable.{
   ArraySeq as MArraySeq,
@@ -104,6 +105,43 @@ extension (r: Random) {
     *
     * @tparam T
     *   type of items
+    * @tparam C
+    *   type of collection the items are collected in
+    * @param xs
+    *   the weight-item-pairs to shuffle
+    * @param ft
+    *   the factory of the collection
+    * @return
+    *   the shuffled collection
+    * @throws java.lang.IllegalArgumentException
+    *   if some weight is non-positive
+    */
+  @targetName("weightedShuffleLong")
+  def weightedShuffle[T, C](
+      xs: IterableOnce[(Long, T)]
+  )(using ft: Factory[T, C]): C = {
+
+    val buf = ArraySeq.from(xs)
+    val cummWeights =
+      MArraySeq.from(buf.iterator.scanLeft(0L)((acc, x) => acc + x._1).drop(1))
+
+    val builder = ft.newBuilder
+    builder.sizeHint(cummWeights.length)
+    for _ <- 0 until buf.length do {
+      val total = cummWeights.last
+      val k = r.nextLong(total)
+      val i = cummWeights.expSearchInsPoint(k)
+      val (w, x) = buf(i)
+      for j <- i until cummWeights.length do cummWeights(j) -= w
+      builder.addOne(x)
+    }
+    builder.result
+  }
+
+  /** Performs a weighted shuffle of an iteration of items.
+    *
+    * @tparam T
+    *   type of items
     * @param xs
     *   the weight-item-pairs to choose from
     * @return
@@ -118,6 +156,30 @@ extension (r: Random) {
 
     val total = cummWeights.last
     val k = r.nextInt(total)
+    val i = cummWeights.expSearchInsPoint(k)
+    val (_, x) = buf(i)
+    x
+  }
+
+  /** Performs a weighted shuffle of an iteration of items.
+    *
+    * @tparam T
+    *   type of items
+    * @param xs
+    *   the weight-item-pairs to choose from
+    * @return
+    *   the chosen item
+    * @throws java.lang.IllegalArgumentException
+    *   if some weight is non-positive
+    */
+  @targetName("weightedChoiceLong")
+  def weightedChoice[T, C](xs: IterableOnce[(Long, T)]): T = {
+    val buf = ArraySeq.from(xs)
+    val cummWeights =
+      ArraySeq.from(buf.iterator.scanLeft(0L)((acc, x) => acc + x._1).drop(1))
+
+    val total = cummWeights.last
+    val k = r.nextLong(total)
     val i = cummWeights.expSearchInsPoint(k)
     val (_, x) = buf(i)
     x

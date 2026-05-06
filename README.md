@@ -12,8 +12,8 @@ This sbt project is seperated into three.
 ## Dependencies
 
 * Scala version `3.7.4`
-* sbt version `1.12.6`
-* first-class-derivatives version `3.0.1`
+* sbt version `1.12.11`
+* first-class-derivatives version `3.0.2`
 
 For installing Scala and sbt, refer to their appropriate installation guide online.
 

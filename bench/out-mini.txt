@@ -1,0 +1,235 @@
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms12G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.mini.Mini.giveUpEval
+# Parameters: (token_length = 50)
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_313a880e/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1764.713 ops/s
+# Warmup Iteration   2: 2890.760 ops/s
+# Warmup Iteration   3: 2636.392 ops/s
+# Warmup Iteration   4: 2646.203 ops/s
+# Warmup Iteration   5: 2727.439 ops/s
+Iteration   1: 2288.854 ops/s
+Iteration   2: 2917.555 ops/s
+Iteration   3: 3046.160 ops/s
+Iteration   4: 3018.996 ops/s
+Iteration   5: 3073.555 ops/s
+Iteration   6: 3184.635 ops/s
+Iteration   7: 3167.632 ops/s
+Iteration   8: 3158.897 ops/s
+Iteration   9: 3130.583 ops/s
+Iteration  10: 3195.413 ops/s
+
+
+Result "bench.mini.Mini.giveUpEval":
+  3018.228 ±(99.9%) 409.345 ops/s [Average]
+  (min, avg, max) = (2288.854, 3018.228, 3195.413), stdev = 270.757
+  CI (99.9%): [2608.883, 3427.574] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms12G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.mini.Mini.giveUpEval
+# Parameters: (token_length = 100)
+
+# Run progress: 20.00% complete, ETA 00:01:01
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_313a880e/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 725.522 ops/s
+# Warmup Iteration   2: 1178.741 ops/s
+# Warmup Iteration   3: 1086.028 ops/s
+# Warmup Iteration   4: 1074.446 ops/s
+# Warmup Iteration   5: 1092.222 ops/s
+Iteration   1: 1050.412 ops/s
+Iteration   2: 983.851 ops/s
+Iteration   3: 1221.293 ops/s
+Iteration   4: 1241.468 ops/s
+Iteration   5: 1254.843 ops/s
+Iteration   6: 1228.136 ops/s
+Iteration   7: 1262.286 ops/s
+Iteration   8: 1244.040 ops/s
+Iteration   9: 1266.394 ops/s
+Iteration  10: 1228.780 ops/s
+
+
+Result "bench.mini.Mini.giveUpEval":
+  1198.150 ±(99.9%) 147.866 ops/s [Average]
+  (min, avg, max) = (983.851, 1198.150, 1266.394), stdev = 97.804
+  CI (99.9%): [1050.284, 1346.016] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms12G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.mini.Mini.giveUpEval
+# Parameters: (token_length = 200)
+
+# Run progress: 40.00% complete, ETA 00:00:45
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_313a880e/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 341.311 ops/s
+# Warmup Iteration   2: 552.740 ops/s
+# Warmup Iteration   3: 514.351 ops/s
+# Warmup Iteration   4: 517.227 ops/s
+# Warmup Iteration   5: 517.487 ops/s
+Iteration   1: 439.715 ops/s
+Iteration   2: 596.946 ops/s
+Iteration   3: 611.889 ops/s
+Iteration   4: 607.289 ops/s
+Iteration   5: 576.912 ops/s
+Iteration   6: 600.695 ops/s
+Iteration   7: 609.497 ops/s
+Iteration   8: 601.693 ops/s
+Iteration   9: 607.824 ops/s
+Iteration  10: 609.989 ops/s
+
+
+Result "bench.mini.Mini.giveUpEval":
+  586.245 ±(99.9%) 79.348 ops/s [Average]
+  (min, avg, max) = (439.715, 586.245, 611.889), stdev = 52.483
+  CI (99.9%): [506.897, 665.592] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms12G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.mini.Mini.giveUpEval
+# Parameters: (token_length = 400)
+
+# Run progress: 60.00% complete, ETA 00:00:30
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_313a880e/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 158.442 ops/s
+# Warmup Iteration   2: 236.674 ops/s
+# Warmup Iteration   3: 233.172 ops/s
+# Warmup Iteration   4: 220.641 ops/s
+# Warmup Iteration   5: 223.785 ops/s
+Iteration   1: 210.617 ops/s
+Iteration   2: 228.637 ops/s
+Iteration   3: 263.149 ops/s
+Iteration   4: 265.822 ops/s
+Iteration   5: 267.369 ops/s
+Iteration   6: 259.089 ops/s
+Iteration   7: 243.414 ops/s
+Iteration   8: 251.784 ops/s
+Iteration   9: 250.648 ops/s
+Iteration  10: 271.459 ops/s
+
+
+Result "bench.mini.Mini.giveUpEval":
+  251.199 ±(99.9%) 28.985 ops/s [Average]
+  (min, avg, max) = (210.617, 251.199, 271.459), stdev = 19.172
+  CI (99.9%): [222.213, 280.184] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 26.0.1, OpenJDK 64-Bit Server VM, 26.0.1
+# VM invoker: /usr/lib/jvm/java-26-openjdk/bin/java
+# VM options: -Xms12G -XX:+UseG1GC -Djava.util.prefs.userRoot=/home/said/.config/java
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: bench.mini.Mini.giveUpEval
+# Parameters: (token_length = 800)
+
+# Run progress: 80.00% complete, ETA 00:00:15
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -Djava.util.prefs.userRoot=/home/said/.config/java
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/said/Documents/Studium/Bachelorarbeit/PwD4LLM/target/bg-jobs/sbt_313a880e/target/27c14902/1296d6b9/jmh-core-1.37.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 64.376 ops/s
+# Warmup Iteration   2: 107.879 ops/s
+# Warmup Iteration   3: 105.403 ops/s
+# Warmup Iteration   4: 100.317 ops/s
+# Warmup Iteration   5: 105.251 ops/s
+Iteration   1: 82.473 ops/s
+Iteration   2: 110.745 ops/s
+Iteration   3: 111.910 ops/s
+Iteration   4: 113.308 ops/s
+Iteration   5: 110.680 ops/s
+Iteration   6: 114.966 ops/s
+Iteration   7: 112.000 ops/s
+Iteration   8: 112.644 ops/s
+Iteration   9: 111.698 ops/s
+Iteration  10: 113.860 ops/s
+
+
+Result "bench.mini.Mini.giveUpEval":
+  109.428 ±(99.9%) 14.462 ops/s [Average]
+  (min, avg, max) = (82.473, 109.428, 114.966), stdev = 9.566
+  CI (99.9%): [94.967, 123.890] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:16
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark        (token_length)   Mode  Cnt     Score     Error  Units
+Mini.giveUpEval              50  thrpt   10  3018.228 ± 409.345  ops/s
+Mini.giveUpEval             100  thrpt   10  1198.150 ± 147.866  ops/s
+Mini.giveUpEval             200  thrpt   10   586.245 ±  79.348  ops/s
+Mini.giveUpEval             400  thrpt   10   251.199 ±  28.985  ops/s
+Mini.giveUpEval             800  thrpt   10   109.428 ±  14.462  ops/s

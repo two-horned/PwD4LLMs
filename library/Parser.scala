@@ -26,7 +26,7 @@ import ParserState.*
   *   is the type of the result
   */
 trait Parser[T, R] {
-  def feed(t: T): Parser[T, R]
+  def consume(token: T): Parser[T, R]
   def result: R
   def state: ParserState
 }
@@ -37,7 +37,7 @@ trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
   class WrappedParser[R](
       inner: parsers.Parser[R]
   ) extends Parser[parsers.Elem, Iterable[R]] {
-    def feed(t: parsers.Elem) = WrappedParser(inner.consume(t))
+    def consume(token: parsers.Elem) = WrappedParser(inner.consume(token))
     def result = inner.results
     def state =
       if inner.accepts then Accepting
