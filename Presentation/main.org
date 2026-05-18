@@ -73,14 +73,14 @@
 * Motivation
 ** Using LLMs for Code Generation
 Some facts about LLM adoption.
-- @@b:<2->@@ 85% of developers use AI for coding
+- @@b:<2->@@ Used by +85% of developers for coding
   @@latex:{\raggedleft \tiny --- JetBrains \cite{jetbrains:survey2025}}@@
   # - @@b:<3->@@  Mostly for...
   #   1) repetitive work
   #   2) searching for tools
   #   3) code translation
   #   4) comments, documentation, summaries
-- @@b:<3->@@ GitHub Copilot has over 20M users
+- @@b:<3->@@ Over 20M GitHub Copilot users
   @@latex:{\raggedleft \tiny --- Yahoo!Finance \cite{copilot:users}}@@
 - @@b:<4->@@ ~30% of Google and Microsoft code AI written
   @@latex:{\raggedleft \tiny --- Business Insider \cite{insider:ai-usage}}@@
@@ -105,21 +105,21 @@ than writing code manually.
 
 ** Problems with LLM Generated Code (1)
 Training LLMs is hard!!
-- @@b:<2->@@ No Free Lunch \twemoji{pensive}
-- @@b:<3->@@ Lots of parameters needed
-- @@b:<4->@@ Lots of training data needed
+# - @@b:<2->@@ No Free Lunch \twemoji{pensive}
+- @@b:<2->@@ Lots of parameters
+- @@b:<3->@@ Lots of training data
 
 *** Parameter Count Comparison
 :PROPERTIES:
 :BEAMER_act: <3->
 :END:
-|                  |            <r> |          <r> |
-| LLM              | Activer Params | Total Params |
-|------------------+----------------+--------------|
-| Llama 4 Scout    |            17B |         109B |
-| Llama 4 Maverick |            17B |         400B |
-| Llama 4 Behemoth |           288B |           2T |
-| Step 3.5 Flash   |            11B |         196B |
+|                  |           <r> |          <r> |
+| LLM              | Active Params | Total Params |
+|------------------+---------------+--------------|
+| Llama 4 Scout    |           17B |         109B |
+| Llama 4 Maverick |           17B |         400B |
+| Llama 4 Behemoth |          288B |           2T |
+| Step 3.5 Flash   |           11B |         196B |
 @@latex:{\raggedleft \tiny --- Meta \cite{meta:llama4}, StepFun \cite{stepfun:step3.5}}@@
 
 *** Llama 4 Training Data
@@ -131,42 +131,34 @@ The overall data mixture for training consisted of more than
 @@latex:{\raggedleft \tiny --- Meta \cite{meta:llama4}}@@
 
 ** Problems with LLM Generated Code (2)
-LLMs are still far from perfect
-- @@b:<2->@@ “Just” predicting next token (NTP)
-  @@latex:{\raggedleft \tiny --- IBM \cite{ibm:llms}}@@
-  - @@b:<3->@@ No language specific handling of tokens
-  - @@b:<4->@@ No language specific guarantees of correctness
-- @@b:<5->@@ No capabilites for real problem solving
-  - @@b:<6->@@ I.e., no Maths/Physics/Logic engine
+LLMs are far from perfect. They “just” predict next token (NTP)
+  @@latex:{\raggedleft \tiny --- IBM \cite{ibm:llms}}@@.
+- @@b:<2->@@ No language specific token handling
+- @@b:<3->@@ No language specific correctness guarantees
 
 ** Problems with LLM Generated Code (3)
 Some evidence, LLM generated code is error-prone.
-- @@b:<2->@@ No LLM has a perfect score for \textbf{SWE-bench-Verified}
- @@latex:{\raggedleft \tiny \cite{swebench}}@@
- (best: \textbf{80.9\%} passage with Claude Opus 4.6
- @@latex:{\raggedleft \tiny \cite{llmstats}}@@)
-- @@b:<3->@@ No LLM has a perfect score for \textbf{HumanEval}
- @@latex:{\raggedleft \tiny \cite{humaneval}}@@
- (best: \textbf{94.5\%} passage with Kimi K2 0905
- @@latex:{\raggedleft \tiny \cite{llmstats}}@@)
-- @@b:<4->@@ 95% of code is syntactically correct
+# - @@b:<2->@@ No perfect score for \textbf{SWE-bench-Verified}
+#  @@latex:{\raggedleft \tiny \cite{swebench}}@@
+#  (best: \textbf{80.9\%} Claude Opus 4.6
+#  @@latex:{\raggedleft \tiny \cite{llmstats}}@@)
+# - @@b:<3->@@ No perfect score for \textbf{HumanEval}
+#  @@latex:{\raggedleft \tiny \cite{humaneval}}@@
+#  (best: \textbf{94.5\%} Kimi K2 0905
+#  @@latex:{\raggedleft \tiny \cite{llmstats}}@@)
+- @@b:<2->@@ 95% of code is syntactically correct
+  @@latex:{\raggedleft \tiny --- Veracode \cite{veracode:llmsec}}@@
   #+LATEX: { \footnotesize \color{gray!50} (still not perfect)}
+- @@b:<3->@@ only 55% of code meets security standard
+  @@latex:{\raggedleft \tiny --- Veracode \cite{veracode:llmsec}}@@
+- @@b:<4->@@ Correctness drastically degrades w/ output length
+    @@latex:{\raggedleft \tiny --- Wang et al. \cite{wang:understanding-errors}}@@
+- @@b:<5->@@ Synthetic benchmarks vs. real-world problems
+  - @@b:<6->@@ \textbf{84-89\%} synthetic vs. \textbf{25-34\%} real world correctness
+    @@latex:{\raggedleft \tiny --- Rahman et al. \cite{rahman:beyond-synthetic}}@@
 # - @@b:<4->@@ After 10 Iterations of refinment,
 #   \textbf{43.7\%} of code is \textbf{less secure} (GPT-4o)
 #   @@latex:{\raggedleft \tiny --- Chen et al. \cite{chen:preventsecdeg}}@@
-
-** Problems with LLM Generated Code (3)
-  @@latex: { \raggedleft \tiny --- Veracode \cite{veracode:llmsec}}@@
-- @@b:<1->@@ only 55% of code meets security standard
-  @@latex:{\raggedleft \tiny --- Veracode \cite{veracode:llmsec}}@@
-- @@b:<2->@@ Short/simple vs long/complex problems
-  - @@b:<3->@@ Task prompt $>150$ words or solution requires $>12$ LOC
-    $\mathbf{\longrightarrow~55.9\%}$ /garbage/
-    #+LATEX: { \color{gray!80} \footnotesize (syntax \textcolor{ForestGreen}{good}, but \textcolor{BrickRed}{garbage}) }
-    @@latex:{\raggedleft \tiny --- Wang et al. \cite{wang:understanding-errors}}@@
-- @@b:<4->@@ Synthetic benchmarks vs. real-world problems
-  - @@b:<5->@@ \textbf{84-89\%} synthetic vs. \textbf{25-34\%} real world correctness
-    @@latex:{\raggedleft \tiny --- Rahman et al. \cite{rahman:beyond-synthetic}}@@
 
 ** Some Solutions
 - @@b:<1->@@ Improve architecture
@@ -178,14 +170,14 @@ Some evidence, LLM generated code is error-prone.
 - @@b:<5->@@ Chain-of-Thought
   @@latex:{\raggedleft \tiny --- \cite{wei:cot}, \cite{li:scot}}@@
   - @@b:<6->@@ Either via prompt or learned
-  - @@b:<7->@@ Emulates human breakdown of a problem
-- @@b:<alert@11|8->@@ Agentic AI
+  - @@b:<6->@@ Emulates human breakdown of a problem
+- @@b:<alert@10|7->@@ Agentic AI
   @@latex:{\raggedleft \tiny --- \cite{ibm:agentic-ai}, \cite{chen:preventsecdeg}}@@
-  - @@b:<9->@@ System of many tools (search engine, sandboxed (testing) environment, etc.)
-  - @@b:<10->@@ Enhance LLM output with feedback loop
+  - @@b:<8->@@ System of tools (e.g. search engine, compiler, ...)
+  - @@b:<9->@@ Enhance LLM output with feedback loop
     
 #+begin_export latex
-\begin{onlyenv}<11>
+\begin{onlyenv}<10>
 #+end_export
 #+BEGIN_center
 \textbf{Parsing with Derivatives might help here!}
@@ -201,7 +193,7 @@ Some evidence, LLM generated code is error-prone.
 Parser:
 1) takes input data
 2) returns new data structure(s)
-   (or nothing / some error)
+   \textcolor{gray!80}{(or nothing / some error)}
 #+END_definition
 
 #+begin_export latex
@@ -382,9 +374,6 @@ trait DerivativeParserTools[P <: fcd.DerivativeParsers](val parsers: P) {
   type DParser[R] = parsers.Parser[R]
 }
 #+END_src
-- @@b:<2->@@ pass parser combinator object \texttt{parsers} to create tools
-- @@b:<3->@@ wrap parser with \texttt{WrappedParser} use as \textbf{Parser} type
-
 
 ** Token Generator
 The token generator defines a (dynamic) search tree of token inputs.
@@ -419,16 +408,15 @@ Mostly self-explanatory. Special editing commands:
 ** Useful Token Generators (1)
 Using a graph, defining a search space becomes easy.
 *** Node
-Nodes can be used by implementations of \texttt{TokenGenerator}.
-Only a seed/start node needed!
+Useful for implementing \texttt{TokenGenerator}.
+Only a seed node needed!
 #+BEGIN_src scala
   // Vertices: Nodes, Outgoing Edges: Token/Node pairs
   case class Node[T](neighbors: Iterator[(T, Node[T])])
 #+END_src
 
 ** Useful Token Generators (2)
-Good for testing: a token generator that gives up generating
-when parse state is \textcolor{BrickRed}{failure}.
+Good for testing: gives up generating when parse state is \textcolor{BrickRed}{failure}.
 \rightarrow Allows inspecting raw token generation.
 *** Give-Up Token Generator
 #+BEGIN_src scala
@@ -500,7 +488,7 @@ Choosing right evaluator depends on requirements, i.e. the token generator used.
 
 ** Next Steps
 Library allows defining parser, token generator and evaluation strategies.
-Now example implementation is needed to answer the two previous questions.
+Next: example implementation to answer two previous questions.
 
 #+BEGIN_export latex
 \bigskip
@@ -751,10 +739,9 @@ on a \textbf{Weighted Context Free Grammar} of PCF.
     }
   }
 #+END_src
-- @@b:<2->@@ Weights (hand-)chosen carefully for each production rule.
-  Expanding label uses weighted choice for production.
-- @@b:<3->@@  Dynamic weight adjustment to hit a target length.
-  Label weights change for the desired token length.
+- @@b:<2->@@ Weights (hand-)chosen for each production rule.
+  Expand label with weighted choice.
+- @@b:<3->@@  Dynamic weight adjustment for target length.
   
 
 ** Token Generation (2)
@@ -820,8 +807,10 @@ streaming the output through a typo generation phase.
 
 * Excursus: Migration of FCD library
 ** About
-A quick summary of the migration from Scala 2 to Scala 3.
+\texttt{fcd} library used old Scala code.
+Migrate to latest Scala version and apply optimizations.
 
+*** Migration from Scala 2 to Scala 3
 |     | Scala version | Sbt version |
 |-----+---------------+-------------|
 | Old |        2.11.7 |      0.13.8 |
@@ -830,69 +819,49 @@ A quick summary of the migration from Scala 2 to Scala 3.
 
 ** Syntactic Preferences
 Adhere to Scala 3 code guidelines and style.
-1) @@b:<2->@@ Avoid using the \texttt{new} keyword.
-2) @@b:<3->@@ Avoid using type annotations. Scala 3 has more capable
-   type inference, so we should use it.
-3) @@b:<4->@@ Declare functions \texttt{infix} or use backticks for infix operators.
-4) @@b:<5->@@ Use \texttt{scalafmt} tool for uniform formatting.
+1) @@b:<2->@@ Avoid \texttt{new} keyword.
+2) @@b:<3->@@ Less type annotations.
+3) @@b:<4->@@ Use \texttt{infix} or use backticks for infix operators.
+4) @@b:<5->@@ Use \texttt{scalafmt} tool for formatting.
 
 ** General Code Cleanup
 Some cheap code quality improvements.
 1) @@b:<2->@@ Remove duplicate code
 2) @@b:<3->@@ Remove redundant overrides
-3) @@b:<4->@@ Simplify lambda expressions and function definitions
-4) @@b:<5->@@ Stricter encapsulation (i.e. \texttt{protected} \to \texttt{private})
-5) @@b:<6->@@ Rewrite lambda definitions to function definitions
+3) @@b:<4->@@ Simplify lambdas and functions
+4) @@b:<5->@@ Encapsulation (i.e. \texttt{protected} \to \texttt{private})
 
 ** Necessary Rewrites
 These changes were necessary because of deprecation.
-1) @@b:<2->@@ Remove view bounds
-2) @@b:<3->@@ \texttt{do-while} becomes \texttt{while}
-3) @@b:<4->@@ \texttt{implicit class} becomes class \texttt{extension}
-4) @@b:<5->@@ \texttt{implicit def} becomes \texttt{given}
+1) @@b:<2->@@ View bounds \to explicit types
+2) @@b:<3->@@ \texttt{do-while} \to \texttt{while}
+3) @@b:<4->@@ \texttt{implicit class} \to \texttt{extension}
+4) @@b:<5->@@ \texttt{implicit def} \to \texttt{given}
    \textcolor{gray!80}{(not truly necessary)}
-5) @@b:<6->@@ \texttt{private[this]} becomes \texttt{private}
+5) @@b:<6->@@ \texttt{private[this]} \to \texttt{private}
    \textcolor{gray!80}{(not truly necessary)}
-6) @@b:<7->@@ Avoid using \textbf{Symbol} class and their special syntax
-   (were needed in PythonTests)
-7) @@b:<8->@@ Replace lazy path imports with trait parameters
-   (tests require specific parser combinator implementation)
+6) @@b:<7->@@ Use \textbf{Symbol} \to Use String/Char
+7) @@b:<8->@@ lazy path imports \to trait parameters
 
 ** Problems
-After migrating the library and writing benchmarking code,
-I've noticed these things:
+Noticable issues using the library
 1) @@b:<2->@@ \texttt{fcd} tests pass, but /very/ slowly
 2) @@b:<3->@@ validating tokens with \texttt{fcd} parsers took very long
 
-#+begin_export latex
-\begin{onlyenv}<4>
-#+end_export
-#+BEGIN_center
-First thought: own code was faulty,
-but there was deeper underlying problem...
-#+END_center
-#+begin_export latex
-\end{onlyenv}
-#+end_export
-
 ** Crucial Optimizations (1)
-Inspecting flame graphs revealed: Building results took huge amount of time.
+Building results takes majority of time.
 For this project, have to get the best out of \textbf{DerivativeParsers}!
 #+BEGIN_export latex
 \bigskip
 #+END_export
-Tried attempts:
-1) @@b:<2->@@ Simply \textbf{avoiding} building results (not really a solution)
-2) @@b:<3->@@ Using \textbf{iterators} for parser result mappings. Avoids creating
-   intermediate collections. Very effective.
-3) @@b:<4->@@ Rewrite \texttt{consume} function for parsers:
-   before lambda, now \textbf{proper function}. Avoids object instantiation.
-   Very effective.
-4) @@b:<5->@@ Use strict map results (before cbn parameter).
-   Problem: \textbf{fcd} tests do not pass anymore (required laziness).
-5) @@b:<6->@@ Keep \texttt{Results} type as List,
-   but actually use \textbf{Set} for parser classes. Speed things up a lot,
-   because distinction checks were needed all the time.
+Some easy optimizations:
+1) @@b:<2->@@ Use \textbf{iterators} when mapping parse results.
+   Avoids creating intermediate collections
+2) @@b:<3->@@ Rewrite \texttt{consume} function:
+   lambda expression \to \textbf{proper function}.
+   Avoids object instantiation.
+3) @@b:<4->@@ use list for results \to use \textbf{set}.
+   (distinct checks needed all the time)
 
 ** Crucial Optimizations (2)
 Where using sets mattered a lot: Nonterminal result calculation.
@@ -943,13 +912,12 @@ Previous functions implemented with matching on parser.
 #+END_src
 
 ** Crucial Optimizations (5)
-Some of previous optimizations applied again, and more!
-1) @@b:<2->@@ Use sets for results
-2) @@b:<3->@@ Omit result distinct check if possible, i.e. 
+Apply previous optimizations again, and more!
+1) @@b:<2->@@ Omit result distinct check if possible, i.e. 
   #+BEGIN_src scala
     case And(p, q) => for x <- p.results; y <- q.results yield (x, y)
   #+END_src
-3) @@b:<4->@@ Split NT fix-points from two to three.
+2) @@b:<3->@@ Split NT fix-points (2 \to 3).
    Before: \texttt{accepts} and \texttt{faile} together,
    but finding \texttt{failure} \textbf{much} more difficult.
   #+BEGIN_src scala
@@ -972,7 +940,7 @@ Some of previous optimizations applied again, and more!
          ...
      }
    #+END_src
-4) @@b:<4->@@ Apply previous canonicalization/optimization rules
+4) @@b:<4->@@ Apply previous canonicalization & optimization rules
   on \textbf{both sides} of binary combinators, i.e.
   #+BEGIN_src scala
     def seq[U](q: Parser[U]): Parser[(R, U)] = (this, q) match {
@@ -987,14 +955,239 @@ to less than than 1 second!
 #+BEGIN_export latex
 \bigskip
 \color{gray!80}(on my machine\footnote{
- CPU: AMD Ryzen 6800HS, 3.2GHz (Base), 4.7GHz (Turbo);
+ CPU: AMD Ryzen 7 6800HS (Base: 3.2GHz, Turbo: 4.7GHz);
  MEM: 16GiB of 6400MHz DDR5
 })
 #+END_export
 
 
 * Benchmarks
+** Setup
+- Java version: OpenJDK 26.0.1.u8-1
+- Scala version: 3.7.4
+- Sbt version: 1.12.10
+- CPU: AMD Ryzen 7 6800HS (Base: 3.2GHz, Turbo: 4.7GHz)
+- MEM: 16GiB 6400MHz DDR5 RAM
+
+** What is Benchmarked? (1)
+Measure performance of different
+token generation strategies and
+evaluators.
+| TokenGenerator       | Description                     |
+|----------------------+---------------------------------|
+| \texttt{DFS\_TG}      | DFS search of valid token input |
+| \texttt{RetryAll\_TG} | Retry generation on error       |
+| \texttt{GiveUp\_TG}   | Give up and return on error     |
+
+- Parameters: Token length, typo rate / correctness
+- Metric: Throughput (ops / s)
+- Warmup Time: 5 sec each trial
+- Benchmark Time: 10 sec each trial
+  
+** What is Benchmarked? (2)
+Specific for DFS token generation:
+specify \textbf{branch factor} for each decision point.
+\textbf{What} happens, backtracking requires reparsing?
+I.e. \textbf{PwD feature not utilized}?
+
+- Also necessary: limit max token generation steps
+  (max steps = 5 * token length \rightarrow  $<10\%$ cancellations)
+
+** GiveUp Results (Control)
+GiveUp results.
+
+| Failure rate | Token Length | Throughput |
+|--------------+--------------+------------|
+|         0.05 |          100 |   1125.590 |
+|         0.05 |          200 |    472.736 |
+|         0.05 |          400 |    208.484 |
+|         0.05 |          800 |     96.133 |
+|          0.1 |          100 |   1153.427 |
+|          0.1 |          200 |    477.717 |
+|          0.1 |          400 |    218.573 |
+|          0.1 |          800 |     90.919 |
+|          0.2 |          100 |   1198.903 |
+|          0.2 |          200 |    539.863 |
+|          0.2 |          400 |    221.648 |
+|          0.2 |          800 |     97.403 |
+|          0.4 |          100 |   1346.224 |
+|          0.4 |          200 |    570.413 |
+|          0.4 |          400 |    262.347 |
+|          0.4 |          800 |    109.637 |
+|          0.8 |          100 |   2034.257 |
+|          0.8 |          200 |    878.717 |
+|          0.8 |          400 |    388.589 |
+|          0.8 |          800 |    159.339 |
+
+** GiveUp Results (Control)
+  [[file:giveUpEval.png]]
+
+** DFS Results (1)
+DFS search with branch factor = 2.
+
+#+NAME: throughput-data
+| Failure rate | Token Length | Throughput (ops/s) |
+|--------------+--------------+--------------------|
+|         0.05 |          100 |           1058.163 |
+|         0.05 |          200 |            468.156 |
+|         0.05 |          400 |            202.143 |
+|         0.05 |          800 |             85.306 |
+|          0.1 |          100 |           1101.210 |
+|          0.1 |          200 |            466.993 |
+|          0.1 |          400 |            201.011 |
+|          0.1 |          800 |             89.205 |
+|          0.2 |          100 |           1056.792 |
+|          0.2 |          200 |            454.861 |
+|          0.2 |          400 |            201.051 |
+|          0.2 |          800 |             90.373 |
+|          0.4 |          100 |           1079.163 |
+|          0.4 |          200 |            461.436 |
+|          0.4 |          400 |            207.499 |
+|          0.4 |          800 |             87.866 |
+|          0.8 |          100 |           1025.181 |
+|          0.8 |          200 |            458.231 |
+|          0.8 |          400 |            199.442 |
+|          0.8 |          800 |             88.353 |
+
+** DFS Results (1)
+  [[file:dfsEvalBF2.png]]
+
+** DFS Results (2)
+DFS search with branch factor = 3.
+#+NAME: throughput-data
+| Failure rate | Token Length | Throughput (ops/s) |
+|--------------+--------------+--------------------|
+|         0.05 |          100 |           1123.778 |
+|         0.05 |          200 |            436.749 |
+|         0.05 |          400 |            199.823 |
+|         0.05 |          800 |             87.177 |
+|          0.1 |          100 |           1123.818 |
+|          0.1 |          200 |            453.671 |
+|          0.1 |          400 |            199.746 |
+|          0.1 |          800 |             93.583 |
+|          0.2 |          100 |           1087.115 |
+|          0.2 |          200 |            464.776 |
+|          0.2 |          400 |            203.668 |
+|          0.2 |          800 |             87.723 |
+|          0.4 |          100 |           1072.250 |
+|          0.4 |          200 |            460.858 |
+|          0.4 |          400 |            204.021 |
+|          0.4 |          800 |             92.886 |
+|          0.8 |          100 |           1054.944 |
+|          0.8 |          200 |            431.399 |
+|          0.8 |          400 |            204.568 |
+|          0.8 |          800 |             87.924 |
+
+** DFS Results (2)
+  [[file:dfsEvalBF3.png]]
+
+** DFS Results (3)
+DFS search with branch factor = 4.
+#+NAME: throughput-data
+| Failure rate | Token Length | Throughput (ops/s) |
+|--------------+--------------+--------------------|
+|         0.05 |          100 |           1041.563 |
+|         0.05 |          200 |            444.514 |
+|         0.05 |          400 |            195.132 |
+|         0.05 |          800 |             92.293 |
+|          0.1 |          100 |           1086.451 |
+|          0.1 |          200 |            463.924 |
+|          0.1 |          400 |            205.143 |
+|          0.1 |          800 |             87.016 |
+|          0.2 |          100 |           1119.814 |
+|          0.2 |          200 |            478.443 |
+|          0.2 |          400 |            205.879 |
+|          0.2 |          800 |             91.997 |
+|          0.4 |          100 |           1127.770 |
+|          0.4 |          200 |            463.356 |
+|          0.4 |          400 |            198.067 |
+|          0.4 |          800 |             89.980 |
+|          0.8 |          100 |           1071.277 |
+|          0.8 |          200 |            460.285 |
+|          0.8 |          400 |            198.775 |
+|          0.8 |          800 |             91.393 |
+
+** DFS Results (3)
+  [[file:dfsEvalBF4.png]]
+
+** DFS Results (4)
+DFS search with branch factor = 2, not utilizing parser stack.
+
+#+NAME: throughput-data
+| Failure rate | Token Length | Throughput (ops/s) |
+|--------------+--------------+--------------------|
+|         0.05 |          100 |           1105.808 |
+|         0.05 |          200 |            450.142 |
+|         0.05 |          400 |            200.451 |
+|         0.05 |          800 |             83.611 |
+|          0.1 |          100 |           1079.659 |
+|          0.1 |          200 |            455.283 |
+|          0.1 |          400 |            197.740 |
+|          0.1 |          800 |             77.025 |
+|          0.2 |          100 |           1075.794 |
+|          0.2 |          200 |            432.717 |
+|          0.2 |          400 |            181.951 |
+|          0.2 |          800 |             73.957 |
+|          0.4 |          100 |           1042.783 |
+|          0.4 |          200 |            419.434 |
+|          0.4 |          400 |            159.852 |
+|          0.4 |          800 |             65.568 |
+|          0.8 |          100 |            859.245 |
+|          0.8 |          200 |            318.561 |
+|          0.8 |          400 |            127.583 |
+|          0.8 |          800 |             43.919 |
+
+
+** DFS Results (4)
+  [[file:dfsEvalBF2NoParserStack.png]]
+
+** RetryAll Results
+RetryAll results.
+#+NAME: throughput-data
+| Failure rate | Token Length | Throughput (ops/s) |
+|--------------+--------------+--------------------|
+|         0.05 |          100 |           1063.364 |
+|         0.05 |          200 |            448.554 |
+|         0.05 |          400 |            193.806 |
+|         0.05 |          800 |             86.296 |
+|          0.1 |          100 |           1050.735 |
+|          0.1 |          200 |            426.736 |
+|          0.1 |          400 |            195.854 |
+|          0.1 |          800 |             87.971 |
+|          0.2 |          100 |            988.829 |
+|          0.2 |          200 |            432.039 |
+|          0.2 |          400 |            179.820 |
+|          0.2 |          800 |             80.591 |
+|          0.4 |          100 |            871.054 |
+|          0.4 |          200 |            358.110 |
+|          0.4 |          400 |            157.889 |
+|          0.4 |          800 |             71.473 |
+|          0.8 |          100 |            496.578 |
+|          0.8 |          200 |            210.387 |
+|          0.8 |          400 |             89.051 |
+|          0.8 |          800 |             41.594 |
+
+** RetryAllResults
+  [[file:retryAllEval.png]]
+
+
 * Conclusion
+** Conclusion
+1) Backtracking might not be so effective after all?
+   Atleast, only for big failure rates.
+2) Using a stack of parsers does not produce signifant speedup.
+   Backtracking is just that rare.
+
+** RetryAll Runtime
+Number expected takes is constant!
+\[
+1 + \sum^\infty_{i=1} p^{i} = 1 + \frac{p}{(1 - p)^2} \quad p \in [0, 1)
+\]
+
+Meaning, if token generation takes $\mathcal{O}(n)$ time,
+finding correct tokens with retry all also takes $\mathcal{O}(n)$
+(given a failure rate).
+
 ** Thanks!
 Questions? @@latex:\twemoji{slightly_smiling_face}@@
 
